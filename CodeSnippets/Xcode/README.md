@@ -1,3 +1,3 @@
-# Code Snippets mit Wondows oder Linux-Basis
+# Code Snippets in Form von Xcode Projekten
 
 In diesem Bereich findet man folgende Software:
