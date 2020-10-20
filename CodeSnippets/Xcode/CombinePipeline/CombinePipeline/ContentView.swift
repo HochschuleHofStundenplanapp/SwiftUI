@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var pipe = Pipelines()
+    
     var body: some View {
         VStack {
         Text("Hello, world!")
             .padding()
         }.onAppear {
-            Pipelines().output()
+            pipe.firstPipeline()
         }
     }
 }
