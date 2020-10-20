@@ -37,6 +37,22 @@ class Pipelines {
             .eraseToAnyPublisher();
     }
     
+    func getScheduleForCourseSemester() -> AnyPublisher<ScheduleForCourseSemester, Error> {
+        let urlString = baseURI + scheduleForCourseSemesterFrag
+        let url = URL(string: urlString)
+        var request = URLRequest(url: url!)
+
+        let passInfo = username + ":" + password
+        let passData = passInfo.data(using: .utf8)
+        let passCredential = passData?.base64EncodedString()
+        request.setValue("Basic \(passCredential!)", forHTTPHeaderField: "Authorization")
+
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map {$0.data}
+            .receive(on: RunLoop.main)
+            .decode(type: ScheduleForCourseSemester.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher();
+    }
     
     
 }

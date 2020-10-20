@@ -15,6 +15,7 @@
 		CD81003F253F17EF0027B1A4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81003E253F17EF0027B1A4 /* ContentView.swift */; };
 		CD810041253F17F00027B1A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD810040253F17F00027B1A4 /* Assets.xcassets */; };
 		CD810044253F17F00027B1A4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD810043253F17F00027B1A4 /* Preview Assets.xcassets */; };
+		FA3E8D7D253F50EF00923212 /* ScheduleForCourseSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3E8D7C253F50EF00923212 /* ScheduleForCourseSemester.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		CD810040253F17F00027B1A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD810043253F17F00027B1A4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CD810045253F17F00027B1A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA3E8D7C253F50EF00923212 /* ScheduleForCourseSemester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleForCourseSemester.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +49,7 @@
 				BC72C58A253F1E9B00A2493E /* CoursesAfterTerm.swift */,
 				BC72C58E253F1EE600A2493E /* Course.swift */,
 				BC72C591253F1EF500A2493E /* Labels.swift */,
+				FA3E8D7C253F50EF00923212 /* ScheduleForCourseSemester.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -162,6 +165,7 @@
 				CD81003D253F17EF0027B1A4 /* CombinePipelineApp.swift in Sources */,
 				BC72C592253F1EF500A2493E /* Labels.swift in Sources */,
 				BC72C58F253F1EE600A2493E /* Course.swift in Sources */,
+				FA3E8D7D253F50EF00923212 /* ScheduleForCourseSemester.swift in Sources */,
 				BC72C563253F195C00A2493E /* Pipelines.swift in Sources */,
 				BC72C58B253F1E9B00A2493E /* CoursesAfterTerm.swift in Sources */,
 			);

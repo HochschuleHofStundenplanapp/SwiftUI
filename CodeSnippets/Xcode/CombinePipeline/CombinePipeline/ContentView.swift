@@ -17,6 +17,7 @@ struct ContentView: View {
             .padding()
         }.onAppear {
             pipe.getCoursesAfterTerm()
+            pipe.getScheduleForCourseSemester()
         }
     }
 }
