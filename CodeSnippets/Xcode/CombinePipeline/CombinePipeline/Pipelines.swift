@@ -14,8 +14,14 @@ class Pipelines {
     let password = "F%98z&12"
     let baseURI = "https://app.hof-university.de/soap/"
     
+    //URL Fragment Dummys
+    let coursesAfterTermFrag = "client.php?f=Courses&tt=WS"
+    let scheduleForCourseSemesterFrag = "client.php?f=Schedule&stg=MC&sem=5&tt=WS"
+    let lectureByID = "client.php?f=MySchedule&id[]=1332256"
+    let changesForCourseSemester = "client.php?f=Changes&stg=MC&sem=5&tt=WS"
+    
     func getCoursesAfterTerm() -> AnyPublisher<CoursesAfterTerm, Error> {
-        let urlString = baseURI + "client.php?f=Courses&tt=WS"
+        let urlString = baseURI + coursesAfterTermFrag
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
 

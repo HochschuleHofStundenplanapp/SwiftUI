@@ -16,7 +16,7 @@ struct ContentView: View {
         Text("Hello, world!")
             .padding()
         }.onAppear {
-            pipe.firstPipeline()
+            pipe.getCoursesAfterTerm()
         }
     }
 }
