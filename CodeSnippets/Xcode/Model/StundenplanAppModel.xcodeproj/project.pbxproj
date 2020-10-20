@@ -1,0 +1,722 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CDAA3901253ED180000E3D7C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDAA3900253ED180000E3D7C /* Constants.swift */; };
+		FA953EB22538B2FE00F17F9F /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EB12538B2FE00F17F9F /* Connection.swift */; };
+		FA953EB42538BC9000F17F9F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EB32538BC9000F17F9F /* MainViewController.swift */; };
+		FA953EB92538C25A00F17F9F /* SelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EB52538C25900F17F9F /* SelectedLectures.swift */; };
+		FA953EBA2538C25A00F17F9F /* SelectedSemesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EB62538C25900F17F9F /* SelectedSemesters.swift */; };
+		FA953EBB2538C25A00F17F9F /* AllChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EB72538C25900F17F9F /* AllChanges.swift */; };
+		FA953EBC2538C25A00F17F9F /* SelectedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EB82538C25A00F17F9F /* SelectedCourses.swift */; };
+		FA953EC1253995D200F17F9F /* AllCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EBF253995D200F17F9F /* AllCourses.swift */; };
+		FA953EC2253995D200F17F9F /* AllLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EC0253995D200F17F9F /* AllLectures.swift */; };
+		FA953EC72539961C00F17F9F /* TmpSelectedCourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EC42539961C00F17F9F /* TmpSelectedCourses.swift */; };
+		FA953EC82539961C00F17F9F /* TmpSelectedSemesters.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EC52539961C00F17F9F /* TmpSelectedSemesters.swift */; };
+		FA953EC92539961C00F17F9F /* TmpSelectedLectures.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953EC62539961C00F17F9F /* TmpSelectedLectures.swift */; };
+		FA953ED32539967B00F17F9F /* Semester.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953ECA2539967A00F17F9F /* Semester.swift */; };
+		FA953ED42539967B00F17F9F /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953ECB2539967A00F17F9F /* UserData.swift */; };
+		FA953ED52539967B00F17F9F /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953ECC2539967A00F17F9F /* Schedule.swift */; };
+		FA953ED72539967B00F17F9F /* DataObjectPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953ECE2539967A00F17F9F /* DataObjectPersistency.swift */; };
+		FA953ED82539967B00F17F9F /* ChangedLecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953ECF2539967A00F17F9F /* ChangedLecture.swift */; };
+		FA953ED92539967B00F17F9F /* ServerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953ED02539967A00F17F9F /* ServerData.swift */; };
+		FA953EDA2539967B00F17F9F /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953ED12539967A00F17F9F /* Course.swift */; };
+		FA953EDB2539967B00F17F9F /* Lecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA953ED22539967B00F17F9F /* Lecture.swift */; };
+		FAFA30DC2535E070002562EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA30DB2535E070002562EF /* AppDelegate.swift */; };
+		FAFA30DE2535E070002562EF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA30DD2535E070002562EF /* SceneDelegate.swift */; };
+		FAFA30E32535E070002562EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFA30E12535E070002562EF /* Main.storyboard */; };
+		FAFA30E62535E070002562EF /* StundenplanAppModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAFA30E42535E070002562EF /* StundenplanAppModel.xcdatamodeld */; };
+		FAFA30E82535E075002562EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAFA30E72535E075002562EF /* Assets.xcassets */; };
+		FAFA30EB2535E075002562EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAFA30E92535E075002562EF /* LaunchScreen.storyboard */; };
+		FAFA30F62535E075002562EF /* StundenplanAppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA30F52535E075002562EF /* StundenplanAppModelTests.swift */; };
+		FAFA31012535E075002562EF /* StundenplanAppModelUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA31002535E075002562EF /* StundenplanAppModelUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAFA30F22535E075002562EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAFA30D02535E070002562EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAFA30D72535E070002562EF;
+			remoteInfo = StundenplanAppModel;
+		};
+		FAFA30FD2535E075002562EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAFA30D02535E070002562EF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAFA30D72535E070002562EF;
+			remoteInfo = StundenplanAppModel;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CDAA3900253ED180000E3D7C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA953EB12538B2FE00F17F9F /* Connection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Connection.swift; path = StundenplanAppModel/Connection.swift; sourceTree = SOURCE_ROOT; };
+		FA953EB32538BC9000F17F9F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FA953EB52538C25900F17F9F /* SelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedLectures.swift; sourceTree = "<group>"; };
+		FA953EB62538C25900F17F9F /* SelectedSemesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedSemesters.swift; sourceTree = "<group>"; };
+		FA953EB72538C25900F17F9F /* AllChanges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllChanges.swift; sourceTree = "<group>"; };
+		FA953EB82538C25A00F17F9F /* SelectedCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedCourses.swift; sourceTree = "<group>"; };
+		FA953EBF253995D200F17F9F /* AllCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllCourses.swift; sourceTree = "<group>"; };
+		FA953EC0253995D200F17F9F /* AllLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllLectures.swift; sourceTree = "<group>"; };
+		FA953EC42539961C00F17F9F /* TmpSelectedCourses.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpSelectedCourses.swift; sourceTree = "<group>"; };
+		FA953EC52539961C00F17F9F /* TmpSelectedSemesters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpSelectedSemesters.swift; sourceTree = "<group>"; };
+		FA953EC62539961C00F17F9F /* TmpSelectedLectures.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmpSelectedLectures.swift; sourceTree = "<group>"; };
+		FA953ECA2539967A00F17F9F /* Semester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Semester.swift; sourceTree = "<group>"; };
+		FA953ECB2539967A00F17F9F /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		FA953ECC2539967A00F17F9F /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		FA953ECE2539967A00F17F9F /* DataObjectPersistency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataObjectPersistency.swift; sourceTree = "<group>"; };
+		FA953ECF2539967A00F17F9F /* ChangedLecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangedLecture.swift; sourceTree = "<group>"; };
+		FA953ED02539967A00F17F9F /* ServerData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerData.swift; sourceTree = "<group>"; };
+		FA953ED12539967A00F17F9F /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		FA953ED22539967B00F17F9F /* Lecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lecture.swift; sourceTree = "<group>"; };
+		FAFA30D82535E070002562EF /* StundenplanAppModel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanAppModel.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFA30DB2535E070002562EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAFA30DD2535E070002562EF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FAFA30E22535E070002562EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAFA30E52535E070002562EF /* StundenplanAppModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StundenplanAppModel.xcdatamodel; sourceTree = "<group>"; };
+		FAFA30E72535E075002562EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAFA30EA2535E075002562EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAFA30EC2535E075002562EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFA30F12535E075002562EF /* StundenplanAppModelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StundenplanAppModelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFA30F52535E075002562EF /* StundenplanAppModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanAppModelTests.swift; sourceTree = "<group>"; };
+		FAFA30F72535E075002562EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAFA30FC2535E075002562EF /* StundenplanAppModelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StundenplanAppModelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAFA31002535E075002562EF /* StundenplanAppModelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanAppModelUITests.swift; sourceTree = "<group>"; };
+		FAFA31022535E075002562EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAFA30D52535E070002562EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFA30EE2535E075002562EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFA30F92535E075002562EF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA953EB02538B2BB00F17F9F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA953ECF2539967A00F17F9F /* ChangedLecture.swift */,
+				CDAA3900253ED180000E3D7C /* Constants.swift */,
+				FA953ED12539967A00F17F9F /* Course.swift */,
+				FA953ECE2539967A00F17F9F /* DataObjectPersistency.swift */,
+				FA953ED22539967B00F17F9F /* Lecture.swift */,
+				FA953ECC2539967A00F17F9F /* Schedule.swift */,
+				FA953ECA2539967A00F17F9F /* Semester.swift */,
+				FA953ED02539967A00F17F9F /* ServerData.swift */,
+				FA953ECB2539967A00F17F9F /* UserData.swift */,
+				FA953EC32539960500F17F9F /* SelectionData */,
+				FA953EBE253995B200F17F9F /* ServerData */,
+				FA953EBD2539959F00F17F9F /* UserData */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA953EBD2539959F00F17F9F /* UserData */ = {
+			isa = PBXGroup;
+			children = (
+				FA953EB72538C25900F17F9F /* AllChanges.swift */,
+				FA953EB82538C25A00F17F9F /* SelectedCourses.swift */,
+				FA953EB52538C25900F17F9F /* SelectedLectures.swift */,
+				FA953EB62538C25900F17F9F /* SelectedSemesters.swift */,
+			);
+			path = UserData;
+			sourceTree = "<group>";
+		};
+		FA953EBE253995B200F17F9F /* ServerData */ = {
+			isa = PBXGroup;
+			children = (
+				FA953EBF253995D200F17F9F /* AllCourses.swift */,
+				FA953EC0253995D200F17F9F /* AllLectures.swift */,
+			);
+			path = ServerData;
+			sourceTree = "<group>";
+		};
+		FA953EC32539960500F17F9F /* SelectionData */ = {
+			isa = PBXGroup;
+			children = (
+				FA953EC42539961C00F17F9F /* TmpSelectedCourses.swift */,
+				FA953EC52539961C00F17F9F /* TmpSelectedSemesters.swift */,
+				FA953EC62539961C00F17F9F /* TmpSelectedLectures.swift */,
+			);
+			path = SelectionData;
+			sourceTree = "<group>";
+		};
+		FAFA30CF2535E070002562EF = {
+			isa = PBXGroup;
+			children = (
+				FAFA30DA2535E070002562EF /* StundenplanAppModel */,
+				FAFA30F42535E075002562EF /* StundenplanAppModelTests */,
+				FAFA30FF2535E075002562EF /* StundenplanAppModelUITests */,
+				FAFA30D92535E070002562EF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAFA30D92535E070002562EF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA30D82535E070002562EF /* StundenplanAppModel.app */,
+				FAFA30F12535E075002562EF /* StundenplanAppModelTests.xctest */,
+				FAFA30FC2535E075002562EF /* StundenplanAppModelUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAFA30DA2535E070002562EF /* StundenplanAppModel */ = {
+			isa = PBXGroup;
+			children = (
+				FA953EB12538B2FE00F17F9F /* Connection.swift */,
+				FA953EB02538B2BB00F17F9F /* Model */,
+				FAFA30DB2535E070002562EF /* AppDelegate.swift */,
+				FAFA30DD2535E070002562EF /* SceneDelegate.swift */,
+				FAFA30E12535E070002562EF /* Main.storyboard */,
+				FAFA30E72535E075002562EF /* Assets.xcassets */,
+				FAFA30E92535E075002562EF /* LaunchScreen.storyboard */,
+				FAFA30EC2535E075002562EF /* Info.plist */,
+				FAFA30E42535E070002562EF /* StundenplanAppModel.xcdatamodeld */,
+				FA953EB32538BC9000F17F9F /* MainViewController.swift */,
+			);
+			path = StundenplanAppModel;
+			sourceTree = "<group>";
+		};
+		FAFA30F42535E075002562EF /* StundenplanAppModelTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA30F52535E075002562EF /* StundenplanAppModelTests.swift */,
+				FAFA30F72535E075002562EF /* Info.plist */,
+			);
+			path = StundenplanAppModelTests;
+			sourceTree = "<group>";
+		};
+		FAFA30FF2535E075002562EF /* StundenplanAppModelUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAFA31002535E075002562EF /* StundenplanAppModelUITests.swift */,
+				FAFA31022535E075002562EF /* Info.plist */,
+			);
+			path = StundenplanAppModelUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAFA30D72535E070002562EF /* StundenplanAppModel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAFA31052535E075002562EF /* Build configuration list for PBXNativeTarget "StundenplanAppModel" */;
+			buildPhases = (
+				FAFA30D42535E070002562EF /* Sources */,
+				FAFA30D52535E070002562EF /* Frameworks */,
+				FAFA30D62535E070002562EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StundenplanAppModel;
+			productName = StundenplanAppModel;
+			productReference = FAFA30D82535E070002562EF /* StundenplanAppModel.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAFA30F02535E075002562EF /* StundenplanAppModelTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAFA31082535E075002562EF /* Build configuration list for PBXNativeTarget "StundenplanAppModelTests" */;
+			buildPhases = (
+				FAFA30ED2535E075002562EF /* Sources */,
+				FAFA30EE2535E075002562EF /* Frameworks */,
+				FAFA30EF2535E075002562EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAFA30F32535E075002562EF /* PBXTargetDependency */,
+			);
+			name = StundenplanAppModelTests;
+			productName = StundenplanAppModelTests;
+			productReference = FAFA30F12535E075002562EF /* StundenplanAppModelTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAFA30FB2535E075002562EF /* StundenplanAppModelUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAFA310B2535E075002562EF /* Build configuration list for PBXNativeTarget "StundenplanAppModelUITests" */;
+			buildPhases = (
+				FAFA30F82535E075002562EF /* Sources */,
+				FAFA30F92535E075002562EF /* Frameworks */,
+				FAFA30FA2535E075002562EF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAFA30FE2535E075002562EF /* PBXTargetDependency */,
+			);
+			name = StundenplanAppModelUITests;
+			productName = StundenplanAppModelUITests;
+			productReference = FAFA30FC2535E075002562EF /* StundenplanAppModelUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAFA30D02535E070002562EF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1160;
+				LastUpgradeCheck = 1200;
+				ORGANIZATIONNAME = kaw_solutions;
+				TargetAttributes = {
+					FAFA30D72535E070002562EF = {
+						CreatedOnToolsVersion = 11.6;
+					};
+					FAFA30F02535E075002562EF = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = FAFA30D72535E070002562EF;
+					};
+					FAFA30FB2535E075002562EF = {
+						CreatedOnToolsVersion = 11.6;
+						TestTargetID = FAFA30D72535E070002562EF;
+					};
+				};
+			};
+			buildConfigurationList = FAFA30D32535E070002562EF /* Build configuration list for PBXProject "StundenplanAppModel" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAFA30CF2535E070002562EF;
+			productRefGroup = FAFA30D92535E070002562EF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAFA30D72535E070002562EF /* StundenplanAppModel */,
+				FAFA30F02535E075002562EF /* StundenplanAppModelTests */,
+				FAFA30FB2535E075002562EF /* StundenplanAppModelUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAFA30D62535E070002562EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFA30EB2535E075002562EF /* LaunchScreen.storyboard in Resources */,
+				FAFA30E82535E075002562EF /* Assets.xcassets in Resources */,
+				FAFA30E32535E070002562EF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFA30EF2535E075002562EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFA30FA2535E075002562EF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAFA30D42535E070002562EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA953ED72539967B00F17F9F /* DataObjectPersistency.swift in Sources */,
+				FA953EB42538BC9000F17F9F /* MainViewController.swift in Sources */,
+				FA953ED32539967B00F17F9F /* Semester.swift in Sources */,
+				FA953ED82539967B00F17F9F /* ChangedLecture.swift in Sources */,
+				FA953EC72539961C00F17F9F /* TmpSelectedCourses.swift in Sources */,
+				FA953EC82539961C00F17F9F /* TmpSelectedSemesters.swift in Sources */,
+				FA953EB92538C25A00F17F9F /* SelectedLectures.swift in Sources */,
+				FA953ED92539967B00F17F9F /* ServerData.swift in Sources */,
+				FA953EBB2538C25A00F17F9F /* AllChanges.swift in Sources */,
+				FA953EC92539961C00F17F9F /* TmpSelectedLectures.swift in Sources */,
+				FA953EDB2539967B00F17F9F /* Lecture.swift in Sources */,
+				FA953EB22538B2FE00F17F9F /* Connection.swift in Sources */,
+				FAFA30E62535E070002562EF /* StundenplanAppModel.xcdatamodeld in Sources */,
+				FAFA30DC2535E070002562EF /* AppDelegate.swift in Sources */,
+				FA953EBA2538C25A00F17F9F /* SelectedSemesters.swift in Sources */,
+				FA953ED52539967B00F17F9F /* Schedule.swift in Sources */,
+				FA953EC2253995D200F17F9F /* AllLectures.swift in Sources */,
+				FA953ED42539967B00F17F9F /* UserData.swift in Sources */,
+				FAFA30DE2535E070002562EF /* SceneDelegate.swift in Sources */,
+				FA953EC1253995D200F17F9F /* AllCourses.swift in Sources */,
+				FA953EBC2538C25A00F17F9F /* SelectedCourses.swift in Sources */,
+				FA953EDA2539967B00F17F9F /* Course.swift in Sources */,
+				CDAA3901253ED180000E3D7C /* Constants.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFA30ED2535E075002562EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFA30F62535E075002562EF /* StundenplanAppModelTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAFA30F82535E075002562EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAFA31012535E075002562EF /* StundenplanAppModelUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAFA30F32535E075002562EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAFA30D72535E070002562EF /* StundenplanAppModel */;
+			targetProxy = FAFA30F22535E075002562EF /* PBXContainerItemProxy */;
+		};
+		FAFA30FE2535E075002562EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAFA30D72535E070002562EF /* StundenplanAppModel */;
+			targetProxy = FAFA30FD2535E075002562EF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAFA30E12535E070002562EF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAFA30E22535E070002562EF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FAFA30E92535E075002562EF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAFA30EA2535E075002562EF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAFA31032535E075002562EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAFA31042535E075002562EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAFA31062535E075002562EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2W95M9C54;
+				INFOPLIST_FILE = StundenplanAppModel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kwilfert.StundenplanAppModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAFA31072535E075002562EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2W95M9C54;
+				INFOPLIST_FILE = StundenplanAppModel/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kwilfert.StundenplanAppModel;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FAFA31092535E075002562EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2W95M9C54;
+				INFOPLIST_FILE = StundenplanAppModelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kwilfert.StundenplanAppModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StundenplanAppModel.app/StundenplanAppModel";
+			};
+			name = Debug;
+		};
+		FAFA310A2535E075002562EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2W95M9C54;
+				INFOPLIST_FILE = StundenplanAppModelTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kwilfert.StundenplanAppModelTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StundenplanAppModel.app/StundenplanAppModel";
+			};
+			name = Release;
+		};
+		FAFA310C2535E075002562EF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2W95M9C54;
+				INFOPLIST_FILE = StundenplanAppModelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kwilfert.StundenplanAppModelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StundenplanAppModel;
+			};
+			name = Debug;
+		};
+		FAFA310D2535E075002562EF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y2W95M9C54;
+				INFOPLIST_FILE = StundenplanAppModelUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = kwilfert.StundenplanAppModelUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = StundenplanAppModel;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAFA30D32535E070002562EF /* Build configuration list for PBXProject "StundenplanAppModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFA31032535E075002562EF /* Debug */,
+				FAFA31042535E075002562EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAFA31052535E075002562EF /* Build configuration list for PBXNativeTarget "StundenplanAppModel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFA31062535E075002562EF /* Debug */,
+				FAFA31072535E075002562EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAFA31082535E075002562EF /* Build configuration list for PBXNativeTarget "StundenplanAppModelTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFA31092535E075002562EF /* Debug */,
+				FAFA310A2535E075002562EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAFA310B2535E075002562EF /* Build configuration list for PBXNativeTarget "StundenplanAppModelUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAFA310C2535E075002562EF /* Debug */,
+				FAFA310D2535E075002562EF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAFA30E42535E070002562EF /* StundenplanAppModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAFA30E52535E070002562EF /* StundenplanAppModel.xcdatamodel */,
+			);
+			currentVersion = FAFA30E52535E070002562EF /* StundenplanAppModel.xcdatamodel */;
+			path = StundenplanAppModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FAFA30D02535E070002562EF /* Project object */;
+}

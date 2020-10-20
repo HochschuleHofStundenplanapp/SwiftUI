@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="StundenplanAppModel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[Schedule Placeholder]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jW2-ym-1fy" userLabel="Info">
+                                <rect key="frame" x="118" y="442.5" width="178.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ldm-JN-Qcu" userLabel="Btn_fetch">
+                                <rect key="frame" x="134" y="657" width="147" height="30"/>
+                                <state key="normal" title="Fetch WS MC5 "/>
+                                <connections>
+                                    <action selector="fetchButtonTouched:" destination="BYZ-38-t0r" eventType="touchDown" id="dK5-MU-P5h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="Ldm-JN-Qcu" secondAttribute="bottom" constant="1" id="3Lw-t3-rZj"/>
+                            <constraint firstItem="jW2-ym-1fy" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="HZj-mc-BHz"/>
+                            <constraint firstItem="Ldm-JN-Qcu" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Nfa-q0-XkN"/>
+                            <constraint firstItem="jW2-ym-1fy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ln2-qn-0FJ"/>
+                            <constraint firstItem="Ldm-JN-Qcu" firstAttribute="top" secondItem="jW2-ym-1fy" secondAttribute="bottom" constant="1" id="uWY-ji-UmF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="infoText" destination="jW2-ym-1fy" id="0tc-cs-pQa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="120.53571428571428"/>
+        </scene>
+    </scenes>
+</document>
