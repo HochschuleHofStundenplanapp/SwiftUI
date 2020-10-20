@@ -91,3 +91,6 @@ iOSInjectionProject/
 
 # Apple Stuff
 .DS_Store
+
+# IntelliJ Stuff
+/.idea
