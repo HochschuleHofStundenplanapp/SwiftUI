@@ -1,4 +1,4 @@
 public struct StundenplanTestLocalPackage {
     public init(){}
-    public var text = "Hallo Hof!"
+    public var text = "Hallo Hof!!"
 }
