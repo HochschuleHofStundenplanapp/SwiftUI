@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct Lecture:Codable{
+struct LectureChangeInfo:Codable{
     let day, time, date, room :String
 }

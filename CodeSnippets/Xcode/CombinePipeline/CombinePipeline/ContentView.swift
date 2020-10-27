@@ -46,17 +46,17 @@ struct SecondView: View {
 
 class SecondViewModel: ObservableObject {
     @Published var dataisAvailable: Bool = false
-    var data: [ScheduleForCourseSemester] = []
+    var data: [Change] = []
     var cancel: AnyCancellable? = nil
 
     func getData() {
         self.dataisAvailable = false
         data.removeAll()
         let pipe = Pipelines()
-        cancel = pipe.getScheduleForCourseSemester(course: "MC", semester: 5, term: "WS").sink(receiveCompletion: {(_) in
+        cancel = pipe.getChangesForCourseSemester(course: "MC", semester: 3, term: "WS").sink(receiveCompletion: {(_) in
             self.dataisAvailable = true
         }, receiveValue: { (value) in
-            self.data.append(value)
+            self.data.append(contentsOf: value.changes)
         })
     }
 }
