@@ -10,19 +10,16 @@ import Combine
 
 class Pipelines {
     
-    let username = "soapuser"
-    let password = "F%98z&12"
-    let baseURI = "https://app.hof-university.de/soap/"
+    private let username = "soapuser"
+    private let password = "F%98z&12"
+    private let baseURI = "https://app.hof-university.de/soap/"
     
     //URL Fragment Dummys
-    let coursesAfterTermFrag = "client.php?f=Courses&tt=WS"
-    let scheduleForCourseSemesterFrag = "client.php?f=Schedule&stg=MC&sem=5&tt=WS"
-    let lectureByID = "client.php?f=MySchedule&id[]=1332256"
-    let changesForCourseSemester = "client.php?f=Changes&stg=MC&sem=5&tt=WS"
+    //let lectureByID = "client.php?f=MySchedule&id[]=1332256"
     
-    func getCoursesAfterTerm() -> AnyPublisher<CoursesAfterTerm, Error>
+    func getCoursesAfterTerm(term: String) -> AnyPublisher<CoursesAfterTerm, Error>
     {
-        let urlString = baseURI + coursesAfterTermFrag
+        let urlString = "\(baseURI)client.php?f=Courses&tt=\(term)"
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
         
@@ -38,8 +35,9 @@ class Pipelines {
             .eraseToAnyPublisher();
     }
     
-    func getScheduleForCourseSemester() -> AnyPublisher<ScheduleForCourseSemester, Error> {
-        let urlString = baseURI + scheduleForCourseSemesterFrag
+    func getScheduleForCourseSemester(course: String, semester: Int, term: String) -> AnyPublisher<ScheduleForCourseSemester, Error>
+    {
+        let urlString = "\(baseURI)client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(term)"
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
         
@@ -55,9 +53,11 @@ class Pipelines {
             .eraseToAnyPublisher();
     }
     
-    func getChangesForCourseSemester() -> AnyPublisher<ChangesForCourseSemester, Error>
+    
+    //TODO: check for function
+    func getChangesForCourseSemester(course: String, semester: Int, term: String) -> AnyPublisher<ChangesForCourseSemester, Error>
     {
-        let urlString = baseURI + lectureByID
+        let urlString = "\(baseURI)client.php?f=Changes&stg=\(course)&sem=\(semester)&tt=\(term)"
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
         
