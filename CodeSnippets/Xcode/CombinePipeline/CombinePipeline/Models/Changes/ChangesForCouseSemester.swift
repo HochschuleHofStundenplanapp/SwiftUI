@@ -7,9 +7,15 @@
 
 import Foundation
 
-struct ChangesForCourseSemester: Codable{
+struct Change: Codable{
     let id:String //possible leading zeroes
-    let label, docent, comment, reason, group, splusname : String
-    let original:Lecture
-    let alternative:Lecture
+    let label, docent, comment, reason, text,group, splusname : String
+    let original:LectureChangeInfo
+    let alternative:LectureChangeInfo
 }
+
+struct ChangesForCourseSemester : Codable {
+    let version: Double
+    let changes: [Change]
+}
+
