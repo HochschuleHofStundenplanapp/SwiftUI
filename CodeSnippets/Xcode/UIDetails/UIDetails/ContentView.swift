@@ -29,11 +29,8 @@ struct ContentView: View {
                     }
                 }
                 
-                NavigationLink(
-                    destination: SecondView() ){
-                    Button(action:{}){
+                NavigationLink(destination: SecondView() ){
                         Text("Next").font(.title)
-                    }
                 }.buttonStyle(PlainButtonStyle())
             }
         }
@@ -53,11 +50,8 @@ struct SecondView: View{
                     Text(self.terms[$0])
                 }
             }
-            NavigationLink(
-                destination: Text("Screen 3") ){
-                Button( action:{ }){
-                    Text("Next")
-                }
+            NavigationLink( destination: Text("Screen 3") ){
+                Text("Next").font(.title)
             }.buttonStyle(PlainButtonStyle())
             
         }
