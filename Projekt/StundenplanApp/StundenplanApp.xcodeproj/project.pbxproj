@@ -52,8 +52,8 @@
 		645778A0255196700069F247 /* StundenplanApp */ = {
 			isa = PBXGroup;
 			children = (
+				649714F125519E9E00193184 /* ViewVm */,
 				645778A1255196700069F247 /* StundenplanAppApp.swift */,
-				645778A3255196700069F247 /* ContentView.swift */,
 				645778A5255196710069F247 /* Assets.xcassets */,
 				645778AA255196710069F247 /* Info.plist */,
 				645778A7255196710069F247 /* Preview Content */,
@@ -67,6 +67,22 @@
 				645778A8255196710069F247 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		649714F125519E9E00193184 /* ViewVm */ = {
+			isa = PBXGroup;
+			children = (
+				649714F225519EC700193184 /* Main */,
+			);
+			path = ViewVm;
+			sourceTree = "<group>";
+		};
+		649714F225519EC700193184 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				645778A3255196700069F247 /* ContentView.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
