@@ -58,6 +58,7 @@
 		645778A0255196700069F247 /* StundenplanApp */ = {
 			isa = PBXGroup;
 			children = (
+				64E901F92551A39B00BFDC2C /* Models */,
 				649714F125519E9E00193184 /* ViewVm */,
 				645778A1255196700069F247 /* StundenplanAppApp.swift */,
 				645778A5255196710069F247 /* Assets.xcassets */,
@@ -124,6 +125,45 @@
 				64E901F42551A21F00BFDC2C /* ChangesView.swift */,
 			);
 			path = Changes;
+			sourceTree = "<group>";
+		};
+		64E901F92551A39B00BFDC2C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64E901FA2551A3A600BFDC2C /* ServerModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64E901FA2551A3A600BFDC2C /* ServerModel */ = {
+			isa = PBXGroup;
+			children = (
+				64E901FE2551A46D00BFDC2C /* Schedule */,
+				64E901FD2551A46400BFDC2C /* Changes */,
+				64E901FC2551A45B00BFDC2C /* Courses */,
+			);
+			path = ServerModel;
+			sourceTree = "<group>";
+		};
+		64E901FC2551A45B00BFDC2C /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		64E901FD2551A46400BFDC2C /* Changes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Changes;
+			sourceTree = "<group>";
+		};
+		64E901FE2551A46D00BFDC2C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Schedule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
