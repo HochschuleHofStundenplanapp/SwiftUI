@@ -54,7 +54,7 @@ public class Pipelines {
         let fixedCourseName = course
             .replacingOccurrences(of: " ", with: "%20")
             
-
+        // Sprache hat als Semester statt 1,2,3,4 => Russ, Prüf, Fran
         let fixedSemester = semester
             .replacingOccurrences(of: "ü", with: "ue")
 
