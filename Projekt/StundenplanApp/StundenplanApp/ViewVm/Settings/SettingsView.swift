@@ -24,7 +24,7 @@ struct SettingsView : View{
                     }
                 }
                 if(selected > 0){
-                NavigationLink(destination: AllCoursesView() ){
+                NavigationLink(destination: AllCoursesView(term: termData[selected-1], viewModel: AllCoursesViewModel()) ){
                         Text("Next").font(.title)
                 }.buttonStyle(PlainButtonStyle())
                 }
