@@ -72,6 +72,7 @@
 		649714F125519E9E00193184 /* ViewVm */ = {
 			isa = PBXGroup;
 			children = (
+				649714F425519F5800193184 /* CustomViews */,
 				649714F225519EC700193184 /* Main */,
 			);
 			path = ViewVm;
@@ -83,6 +84,13 @@
 				645778A3255196700069F247 /* ContentView.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		649714F425519F5800193184 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
