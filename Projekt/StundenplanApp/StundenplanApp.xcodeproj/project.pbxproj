@@ -21,6 +21,7 @@
 		64E902152551A62200BFDC2C /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E902122551A62200BFDC2C /* Labels.swift */; };
 		64E902162551A62200BFDC2C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E902132551A62200BFDC2C /* Course.swift */; };
 		64E9021B2551A72000BFDC2C /* Pipelines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9021A2551A72000BFDC2C /* Pipelines.swift */; };
+		64E9021F2551A81500BFDC2C /* AllCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9021E2551A81500BFDC2C /* AllCoursesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		64E902122551A62200BFDC2C /* Labels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
 		64E902132551A62200BFDC2C /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		64E9021A2551A72000BFDC2C /* Pipelines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipelines.swift; sourceTree = "<group>"; };
+		64E9021E2551A81500BFDC2C /* AllCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCoursesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		64E901E92551A0D600BFDC2C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				64E9021D2551A7F100BFDC2C /* AllCoursesView */,
 				64E901EA2551A0FC00BFDC2C /* SettingsView.swift */,
 			);
 			path = Settings;
@@ -201,6 +204,14 @@
 				64E9021A2551A72000BFDC2C /* Pipelines.swift */,
 			);
 			path = ServerPipelines;
+			sourceTree = "<group>";
+		};
+		64E9021D2551A7F100BFDC2C /* AllCoursesView */ = {
+			isa = PBXGroup;
+			children = (
+				64E9021E2551A81500BFDC2C /* AllCoursesView.swift */,
+			);
+			path = AllCoursesView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +295,7 @@
 				64E9020F2551A5FA00BFDC2C /* ChangesForCouseSemester.swift in Sources */,
 				64E902142551A62200BFDC2C /* CoursesAfterTerm.swift in Sources */,
 				64E9021B2551A72000BFDC2C /* Pipelines.swift in Sources */,
+				64E9021F2551A81500BFDC2C /* AllCoursesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
