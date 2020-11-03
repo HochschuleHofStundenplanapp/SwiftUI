@@ -12,15 +12,15 @@ struct ContentView: View {
         TabView{
             ScheduleView().tabItem{
                 Image(systemName: "triangle")
-                Text("First")
+                Text("Schedule")
             }
             ChangesView().tabItem{
                 Image(systemName: "circle")
-                Text("Second")
+                Text("Changes")
             }
             SettingsView().tabItem{
                 Image(systemName: "square")
-                Text("Third")
+                Text("Settings")
             }
         }
     }
