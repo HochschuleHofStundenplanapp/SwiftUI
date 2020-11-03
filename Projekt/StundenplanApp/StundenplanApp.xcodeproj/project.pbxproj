@@ -11,6 +11,9 @@
 		645778A4255196700069F247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A3255196700069F247 /* ContentView.swift */; };
 		645778A6255196710069F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A5255196710069F247 /* Assets.xcassets */; };
 		645778A9255196710069F247 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A8255196710069F247 /* Preview Assets.xcassets */; };
+		64E901EB2551A0FC00BFDC2C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901EA2551A0FC00BFDC2C /* SettingsView.swift */; };
+		64E901F02551A1A000BFDC2C /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901EF2551A1A000BFDC2C /* ScheduleView.swift */; };
+		64E901F52551A21F00BFDC2C /* ChangesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901F42551A21F00BFDC2C /* ChangesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		645778A5255196710069F247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		645778A8255196710069F247 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		645778AA255196710069F247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64E901EA2551A0FC00BFDC2C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		64E901EF2551A1A000BFDC2C /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		64E901F42551A21F00BFDC2C /* ChangesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +78,9 @@
 		649714F125519E9E00193184 /* ViewVm */ = {
 			isa = PBXGroup;
 			children = (
+				64E901F32551A20B00BFDC2C /* Changes */,
+				64E901EE2551A18E00BFDC2C /* Schedule */,
+				64E901E92551A0D600BFDC2C /* Settings */,
 				649714F425519F5800193184 /* CustomViews */,
 				649714F225519EC700193184 /* Main */,
 			);
@@ -91,6 +100,30 @@
 			children = (
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		64E901E92551A0D600BFDC2C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				64E901EA2551A0FC00BFDC2C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		64E901EE2551A18E00BFDC2C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				64E901EF2551A1A000BFDC2C /* ScheduleView.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		64E901F32551A20B00BFDC2C /* Changes */ = {
+			isa = PBXGroup;
+			children = (
+				64E901F42551A21F00BFDC2C /* ChangesView.swift */,
+			);
+			path = Changes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,8 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E901EB2551A0FC00BFDC2C /* SettingsView.swift in Sources */,
+				64E901F02551A1A000BFDC2C /* ScheduleView.swift in Sources */,
 				645778A4255196700069F247 /* ContentView.swift in Sources */,
 				645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */,
+				64E901F52551A21F00BFDC2C /* ChangesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
