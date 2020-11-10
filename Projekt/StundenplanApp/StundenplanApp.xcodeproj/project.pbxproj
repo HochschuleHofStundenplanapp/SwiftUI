@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		643DBF34255AE0FB00BC99CB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643DBF33255AE0FB00BC99CB /* UserModel.swift */; };
 		645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A1255196700069F247 /* StundenplanAppApp.swift */; };
 		645778A4255196700069F247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A3255196700069F247 /* ContentView.swift */; };
 		645778A6255196710069F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A5255196710069F247 /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		643DBF33255AE0FB00BC99CB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		6457789E255196700069F247 /* StundenplanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645778A1255196700069F247 /* StundenplanAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanAppApp.swift; sourceTree = "<group>"; };
 		645778A3255196700069F247 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		643DBF32255AE0CA00BC99CB /* UserModel */ = {
+			isa = PBXGroup;
+			children = (
+				643DBF33255AE0FB00BC99CB /* UserModel.swift */,
+			);
+			path = UserModel;
+			sourceTree = "<group>";
+		};
 		64577895255196700069F247 = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +162,7 @@
 		64E901F92551A39B00BFDC2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				643DBF32255AE0CA00BC99CB /* UserModel */,
 				64E901FA2551A3A600BFDC2C /* ServerModel */,
 			);
 			path = Models;
@@ -307,6 +318,7 @@
 				64E902292551ABC800BFDC2C /* AllCoursesViewModel.swift in Sources */,
 				64E902152551A62200BFDC2C /* Labels.swift in Sources */,
 				64E9020E2551A5FA00BFDC2C /* LectureChangeInfo.swift in Sources */,
+				643DBF34255AE0FB00BC99CB /* UserModel.swift in Sources */,
 				64E9020F2551A5FA00BFDC2C /* ChangesForCouseSemester.swift in Sources */,
 				64E902142551A62200BFDC2C /* CoursesAfterTerm.swift in Sources */,
 				64E9022F2551B56500BFDC2C /* ServerModel.swift in Sources */,

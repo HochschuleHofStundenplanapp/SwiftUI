@@ -45,7 +45,11 @@ class ServerModel{
       return serverModelAccess.objectWillChange
     }
     
-    
+    //validate courses
+    func allCoursesAreValid() -> Bool{
+        //Add further validation logic if needed
+        return !(allCourses.isEmpty)
+    }
 }
 
 fileprivate class ServerModelSingleton : ObservableObject{
