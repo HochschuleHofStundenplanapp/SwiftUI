@@ -54,7 +54,7 @@ fileprivate class ModelSingleton : ObservableObject {
     }
   }
   
-  init()
+  private init()
   {
   }
 }
