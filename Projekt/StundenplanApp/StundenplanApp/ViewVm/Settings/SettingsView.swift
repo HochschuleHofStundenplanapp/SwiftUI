@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct SettingsView : View{
-    @State private var terms:[String] = ["-","Sommersemester", "Wintersemester"]
     @State private var selected = 0
     
     //term data to send to server
@@ -17,17 +16,23 @@ struct SettingsView : View{
     var body: some View{
         NavigationView{
             VStack {
-                Text("Wähle eine Vorlesungszeit").font(.title)
-                Picker(selection: $selected, label:     Text("Select a term")){
-                    ForEach( 0 ..< terms.count){
-                        Text(self.terms[$0])
+                Picker(selection: $selected, label: Text("WS/SS")) {
+                    ForEach(0..<termData.count) {index in
+                        Text(self.termData[index]).tag(index)
                     }
+                }.pickerStyle(SegmentedPickerStyle())
+                NavigationLink(destination: AllCoursesView(viewModel: AllCoursesViewModel(term: termData[selected]))) {
+                    Text("Studiengang")
                 }
-                if(selected > 0){
-                NavigationLink(destination: AllCoursesView(term: termData[selected-1], viewModel: AllCoursesViewModel()) ){
-                        Text("Next").font(.title)
-                }.buttonStyle(PlainButtonStyle())
-                }
+                Text("")
+                Button(action: {}, label: {
+                    Text("Semester")
+                })
+                Text("")
+                Button(action: {}, label: {
+                    Text("Vorlesungen")
+                })
+                Text("")
             }
         }
     }
