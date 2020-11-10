@@ -23,6 +23,7 @@
 		64E9021B2551A72000BFDC2C /* Pipelines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9021A2551A72000BFDC2C /* Pipelines.swift */; };
 		64E9021F2551A81500BFDC2C /* AllCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9021E2551A81500BFDC2C /* AllCoursesView.swift */; };
 		64E902292551ABC800BFDC2C /* AllCoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E902282551ABC800BFDC2C /* AllCoursesViewModel.swift */; };
+		64E9022F2551B56500BFDC2C /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9022E2551B56500BFDC2C /* ServerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		64E9021A2551A72000BFDC2C /* Pipelines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipelines.swift; sourceTree = "<group>"; };
 		64E9021E2551A81500BFDC2C /* AllCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCoursesView.swift; sourceTree = "<group>"; };
 		64E902282551ABC800BFDC2C /* AllCoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCoursesViewModel.swift; sourceTree = "<group>"; };
+		64E9022E2551B56500BFDC2C /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +160,8 @@
 		64E901FA2551A3A600BFDC2C /* ServerModel */ = {
 			isa = PBXGroup;
 			children = (
-				64E901FE2551A46D00BFDC2C /* Schedule */,
-				64E901FD2551A46400BFDC2C /* Changes */,
-				64E901FC2551A45B00BFDC2C /* Courses */,
+				64E9022C2551B4C600BFDC2C /* Json */,
+				64E9022E2551B56500BFDC2C /* ServerModel.swift */,
 			);
 			path = ServerModel;
 			sourceTree = "<group>";
@@ -215,6 +216,16 @@
 				64E902282551ABC800BFDC2C /* AllCoursesViewModel.swift */,
 			);
 			path = AllCoursesView;
+			sourceTree = "<group>";
+		};
+		64E9022C2551B4C600BFDC2C /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				64E901FE2551A46D00BFDC2C /* Schedule */,
+				64E901FD2551A46400BFDC2C /* Changes */,
+				64E901FC2551A45B00BFDC2C /* Courses */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,6 +309,7 @@
 				64E9020E2551A5FA00BFDC2C /* LectureChangeInfo.swift in Sources */,
 				64E9020F2551A5FA00BFDC2C /* ChangesForCouseSemester.swift in Sources */,
 				64E902142551A62200BFDC2C /* CoursesAfterTerm.swift in Sources */,
+				64E9022F2551B56500BFDC2C /* ServerModel.swift in Sources */,
 				64E9021B2551A72000BFDC2C /* Pipelines.swift in Sources */,
 				64E9021F2551A81500BFDC2C /* AllCoursesView.swift in Sources */,
 			);
