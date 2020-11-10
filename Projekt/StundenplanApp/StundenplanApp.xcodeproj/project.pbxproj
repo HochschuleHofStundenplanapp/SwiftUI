@@ -11,6 +11,19 @@
 		645778A4255196700069F247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A3255196700069F247 /* ContentView.swift */; };
 		645778A6255196710069F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A5255196710069F247 /* Assets.xcassets */; };
 		645778A9255196710069F247 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A8255196710069F247 /* Preview Assets.xcassets */; };
+		64E901EB2551A0FC00BFDC2C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901EA2551A0FC00BFDC2C /* SettingsView.swift */; };
+		64E901F02551A1A000BFDC2C /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901EF2551A1A000BFDC2C /* ScheduleView.swift */; };
+		64E901F52551A21F00BFDC2C /* ChangesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901F42551A21F00BFDC2C /* ChangesView.swift */; };
+		64E902002551A53600BFDC2C /* ScheduleForCourseSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901FF2551A53600BFDC2C /* ScheduleForCourseSemester.swift */; };
+		64E9020E2551A5FA00BFDC2C /* LectureChangeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9020C2551A5FA00BFDC2C /* LectureChangeInfo.swift */; };
+		64E9020F2551A5FA00BFDC2C /* ChangesForCouseSemester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9020D2551A5FA00BFDC2C /* ChangesForCouseSemester.swift */; };
+		64E902142551A62200BFDC2C /* CoursesAfterTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E902112551A62200BFDC2C /* CoursesAfterTerm.swift */; };
+		64E902152551A62200BFDC2C /* Labels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E902122551A62200BFDC2C /* Labels.swift */; };
+		64E902162551A62200BFDC2C /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E902132551A62200BFDC2C /* Course.swift */; };
+		64E9021B2551A72000BFDC2C /* Pipelines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9021A2551A72000BFDC2C /* Pipelines.swift */; };
+		64E9021F2551A81500BFDC2C /* AllCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9021E2551A81500BFDC2C /* AllCoursesView.swift */; };
+		64E902292551ABC800BFDC2C /* AllCoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E902282551ABC800BFDC2C /* AllCoursesViewModel.swift */; };
+		64E9022F2551B56500BFDC2C /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9022E2551B56500BFDC2C /* ServerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +33,19 @@
 		645778A5255196710069F247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		645778A8255196710069F247 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		645778AA255196710069F247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		64E901EA2551A0FC00BFDC2C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		64E901EF2551A1A000BFDC2C /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
+		64E901F42551A21F00BFDC2C /* ChangesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesView.swift; sourceTree = "<group>"; };
+		64E901FF2551A53600BFDC2C /* ScheduleForCourseSemester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleForCourseSemester.swift; sourceTree = "<group>"; };
+		64E9020C2551A5FA00BFDC2C /* LectureChangeInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureChangeInfo.swift; sourceTree = "<group>"; };
+		64E9020D2551A5FA00BFDC2C /* ChangesForCouseSemester.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangesForCouseSemester.swift; sourceTree = "<group>"; };
+		64E902112551A62200BFDC2C /* CoursesAfterTerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoursesAfterTerm.swift; sourceTree = "<group>"; };
+		64E902122551A62200BFDC2C /* Labels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Labels.swift; sourceTree = "<group>"; };
+		64E902132551A62200BFDC2C /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		64E9021A2551A72000BFDC2C /* Pipelines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pipelines.swift; sourceTree = "<group>"; };
+		64E9021E2551A81500BFDC2C /* AllCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCoursesView.swift; sourceTree = "<group>"; };
+		64E902282551ABC800BFDC2C /* AllCoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCoursesViewModel.swift; sourceTree = "<group>"; };
+		64E9022E2551B56500BFDC2C /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +78,10 @@
 		645778A0255196700069F247 /* StundenplanApp */ = {
 			isa = PBXGroup;
 			children = (
+				64E902182551A69200BFDC2C /* Combine */,
+				64E901F92551A39B00BFDC2C /* Models */,
+				649714F125519E9E00193184 /* ViewVm */,
 				645778A1255196700069F247 /* StundenplanAppApp.swift */,
-				645778A3255196700069F247 /* ContentView.swift */,
 				645778A5255196710069F247 /* Assets.xcassets */,
 				645778AA255196710069F247 /* Info.plist */,
 				645778A7255196710069F247 /* Preview Content */,
@@ -67,6 +95,137 @@
 				645778A8255196710069F247 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		649714F125519E9E00193184 /* ViewVm */ = {
+			isa = PBXGroup;
+			children = (
+				64E901EE2551A18E00BFDC2C /* Schedule */,
+				64E901F32551A20B00BFDC2C /* Changes */,
+				64E901E92551A0D600BFDC2C /* Settings */,
+				649714F425519F5800193184 /* CustomViews */,
+				649714F225519EC700193184 /* Main */,
+			);
+			path = ViewVm;
+			sourceTree = "<group>";
+		};
+		649714F225519EC700193184 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				645778A3255196700069F247 /* ContentView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		649714F425519F5800193184 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		64E901E92551A0D600BFDC2C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				64E9021D2551A7F100BFDC2C /* AllCoursesView */,
+				64E901EA2551A0FC00BFDC2C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		64E901EE2551A18E00BFDC2C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				64E901EF2551A1A000BFDC2C /* ScheduleView.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		64E901F32551A20B00BFDC2C /* Changes */ = {
+			isa = PBXGroup;
+			children = (
+				64E901F42551A21F00BFDC2C /* ChangesView.swift */,
+			);
+			path = Changes;
+			sourceTree = "<group>";
+		};
+		64E901F92551A39B00BFDC2C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				64E901FA2551A3A600BFDC2C /* ServerModel */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		64E901FA2551A3A600BFDC2C /* ServerModel */ = {
+			isa = PBXGroup;
+			children = (
+				64E9022C2551B4C600BFDC2C /* Json */,
+				64E9022E2551B56500BFDC2C /* ServerModel.swift */,
+			);
+			path = ServerModel;
+			sourceTree = "<group>";
+		};
+		64E901FC2551A45B00BFDC2C /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				64E902132551A62200BFDC2C /* Course.swift */,
+				64E902112551A62200BFDC2C /* CoursesAfterTerm.swift */,
+				64E902122551A62200BFDC2C /* Labels.swift */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		64E901FD2551A46400BFDC2C /* Changes */ = {
+			isa = PBXGroup;
+			children = (
+				64E9020D2551A5FA00BFDC2C /* ChangesForCouseSemester.swift */,
+				64E9020C2551A5FA00BFDC2C /* LectureChangeInfo.swift */,
+			);
+			path = Changes;
+			sourceTree = "<group>";
+		};
+		64E901FE2551A46D00BFDC2C /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				64E901FF2551A53600BFDC2C /* ScheduleForCourseSemester.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		64E902182551A69200BFDC2C /* Combine */ = {
+			isa = PBXGroup;
+			children = (
+				64E902192551A69B00BFDC2C /* ServerPipelines */,
+			);
+			path = Combine;
+			sourceTree = "<group>";
+		};
+		64E902192551A69B00BFDC2C /* ServerPipelines */ = {
+			isa = PBXGroup;
+			children = (
+				64E9021A2551A72000BFDC2C /* Pipelines.swift */,
+			);
+			path = ServerPipelines;
+			sourceTree = "<group>";
+		};
+		64E9021D2551A7F100BFDC2C /* AllCoursesView */ = {
+			isa = PBXGroup;
+			children = (
+				64E9021E2551A81500BFDC2C /* AllCoursesView.swift */,
+				64E902282551ABC800BFDC2C /* AllCoursesViewModel.swift */,
+			);
+			path = AllCoursesView;
+			sourceTree = "<group>";
+		};
+		64E9022C2551B4C600BFDC2C /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				64E901FE2551A46D00BFDC2C /* Schedule */,
+				64E901FD2551A46400BFDC2C /* Changes */,
+				64E901FC2551A45B00BFDC2C /* Courses */,
+			);
+			path = Json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +297,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64E901EB2551A0FC00BFDC2C /* SettingsView.swift in Sources */,
+				64E902162551A62200BFDC2C /* Course.swift in Sources */,
+				64E902002551A53600BFDC2C /* ScheduleForCourseSemester.swift in Sources */,
+				64E901F02551A1A000BFDC2C /* ScheduleView.swift in Sources */,
 				645778A4255196700069F247 /* ContentView.swift in Sources */,
 				645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */,
+				64E901F52551A21F00BFDC2C /* ChangesView.swift in Sources */,
+				64E902292551ABC800BFDC2C /* AllCoursesViewModel.swift in Sources */,
+				64E902152551A62200BFDC2C /* Labels.swift in Sources */,
+				64E9020E2551A5FA00BFDC2C /* LectureChangeInfo.swift in Sources */,
+				64E9020F2551A5FA00BFDC2C /* ChangesForCouseSemester.swift in Sources */,
+				64E902142551A62200BFDC2C /* CoursesAfterTerm.swift in Sources */,
+				64E9022F2551B56500BFDC2C /* ServerModel.swift in Sources */,
+				64E9021B2551A72000BFDC2C /* Pipelines.swift in Sources */,
+				64E9021F2551A81500BFDC2C /* AllCoursesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
