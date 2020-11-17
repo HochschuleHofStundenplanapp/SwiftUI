@@ -9,8 +9,6 @@ import SwiftUI
 
 struct AllSemesterView : View{
     @ObservedObject var viewModel : AllSemesterViewModel
-    var data = ["a", "b", "c", "d"]
-    var d2 = ["1", "3", "5"]
     var body: some View{
         VStack{
             if viewModel.dataChanged{
@@ -18,7 +16,9 @@ struct AllSemesterView : View{
                     ForEach(viewModel.allCourses, id: \.course) {el in
                         Section(header: Text(el.course)) {
                             ForEach(el.semester, id: \.self) { sem in
-                                Text(sem)
+                                Text(sem).onTapGesture(perform: {
+                                    viewModel.updateSemesterSelection(course: el, semester: sem)
+                                })
                             }
                         }
                     }

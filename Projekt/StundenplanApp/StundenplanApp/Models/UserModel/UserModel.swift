@@ -30,7 +30,7 @@ class UserModel{
         }
     }
     
-    var semesters : [(course: Course, semester: [String])]{
+    var semesters : Dictionary<String,[String]>{
         get{
             return userModelAccess.semesters
         }
@@ -101,8 +101,8 @@ fileprivate class UserModelSingleton : ObservableObject{
         }
     }
     
-    private var _semesters : [(course: Course, semester: [String])] = []
-    var semesters : [(course: Course, semester: [String])]{
+    private var _semesters : Dictionary<String,[String]> = [:]
+    var semesters : Dictionary<String,[String]>{
         get{
             return _semesters
         }

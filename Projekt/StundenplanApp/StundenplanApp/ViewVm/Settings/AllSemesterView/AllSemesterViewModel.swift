@@ -13,18 +13,12 @@ import Combine
 class AllSemesterViewModel : ObservableObject{
     //fields
     @Published var dataChanged = false
-    var selectedSemesters = [(course: Course, semester: [String])]()
+    //var selectedSemesters = [(course: Course, semester: [String])]()
     
     var allCourses = [Course]()
     
     //model synchronisation fields
     private let userModel = UserModel()
-    
-    
-    //constructors
-    init(){
-        
-    }
     
     //functions
     func loadData(){
@@ -34,11 +28,29 @@ class AllSemesterViewModel : ObservableObject{
     }
     
     private func loadSelectedSemesters(){
-        selectedSemesters = userModel.semesters
+        //selectedSemesters = userModel.semesters
     }
     
-    func updateSemesterSelection(){
+    func updateSemesterSelection(course: Course, semester: String){
+        if var allSelectedSemesterOfCourse = userModel.semesters[course.course]{
+            //update semesters
+            //check if choosen semester is in usermodel.semesters in context of course
+            if let index = allSelectedSemesterOfCourse.firstIndex(of: semester){
+                allSelectedSemesterOfCourse.remove(at: index)
+            }
+            else{
+                allSelectedSemesterOfCourse.append(semester)
+            }
+            userModel.semesters[course.course] = allSelectedSemesterOfCourse
+            
+        }
+        else{
+            //course does not exist in semester selection
+            userModel.semesters[course.course] = [semester]
+        }
         
+        
+        //TODO: UPDATE FLAGS IN UI
     }
     
     
