@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		643DBF34255AE0FB00BC99CB /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 643DBF33255AE0FB00BC99CB /* UserModel.swift */; };
+		6448226D25640F1400767A8F /* AllSemesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448226C25640F1400767A8F /* AllSemesterView.swift */; };
+		6448227025640F2400767A8F /* AllSemesterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448226F25640F2400767A8F /* AllSemesterViewModel.swift */; };
+		6448227325641B2D00767A8F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448227225641B2D00767A8F /* SettingsViewModel.swift */; };
 		645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A1255196700069F247 /* StundenplanAppApp.swift */; };
 		645778A4255196700069F247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A3255196700069F247 /* ContentView.swift */; };
 		645778A6255196710069F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A5255196710069F247 /* Assets.xcassets */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		643DBF33255AE0FB00BC99CB /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		6448226C25640F1400767A8F /* AllSemesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSemesterView.swift; sourceTree = "<group>"; };
+		6448226F25640F2400767A8F /* AllSemesterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSemesterViewModel.swift; sourceTree = "<group>"; };
+		6448227225641B2D00767A8F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		6457789E255196700069F247 /* StundenplanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645778A1255196700069F247 /* StundenplanAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanAppApp.swift; sourceTree = "<group>"; };
 		645778A3255196700069F247 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +67,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		643DBF32255AE0CA00BC99CB /* UserModel */ = {
+			isa = PBXGroup;
+			children = (
+				643DBF33255AE0FB00BC99CB /* UserModel.swift */,
+			);
+			path = UserModel;
+			sourceTree = "<group>";
+		};
+		6448226B25640EF600767A8F /* AllSemesterView */ = {
+			isa = PBXGroup;
+			children = (
+				6448226C25640F1400767A8F /* AllSemesterView.swift */,
+				6448226F25640F2400767A8F /* AllSemesterViewModel.swift */,
+			);
+			path = AllSemesterView;
+			sourceTree = "<group>";
+		};
 		64577895255196700069F247 = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +152,10 @@
 		64E901E92551A0D600BFDC2C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				6448226B25640EF600767A8F /* AllSemesterView */,
 				64E9021D2551A7F100BFDC2C /* AllCoursesView */,
 				64E901EA2551A0FC00BFDC2C /* SettingsView.swift */,
+				6448227225641B2D00767A8F /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -152,6 +179,7 @@
 		64E901F92551A39B00BFDC2C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				643DBF32255AE0CA00BC99CB /* UserModel */,
 				64E901FA2551A3A600BFDC2C /* ServerModel */,
 			);
 			path = Models;
@@ -299,14 +327,18 @@
 			files = (
 				64E901EB2551A0FC00BFDC2C /* SettingsView.swift in Sources */,
 				64E902162551A62200BFDC2C /* Course.swift in Sources */,
+				6448227025640F2400767A8F /* AllSemesterViewModel.swift in Sources */,
 				64E902002551A53600BFDC2C /* ScheduleForCourseSemester.swift in Sources */,
 				64E901F02551A1A000BFDC2C /* ScheduleView.swift in Sources */,
+				6448227325641B2D00767A8F /* SettingsViewModel.swift in Sources */,
 				645778A4255196700069F247 /* ContentView.swift in Sources */,
 				645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */,
 				64E901F52551A21F00BFDC2C /* ChangesView.swift in Sources */,
 				64E902292551ABC800BFDC2C /* AllCoursesViewModel.swift in Sources */,
 				64E902152551A62200BFDC2C /* Labels.swift in Sources */,
 				64E9020E2551A5FA00BFDC2C /* LectureChangeInfo.swift in Sources */,
+				643DBF34255AE0FB00BC99CB /* UserModel.swift in Sources */,
+				6448226D25640F1400767A8F /* AllSemesterView.swift in Sources */,
 				64E9020F2551A5FA00BFDC2C /* ChangesForCouseSemester.swift in Sources */,
 				64E902142551A62200BFDC2C /* CoursesAfterTerm.swift in Sources */,
 				64E9022F2551B56500BFDC2C /* ServerModel.swift in Sources */,

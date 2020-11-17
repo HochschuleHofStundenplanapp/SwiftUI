@@ -10,31 +10,24 @@ import SwiftUI
 struct AllCoursesView : View {
     
     @ObservedObject var viewModel : AllCoursesViewModel
-    @State var selectedCourses: [Course] = []
     
     var body: some View{
         VStack {
         if(viewModel.dataisAvailable) {
-            List(viewModel.data, id: \.course) { course in
-                HStack {
-                    Text(course.course).onTapGesture(perform: {
-                        if selectedCourses.contains(where: {$0.course == course.course}) {
-                            selectedCourses.removeAll(where: {$0.course == course.course})
-                            viewModel.selectedCourses.removeAll(where: {$0.course == course.course})
-                        } else {
-                            viewModel.selectedCourses.append(course)
-                            selectedCourses.append(course)
+            List(viewModel.data, id: \.course.course) { courseTuple in
+                    HStack {
+                        Text(courseTuple.course.course).onTapGesture(perform: {
+                            viewModel.updateCourseSelection(course: courseTuple.course)
+                        })
+                        if courseTuple.selected {
+                            Image(systemName: "hand.point.left.fill")
                         }
-                    })
-                    if selectedCourses.contains(where: {$0.course == course.course}) {
-                        Image(systemName: "hand.point.left.fill")
                     }
                 }
-        }
-        } else {
-            Text("loading")
-        }
-            
+            }
+            else {
+                Text("loading")
+            }
         }.onAppear(perform: {
             viewModel.getCourses()
         })
