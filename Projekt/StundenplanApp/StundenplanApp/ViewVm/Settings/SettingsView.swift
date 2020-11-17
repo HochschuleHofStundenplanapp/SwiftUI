@@ -30,12 +30,14 @@ struct SettingsView : View{
                 Text("")
                 NavigationLink(destination: AllSemesterView(viewModel: AllSemesterViewModel())) {
                     Text("Semester")
-                }
+                }.disabled(!viewModel.allowedToAccessSemesters)
                 Text("")
                 Button(action: {}, label: {
                     Text("Vorlesungen")
-                })
+                }).disabled(!viewModel.allowedToAccessLectures)
                 Text("")
+            }.onAppear{
+                viewModel.updateAllowedStates()
             }
         }
     }
