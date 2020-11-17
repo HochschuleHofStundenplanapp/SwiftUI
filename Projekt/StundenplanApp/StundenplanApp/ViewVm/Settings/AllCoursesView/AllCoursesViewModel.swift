@@ -33,20 +33,9 @@ class AllCoursesViewModel : ObservableObject {
             return
         }
         
-        //apply term to usermodel :D
-        applyTermToUserModel()
-        
-        //fetch data
-        self.dataisAvailable = false
-        data.removeAll()
-        let pipe = Pipelines()
-        cancel = pipe.getCoursesAfterTerm(term: self.term).sink(receiveCompletion: {(_) in
-            self.dataisAvailable = true
-        }, receiveValue: { (value) in
-            self.data = value.courses.map{(course: $0,selected: false)}
-            self.serverModel.allCourses = value.courses
-        })
+        fetchDataFromApi()
     }
+    
     
     func updateCourseSelection(course: Course){
         //dataisAvailable = false
@@ -67,6 +56,25 @@ class AllCoursesViewModel : ObservableObject {
     }
     
     //help functions
+    private func fetchDataFromApi(){
+        //delete usermodel courses
+        userModel.courses.removeAll()
+        
+        //apply term to usermodel :D
+        applyTermToUserModel()
+        
+        //fetch data
+        self.dataisAvailable = false
+        data.removeAll()
+        let pipe = Pipelines()
+        cancel = pipe.getCoursesAfterTerm(term: self.term).sink(receiveCompletion: {(_) in
+            self.dataisAvailable = true
+        }, receiveValue: { (value) in
+            self.data = value.courses.map{(course: $0,selected: false)}
+            self.serverModel.allCourses = value.courses
+        })
+    }
+    
     private func mergeModels(){
         let serverCourses = self.serverModel.allCourses
         let selectedCourses = self.userModel.courses
