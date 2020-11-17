@@ -48,21 +48,30 @@ struct ChangesRow: View {
         if self.changes.alternativeTime == "" && self.changes.alternativeDate == "" {
             VStack(alignment: .leading){
                 HStack{
-                    Text(self.changes.label).font(.title2)
+                    Text(self.changes.label)
+                        .font(.title2)
                     Text("(" + self.changes.reason + ")").font(.title3)
                 }.padding(5)
                 HStack{
-                    Text(self.changes.originalRoom).font(.caption).strikethrough()
+                    Text(self.changes.originalRoom)
+                        .font(.caption)
+                        .strikethrough()
                     Spacer()
                 }.padding(5)
                 HStack{
-                    Text(self.changes.originalDate).font(.caption).strikethrough()
+                    Text(self.changes.originalDate)
+                        .font(.caption)
+                        .strikethrough()
                 }.padding(5)
                 HStack{
-                    Text(self.changes.originalTime).font(.caption).strikethrough()
+                    Text(self.changes.originalTime)
+                        .font(.caption)
+                        .strikethrough()
                 }.padding(5)
                 HStack{
-                    Text(self.changes.docent).font(.caption).strikethrough()
+                    Text(self.changes.docent)
+                        .font(.caption)
+                        .strikethrough()
                 }.padding(5)
             }
             .background(background)
@@ -72,24 +81,36 @@ struct ChangesRow: View {
             VStack(alignment: .leading){
                 Text(self.changes.label).font(.title2).padding(5)
                 HStack{
-                    Text(self.changes.originalRoom).font(.caption)
+                    Text(self.changes.originalDate)
+                        .font(.caption)
+                        .strikethrough()
                     Spacer()
-                    Text(self.changes.alternativeRoom).font(.caption)
+                    Text(self.changes.alternativeDate)
+                        .font(.caption)
                 }.padding(5)
                 HStack{
-                    Text(self.changes.originalDate).font(.caption)
+                    Text(self.changes.originalRoom)
+                        .font(.caption)
+                        .strikethrough()
                     Spacer()
-                    Text(self.changes.alternativeDate).font(.caption)
+                    Text(self.changes.alternativeRoom)
+                        .font(.caption)
                 }.padding(5)
                 HStack{
-                    Text(self.changes.originalTime).font(.caption)
+                    Text(self.changes.originalTime)
+                        .font(.caption)
+                        .strikethrough()
                     Spacer()
-                    Text(self.changes.alternativeTime).font(.caption)
+                    Text(self.changes.alternativeTime)
+                        .font(.caption)
                 }.padding(5)
                 HStack{
-                    Text(self.changes.docent).font(.caption)
+                    Text(self.changes.docent)
+                        .font(.caption)
+                        .strikethrough()
                     Spacer()
-                    Text(self.changes.docent).font(.caption)
+                    Text(self.changes.docent)
+                        .font(.caption)
                 }.padding(5)
             }
             .background(background)
