@@ -12,6 +12,10 @@ class SettingsViewModel : ObservableObject{
     let termData = ["SS","WS"]
     var selectedTermIndex = 0
     
+    @Published var allowedToAccessSemesters : Bool = false
+    @Published var allowedToAccessLectures : Bool = false
+    
+    //model access
     private let serverModel : ServerModel = ServerModel()
     private let userModel : UserModel = UserModel()
     
@@ -20,5 +24,12 @@ class SettingsViewModel : ObservableObject{
         serverModel.termChangeCleanup()
         userModel.termChangeCleanup()
         userModel.term = termData[selectedTermIndex]
+        updateAllowedStates()
+    }
+    
+    //function is exexcuted if view is appearing
+    func updateAllowedStates(){
+        allowedToAccessSemesters = !userModel.courses.isEmpty
+        allowedToAccessLectures = !userModel.semesters.isEmpty
     }
 }
