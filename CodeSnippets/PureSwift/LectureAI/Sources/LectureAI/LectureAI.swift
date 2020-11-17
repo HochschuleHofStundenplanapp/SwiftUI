@@ -2,6 +2,8 @@ import Foundation
 
 public class LectureAI {
 
+    //private dateUtil = DateUtil()
+
     public init() {
 
     }
@@ -11,22 +13,28 @@ public class LectureAI {
     }
 
     public func parseEvent(term: String, lecture: Lecture) -> AnalyzedLecture {
-        let startDate = getSemesterStartDate(term: term)
+        let currentMonth = getCurrentMonth()
+        let startDate = getSemesterStartDate(term: term, currentMonth: currentMonth)
         let startWeekdayId = "5"
+        
 
         // DO => 5
 
         // unterschied zwischen startDate und
 
-        let examStartDate = getExamsStartDate(term: term)
+        let firstLectureDate = getFirstLectureDate(semesterStartDate: startDate, lectureWeekDay:  lecture.day)
+
+        let examStartDate = getExamsStartDate(term: term, currentMonth: currentMonth)
 
         let weekdayId = getWeekdayNumberOfGermanString(germanString: lecture.day)
         // DI => 3
 
         // Auf startDate 5 addieren, um bei Dienstag zu landen
 
+        let dates = getAllLectureDates(firstLectureDate: firstLectureDate, firstExamDate: examStartDate)
 
-        return AnalyzedLecture(lecture: lecture, dates: ["TEST_DATE"])
+
+        return AnalyzedLecture(lecture: lecture, dates: dates)
     }
 
     public func getFirstLectureDate(semesterStartDate: Date, lectureWeekDay: String) -> Date {
@@ -54,39 +62,60 @@ public class LectureAI {
         return firstLectureDate
     }
 
-
-    public func getSemesterStartDate(term: String) -> Date  {
-        if term == "WS" {
-            return getDateInCurrentYear(day: "01", month: "10")
+    public func getAllLectureDates(firstLectureDate: Date, firstExamDate: Date) -> [Date]{
+        var allDates = [Date]()
+        var nextLectureDate = firstLectureDate
+        if(firstLectureDate < firstExamDate){
+            while (nextLectureDate < firstExamDate) {
+                allDates.append(nextLectureDate)
+                nextLectureDate = Calendar.current.date(byAdding: .day, value: 7, to: nextLectureDate)!            
+            }
+            return allDates
         } else {
-            return getDateInCurrentYear(day: "15", month: "03")
+            //ERROR
+            return []
+        }
+    
+    }
+
+
+    public func getSemesterStartDate(term: String, currentMonth: Int) -> Date  {
+        if term == "WS" {
+            if currentMonth < 3 {
+                return getDateInWantedYear(day: "01", month: "10", yearModifier: .previous)
+            } else {
+                return getDateInWantedYear(day: "01", month: "10", yearModifier: .current)
+            }
+        } else {
+            return getDateInWantedYear(day: "15", month: "03", yearModifier: .current)
         }
     }
 
-    public func getExamsStartDate(term: String) -> Date  {
+
+    // == end of semester (+1 day)
+    public func getExamsStartDate(term: String, currentMonth: Int) -> Date  {
         if term == "WS" {
-            return getDateInNextYear(day: "23", month: "01")
+            if currentMonth < 3{
+                return getDateInWantedYear(day: "23", month: "01", yearModifier: .current)
+            } else {
+                return getDateInWantedYear(day: "23", month: "01", yearModifier: .next)
+            }
         } else {
-            return getDateInCurrentYear(day: "10", month: "07")
+            return getDateInWantedYear(day: "10", month: "07", yearModifier: .current)
         }
     }
 
-    func getDateInCurrentYear(day: String, month: String) -> Date {
+    func getDateInWantedYear(day: String, month: String, yearModifier: YearModifier) -> Date {
         let calendar = Calendar.current
-        let year = calendar.component(.year, from: Date())
+        let year = Int(calendar.component(.year, from: Date()) + yearModifier.rawValue)
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
-        return dateFormatter.date(from: "\(day).\(month).\(year)")!;
+        return dateFormatter.date(from: "\(day).\(month).\(year)")!
     }
 
-    func getDateInNextYear(day: String, month: String) -> Date {
-        let calendar = Calendar.current
-        let year = Int(calendar.component(.year, from: Date()) + 1)
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        return dateFormatter.date(from: "\(day).\(month).\(year)")!;
+    func getCurrentMonth() -> Int {
+        return Int(Calendar.current.component(.month, from: Date()))
     }
 
     func test() {
