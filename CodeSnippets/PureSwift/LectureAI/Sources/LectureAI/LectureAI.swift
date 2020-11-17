@@ -2,37 +2,17 @@ import Foundation
 
 public class LectureAI {
 
-    //private dateUtil = DateUtil()
-
     public init() {
 
     }
 
-    public func parseFile(fileName: String) {
-
-    }
-
     public func parseEvent(term: String, lecture: Lecture) -> AnalyzedLecture {
+        //all relevant informations about a Lecture in a Semester
         let currentMonth = getCurrentMonth()
         let startDate = getSemesterStartDate(term: term, currentMonth: currentMonth)
-        let startWeekdayId = "5"
-        
-
-        // DO => 5
-
-        // unterschied zwischen startDate und
-
-        let firstLectureDate = getFirstLectureDate(semesterStartDate: startDate, lectureWeekDay:  lecture.day)
-
-        let examStartDate = getExamsStartDate(term: term, currentMonth: currentMonth)
-
-        let weekdayId = getWeekdayNumberOfGermanString(germanString: lecture.day)
-        // DI => 3
-
-        // Auf startDate 5 addieren, um bei Dienstag zu landen
-
+        let firstLectureDate = getFirstLectureDate(semesterStartDate: startDate, lectureWeekDay:  lecture.day) 
+        let examStartDate = getExamsStartDate(term: term, currentMonth: currentMonth) // = Date of Last Lecture + 1
         let dates = getAllLectureDates(firstLectureDate: firstLectureDate, firstExamDate: examStartDate)
-
 
         return AnalyzedLecture(lecture: lecture, dates: dates)
     }
@@ -43,17 +23,17 @@ public class LectureAI {
 
         var daysToAdd = -1
 
-        // Wenn semesterStartWeekId = lectureWeekId => startDate ist erster Tag
+        // If semesterStartWeekId = lectureWeekId => startDate is first day
         if semesterStartWeekId == lectureWeekId {
             daysToAdd = 0
         }
 
-        // Wenn semesterStartWeekId < lectureWeekId => addiere lectureWeekId - semesterStartWeekId auf startDate
+        // If semesterStartWeekId < lectureWeekId => add lectureWeekId - semesterStartWeekId to startDate
         if semesterStartWeekId < lectureWeekId {
             daysToAdd = lectureWeekId - semesterStartWeekId
         }
 
-        // Wenn semesterStartWeekId > lectureWeekId => addiere (7 - semesterStartWeekId) + lectureWeekId
+        // If semesterStartWeekId > lectureWeekId => add (7 - semesterStartWeekId) + lectureWeekId
         if semesterStartWeekId > lectureWeekId {
             daysToAdd = (7 - semesterStartWeekId) + lectureWeekId
         }
@@ -65,6 +45,7 @@ public class LectureAI {
     public func getAllLectureDates(firstLectureDate: Date, firstExamDate: Date) -> [Date]{
         var allDates = [Date]()
         var nextLectureDate = firstLectureDate
+
         if(firstLectureDate < firstExamDate){
             while (nextLectureDate < firstExamDate) {
                 allDates.append(nextLectureDate)
@@ -72,21 +53,20 @@ public class LectureAI {
             }
             return allDates
         } else {
-            //ERROR
+            //ERROR (firstLectureDate must be before Beginning of Exams)
             return []
         }
     
     }
 
-
     public func getSemesterStartDate(term: String, currentMonth: Int) -> Date  {
         if term == "WS" {
-            if currentMonth < 3 {
+            if currentMonth < 4 { //if WS and month is 1 - 3 -> semesterStart must be in previous Year
                 return getDateInWantedYear(day: "01", month: "10", yearModifier: .previous)
-            } else {
+            } else { //if WS and month is 10 - 12
                 return getDateInWantedYear(day: "01", month: "10", yearModifier: .current)
             }
-        } else {
+        } else { //Year of SS is always in current year
             return getDateInWantedYear(day: "15", month: "03", yearModifier: .current)
         }
     }
@@ -95,19 +75,20 @@ public class LectureAI {
     // == end of semester (+1 day)
     public func getExamsStartDate(term: String, currentMonth: Int) -> Date  {
         if term == "WS" {
-            if currentMonth < 3{
+            if currentMonth < 4 { //if WS and month is 1 - 3 -> exams start in current year
                 return getDateInWantedYear(day: "23", month: "01", yearModifier: .current)
-            } else {
+            } else { //if WS and month is 10 - 12 -> exams start next year
                 return getDateInWantedYear(day: "23", month: "01", yearModifier: .next)
             }
-        } else {
+        } else { //exams of SS always start in current year
             return getDateInWantedYear(day: "10", month: "07", yearModifier: .current)
         }
     }
 
+    //returns date with wanted year (possible YearModifiers: .previous, .current, .next)
     func getDateInWantedYear(day: String, month: String, yearModifier: YearModifier) -> Date {
         let calendar = Calendar.current
-        let year = Int(calendar.component(.year, from: Date()) + yearModifier.rawValue)
+        let year = Int(calendar.component(.year, from: Date()) + yearModifier.rawValue) //add value of enums to year from date
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -118,28 +99,23 @@ public class LectureAI {
         return Int(Calendar.current.component(.month, from: Date()))
     }
 
-    func test() {
-//        let calendar = Calendar.current
-
-//        calendar.component(.weekday, from: <#T##Date##Foundation.Date#>)
-    }
-
+    
     func getWeekdayNumberOfGermanString(germanString: String) -> Int {
         switch germanString {
         case "Sonntag":
             return 1
         case "Montag":
             return 2
-        case "Dienstag": // 06.10.
+        case "Dienstag":
             return 3
         case "Mittwoch":
             return 4
-        case "Donnerstag": // 01.10. Vorlesungstart
+        case "Donnerstag":
             return 5
         case "Freitag":
             return 6
         case "Samstag":
-            return 7 // 03.10.
+            return 7 
         default:
             return -1
         }
@@ -150,10 +126,5 @@ public class LectureAI {
 
         return Int(calendar.component(.weekday, from: date))
     }
-
-    public func getEndDate(term: String) {
-
-    }
-
 
 }

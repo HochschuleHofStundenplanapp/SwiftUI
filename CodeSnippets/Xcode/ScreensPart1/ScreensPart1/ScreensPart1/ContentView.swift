@@ -10,44 +10,29 @@ import UIKit
 import Foundation
 
 struct ContentView: View {
+    let days = ["Mo", "Di", "Mi", "Do", "Fr", "Sa"]
     
     @State private var weekDay = 0
-    var lessonsForWeekDay = [lessonModel(time: "8:00 - 9:30", lessonName: "Architektur mobiler Anwendungen", room: "virt_pstöhr", lecturer: "Prof. Dr. Peter Stöhr", type: "online", addtional: "Further Information concerning the lesson"),
-                            lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik"),
-                            lessonModel(time: "13:00 - 17:15", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik")
+    var lessonsForWeekDay = [
+        lessonModel(time: "8:00 - 9:30", lessonName: "Architektur mobiler Anwendungen", room: "virt_pstöhr", lecturer: "Prof. Dr. Peter Stöhr", type: "online", addtional: "Further Information concerning the lesson"),
+        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik"),
+        lessonModel(time: "13:00 - 17:15", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik")
     ]
+    
     var body: some View {
         NavigationView{
-            VStack{
-                Text("Stundenplan")
-                HStack {
-                    Picker(selection: $weekDay, label: Text("What is your favorite color?")) {
-                        Text("Mo").tag(0)
-                        Text("Di").tag(1)
-                        Text("Mi").tag(2)
-                        Text("Do").tag(3)
-                        Text("Fr").tag(4)
-                        Text("Sa").tag(5)
-                    }.pickerStyle(SegmentedPickerStyle()).padding()
-                }
-                List(){
-                    ScheduleRow(lesson: lessonsForWeekDay[0])
-                    ScheduleRow(lesson: lessonsForWeekDay[1])
-                    ScheduleRow(lesson: lessonsForWeekDay[2])
-                }
-            }
+            VStack {
+                Picker(selection: $weekDay, label: Text("Wochentag")) {
+                    ForEach((0..<days.count) , id:\.self){ index in
+                        Text(days[index]).tag(index)
+                    }
+                }.pickerStyle(SegmentedPickerStyle()).padding()
+                List(lessonsForWeekDay, id:\.id){ lesson in
+                    ScheduleRow(lesson: lesson)
+                }.listStyle(PlainListStyle())
+            }.navigationTitle("Stundenplan")
         }
     }
-}
-
-//dummy Data
-struct lessonModel {
-    var time: String
-    var lessonName: String
-    var room: String
-    var lecturer: String
-    var type:String
-    var addtional:String
 }
 
 struct ScheduleRow:View{
@@ -63,34 +48,42 @@ struct ScheduleRow:View{
                     .strokeBorder(Color.black,lineWidth: 1)
                     .background(Circle().foregroundColor(Color.white))
                     .frame(width: 10, height: 10)
-            }
+            }.padding(EdgeInsets(top: 0.0, leading: 5.0, bottom: 0.0, trailing: 0.0))
             Text(self.lesson.time)
                 .font(.caption)
             VStack{
-                HStack{
-                    Text(self.lesson.lessonName)
+                VStack(alignment: .leading){
+                    Text(self.lesson.lessonName).bold()
                         .font(.caption)
-                    Spacer()
-                }
-                HStack{
                     Text(self.lesson.room)
                         .font(.caption)
-                    Spacer()
                     Text(self.lesson.lecturer)
                         .font(.caption)
                 }
                 if(tapped){
-                    Text(self.lesson.type).font(.caption)
-                    Text(self.lesson.addtional).font(.caption)
+                    VStack(alignment: .leading){
+                        Text(self.lesson.type).font(.caption)
+                        Text(self.lesson.addtional).font(.caption)
+                    }
                 }
             }.padding(8)
             .background(backgroundColor).cornerRadius(10.0)
-        }
+            .padding(20)
+        }.onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+            tapped.toggle()
+        })
+        .listRowInsets(.init(EdgeInsets(top: 0.0, leading: 0.0, bottom: 0.0, trailing: 0.0)))
     }
+}
+
+struct timeBlock{
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        Group {
+            ContentView()
+        }
     }
 }
