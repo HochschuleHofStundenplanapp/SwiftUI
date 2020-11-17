@@ -30,7 +30,7 @@ class UserModel{
         }
     }
     
-    var semesters : [String]{
+    var semesters : [(course: Course, semester: [String])]{
         get{
             return userModelAccess.semesters
         }
@@ -53,6 +53,21 @@ class UserModel{
       return userModelAccess.objectWillChange
     }
     
+    //cleanup functions
+    func termChangeCleanup(){
+        courses.removeAll()
+        courseChangeCleanup()
+    }
+    
+    func courseChangeCleanup(){
+        semesters.removeAll()
+        semesterChangeCleanup()
+    }
+    
+    func semesterChangeCleanup(){
+        lectures.removeAll()
+    }
+    
     
 }
 
@@ -64,7 +79,7 @@ fileprivate class UserModelSingleton : ObservableObject{
     @Published var modelChanged : Bool = false
     
     //data structures for storing data
-    private var _term : String = ""
+    private var _term : String = "SS"
     var term : String{
         get{
             return _term
@@ -86,8 +101,8 @@ fileprivate class UserModelSingleton : ObservableObject{
         }
     }
     
-    private var _semesters : [String] = []
-    var semesters : [String]{
+    private var _semesters : [(course: Course, semester: [String])] = []
+    var semesters : [(course: Course, semester: [String])]{
         get{
             return _semesters
         }

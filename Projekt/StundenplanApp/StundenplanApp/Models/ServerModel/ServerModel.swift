@@ -50,6 +50,16 @@ class ServerModel{
         //Add further validation logic if needed
         return !(allCourses.isEmpty)
     }
+    
+    //cleanup functions
+    func termChangeCleanup(){
+        allCourses.removeAll()
+        semesterChangeCleanup()
+    }
+    
+    func semesterChangeCleanup(){
+        lectures.removeAll()
+    }
 }
 
 fileprivate class ServerModelSingleton : ObservableObject{

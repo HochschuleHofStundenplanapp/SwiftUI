@@ -28,7 +28,7 @@ class AllCoursesViewModel : ObservableObject {
     }
     
     func getCourses() {
-        if serverModel.allCoursesAreValid() && userModel.term == term{
+        if serverModel.allCoursesAreValid(){
             self.dataisAvailable = true
             return
         }
@@ -49,19 +49,19 @@ class AllCoursesViewModel : ObservableObject {
         dataisAvailable = true
     }
     
-    func applyTermToUserModel(){
+    /*func applyTermToUserModel(){
         if(userModel.term != term){
             userModel.term = term
         }
-    }
+    }*/
     
     //help functions
     private func fetchDataFromApi(){
         //delete usermodel courses
-        userModel.courses.removeAll()
+        //userModel.termChangeCleanup()
         
         //apply term to usermodel :D
-        applyTermToUserModel()
+        //applyTermToUserModel()
         
         //fetch data
         self.dataisAvailable = false
