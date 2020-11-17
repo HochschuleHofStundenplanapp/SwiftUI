@@ -51,15 +51,15 @@ struct ChangesRow: View {
                     Text(self.changes.label)
                         .font(.title2)
                     Text("(" + self.changes.reason + ")").font(.title3)
-                }.padding(5)
-                HStack{
-                    Text(self.changes.originalRoom)
-                        .font(.caption)
-                        .strikethrough()
                     Spacer()
                 }.padding(5)
                 HStack{
                     Text(self.changes.originalDate)
+                        .font(.caption)
+                        .strikethrough()
+                }.padding(5)
+                HStack{
+                    Text(self.changes.originalRoom)
                         .font(.caption)
                         .strikethrough()
                 }.padding(5)
