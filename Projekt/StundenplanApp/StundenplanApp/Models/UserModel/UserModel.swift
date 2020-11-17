@@ -13,6 +13,14 @@ class UserModel{
     private let userModelAccess = UserModelSingleton.sharedInstance
     
     //modify singleton and access data
+    var term : String{
+        get{
+            return userModelAccess.term
+        }
+        set(value){
+            userModelAccess.term = value
+        }
+    }
     var courses : [Course] {
         get{
             return userModelAccess.courses
@@ -56,6 +64,17 @@ fileprivate class UserModelSingleton : ObservableObject{
     @Published var modelChanged : Bool = false
     
     //data structures for storing data
+    private var _term : String = ""
+    var term : String{
+        get{
+            return _term
+        }
+        set(value){
+            _term = value
+            modelChanged = true
+        }
+    }
+    
     private var _courses : [Course] = []
     var courses : [Course]{
         get {

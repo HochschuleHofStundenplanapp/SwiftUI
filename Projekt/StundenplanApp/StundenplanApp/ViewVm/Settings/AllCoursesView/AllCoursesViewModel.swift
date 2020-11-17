@@ -28,10 +28,15 @@ class AllCoursesViewModel : ObservableObject {
     }
     
     func getCourses() {
-        if serverModel.allCoursesAreValid(){
+        if serverModel.allCoursesAreValid() && userModel.term == term{
+            self.dataisAvailable = true
             return
         }
         
+        //apply term to usermodel :D
+        applyTermToUserModel()
+        
+        //fetch data
         self.dataisAvailable = false
         data.removeAll()
         let pipe = Pipelines()
@@ -53,6 +58,12 @@ class AllCoursesViewModel : ObservableObject {
         }
         mergeModels()
         dataisAvailable = true
+    }
+    
+    func applyTermToUserModel(){
+        if(userModel.term != term){
+            userModel.term = term
+        }
     }
     
     //help functions
