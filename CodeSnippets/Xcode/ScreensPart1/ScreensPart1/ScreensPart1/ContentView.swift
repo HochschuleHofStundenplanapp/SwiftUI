@@ -31,11 +31,13 @@ struct ContentView: View {
           }
         }.pickerStyle(SegmentedPickerStyle()).padding()
         GeometryReader { geo in
-          List(lessonsForWeekDay, id:\.id){ lesson in
-            ScheduleRow(lesson: lesson, geometry : geo)
-              .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-              
-          }.listStyle(PlainListStyle())
+          ScrollView {
+            LazyVStack(spacing:0) {
+              ForEach (lessonsForWeekDay) { lesson in
+                ScheduleRow(lesson: lesson, geometry : geo)
+              }
+            }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
+          }
         }
       }.navigationTitle("Stundenplan")
     }
@@ -52,7 +54,7 @@ struct ScheduleRow:View{
       Text(self.lesson.time)
         .font(.caption)
         .frame(width: geometry.size.width / 4.0, alignment : .leading)
-      LessonContent(lesson: lesson)
+      LessonContent(lesson: lesson).padding(2)
     }
   }
 }
