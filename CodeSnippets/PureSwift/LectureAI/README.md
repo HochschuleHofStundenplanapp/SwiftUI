@@ -21,4 +21,6 @@ Analyzed Lecture returns:
 
 ## Tests
 
-* Run all tests with `swift test`  
+* Run all tests with `swift test`
+* Tests can be filtered by providing a case sensitive substring
+    * Example: Only run Tests from DatenUtilTests class: `swift test --filter DateUtil`

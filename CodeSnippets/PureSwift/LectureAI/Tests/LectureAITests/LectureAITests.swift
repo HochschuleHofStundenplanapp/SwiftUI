@@ -1,11 +1,19 @@
 import XCTest
 @testable import LectureAI
+
 import Foundation
 
 final class LectureAITests: XCTestCase {
 
-    func testAI() {
-        let ki = LectureAI()
+    private var dateUtil: DateUtil!
+    private var lectureAI: LectureAI!
+
+    override func setUp() {
+        self.dateUtil = TestDateUtil()
+        self.lectureAI = LectureAI(dateUtil: dateUtil)
+    }
+
+    func testParseEvent() {
         let testLecture = Lecture(
                 id: "1",
                 label: "Architektur mobiler Anwendungen",
@@ -22,41 +30,18 @@ final class LectureAITests: XCTestCase {
                 sp: "-"
         )
 
-        let parsedEvent = ki.parseEvent(term: "WS", lecture: testLecture)
+        let parsedEvent = lectureAI.parseEvent(term: "WS", lecture: testLecture)
         
         XCTAssertEqual(
                 ["06.10.2020", "13.10.2020", "20.10.2020", "27.10.2020",
                  "03.11.2020", "10.11.2020", "17.11.2020", "24.11.2020",
                  "01.12.2020", "08.12.2020", "15.12.2020", "22.12.2020",
-                 "29.12.2020", "05.01.2021","12.01.2021", "19.01.2021"], DateUtil.stringify(parsedEvent.dates, format: "dd.MM.yyyy")
+                 "29.12.2020", "05.01.2021","12.01.2021", "19.01.2021"], dateUtil.stringify(parsedEvent.dates, format: "dd.MM.yyyy")
         )
     }
 
-    func testGetDateInCurrentYear() {
-        let ai = LectureAI()
-
-        let date = ai.getDateInWantedYear(day: "10", month: "11", yearModifier: .current)
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-
-        XCTAssertEqual("2020-11-10", formatter.string(from: date))
-    }
-
-    func testGetDateInNextYear() {
-        let ai = LectureAI()
-
-        let date = ai.getDateInWantedYear(day: "10", month: "11", yearModifier: .next)
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-
-        XCTAssertEqual("2021-11-10", formatter.string(from: date))
-    }
-
     func testGetSemesterStartDateWS() {
-        let ai = LectureAI()
-        let date = ai.getSemesterStartDate(term: "WS", currentMonth: ai.getCurrentMonth())
+        let date = lectureAI.getSemesterStartDate(term: "WS", currentMonth: dateUtil.getCurrentMonth())
 
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -65,8 +50,7 @@ final class LectureAITests: XCTestCase {
     }
 
     func testGetSemesterStartDateSS() {
-        let ai = LectureAI()
-        let date = ai.getSemesterStartDate(term: "SS", currentMonth: ai.getCurrentMonth())
+        let date = lectureAI.getSemesterStartDate(term: "SS", currentMonth: dateUtil.getCurrentMonth())
 
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -74,20 +58,9 @@ final class LectureAITests: XCTestCase {
         XCTAssertEqual("2020-03-15", formatter.string(from: date))
     }
 
-    func testGetWeekDayIdOfDate() {
-        let ai = LectureAI()
-
-        let date = ai.getDateInWantedYear(day: "10", month: "11", yearModifier: .current)
-        let weekdayId = ai.getWeekDayIdOfDate(date: date)
-
-        XCTAssertEqual(3, weekdayId)
-    }
-
     func testGetFirstLectureDate() {
-        let ai = LectureAI()
-
-        let semesterStartDate = ai.getDateInWantedYear(day: "01", month: "10", yearModifier: .current)
-        let firstLectureDate = ai.getFirstLectureDate(semesterStartDate: semesterStartDate, lectureWeekDay: "Dienstag")
+        let semesterStartDate = dateUtil.getDateInWantedYear(day: "01", month: "10", yearModifier: .current)
+        let firstLectureDate = lectureAI.getFirstLectureDate(semesterStartDate: semesterStartDate, lectureWeekDay: "Dienstag")
 
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -96,10 +69,8 @@ final class LectureAITests: XCTestCase {
     }
 
     func testGetFirstLectureDate2() {
-        let ai = LectureAI()
-
-        let semesterStartDate = ai.getDateInWantedYear(day: "01", month: "10", yearModifier: .current)
-        let firstLectureDate = ai.getFirstLectureDate(semesterStartDate: semesterStartDate, lectureWeekDay: "Donnerstag")
+        let semesterStartDate = dateUtil.getDateInWantedYear(day: "01", month: "10", yearModifier: .current)
+        let firstLectureDate = lectureAI.getFirstLectureDate(semesterStartDate: semesterStartDate, lectureWeekDay: "Donnerstag")
 
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -108,10 +79,8 @@ final class LectureAITests: XCTestCase {
     }
 
     func testGetFirstLectureDateSS() {
-        let ai = LectureAI()
-
-        let semesterStartDate = ai.getSemesterStartDate(term: "SS", currentMonth: ai.getCurrentMonth())
-        let firstLectureDate = ai.getFirstLectureDate(semesterStartDate: semesterStartDate, lectureWeekDay: "Dienstag")
+        let semesterStartDate = lectureAI.getSemesterStartDate(term: "SS", currentMonth: dateUtil.getCurrentMonth())
+        let firstLectureDate = lectureAI.getFirstLectureDate(semesterStartDate: semesterStartDate, lectureWeekDay: "Dienstag")
 
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -119,29 +88,27 @@ final class LectureAITests: XCTestCase {
         XCTAssertEqual("2020-03-17", formatter.string(from: firstLectureDate))
     }
 
-    func testYearModifier() {
-        let ai = LectureAI()
-
-        let date = ai.getDateInWantedYear(day: "10", month: "1", yearModifier: .previous)
-        
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-
-        XCTAssertEqual("2020-02-17", formatter.string(from: date))
-    }
-
     func testGetAllLectureDates() {
-        let ai = LectureAI()
+        let firstDate = dateUtil.getDateInWantedYear(day: "15", month: "03", yearModifier: .current)
+        let examDate = dateUtil.getDateInWantedYear(day: "09", month: "07", yearModifier: .current)
 
-        let firstDate = ai.getDateInWantedYear(day: "15", month: "03", yearModifier: .current)
-        let examDate = ai.getDateInWantedYear(day: "09", month: "07", yearModifier: .current)
+        let dates = lectureAI.getAllLectureDates(firstLectureDate: firstDate, firstExamDate: examDate)
 
-        let dates = ai.getAllLectureDates(firstLectureDate: firstDate, firstExamDate: examDate)
-        XCTAssertEqual([("2020-10-10")], DateUtil.stringify(dates))
+        let otherDates = ["2020-03-15", "2020-03-22", "2020-03-29", "2020-04-05", "2020-04-12", 
+                        "2020-04-19", "2020-04-26", "2020-05-03", "2020-05-10", "2020-05-17", 
+                        "2020-05-24", "2020-05-31", "2020-06-07", "2020-06-14", "2020-06-21", 
+                        "2020-06-28", "2020-07-05"]
+
+        XCTAssertEqual(otherDates, dateUtil.stringify(dates, format: "yyyy-MM-dd"))
     }
-
 
     static var allTests = [
-        ("testExample", testAI),
+        ("testParseEvent", testParseEvent),
+        ("testGetSemesterStartDateWS", testGetSemesterStartDateWS),
+        ("testGetSemesterStartDateSS", testGetSemesterStartDateSS),
+        ("testGetFirstLectureDate", testGetFirstLectureDate),
+        ("testGetFirstLectureDate2", testGetFirstLectureDate2),
+        ("testGetFirstLectureDateSS", testGetFirstLectureDateSS),
+        ("testGetAllLectureDates", testGetAllLectureDates)
     ]
 }
