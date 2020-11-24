@@ -21,8 +21,8 @@ struct changesModel {
 }
 
 struct ContentView: View {
-    var allChanges = [
-        changesModel(label: "Architektur mobiler Anwendung", docent: "Prof. Dr. Stöhr", reason: "", group: "", originalTime: "14:00 - 15:00", originalDate: "13.10.2020", originalRoom: "FB004B", alternativeTime: "14:00 - 15:30", alternativeDate: "20.10.2020", alternativeRoom: "FB004B"),
+    var allChanges =
+        [changesModel(label: "Architektur mobiler Anwendung", docent: "Prof. Dr. Stöhr", reason: "", group: "", originalTime: "14:00 - 15:00", originalDate: "13.10.2020", originalRoom: "FB004B", alternativeTime: "14:00 - 15:30", alternativeDate: "20.10.2020", alternativeRoom: "FB004B"),
         changesModel(label: "Robotik", docent: "Prof. Dr. Groth", reason: "entfällt", group: "", originalTime: "14:00 - 15:30", originalDate: "14.10.2020", originalRoom: "virt.cgroth", alternativeTime: "", alternativeDate: "", alternativeRoom: "")]
     
     let background = Color(red: 0.745, green:0.824, blue: 0.75, opacity: 100)
@@ -31,7 +31,6 @@ struct ContentView: View {
             ScrollView(){
                 ChangesRow(changes: allChanges[0])
                 ChangesRow(changes: allChanges[1])
-                
             }
             .padding(10)
             .navigationBarTitle(Text("Changes"), displayMode: .inline)
@@ -74,9 +73,10 @@ struct ChangesRow: View {
                         .strikethrough()
                 }.padding(5)
             }
+            .padding(10)
             .background(background)
             .cornerRadius(10.0)
-            .padding(5)
+            
         }else{
             VStack(alignment: .leading){
                 Text(self.changes.label).font(.headline).padding(5)
@@ -113,13 +113,11 @@ struct ChangesRow: View {
                         .font(.caption)
                 }.padding(5)
             }
+            .padding(10)
             .background(background)
             .cornerRadius(10.0)
-            .padding(5)
         }
     }
-    
-
 }
 
 struct ContentView_Previews: PreviewProvider {
