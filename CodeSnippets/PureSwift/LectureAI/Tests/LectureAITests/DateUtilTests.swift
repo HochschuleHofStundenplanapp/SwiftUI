@@ -4,7 +4,7 @@ import Foundation
 
 public final class DateUtilTests: XCTestCase {
 
-    private let dateUtil: DateUtil = TestDateUtil()
+    private let dateUtil: TestDateUtil = TestDateUtil()
 
     func testParseStringify() {
         let dateString = "2020-11-17"

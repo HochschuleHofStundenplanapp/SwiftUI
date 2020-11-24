@@ -35,9 +35,8 @@ final class CommentsFetcherTests: XCTestCase {
         sleep(5)
     }
 
-    func test2() {
-        let fetcher = CommentsFetcher()
-
+    func download_all_lectures() {
+        let fetcher = LectureDownloader()
         fetcher.main()
         //fetcher.loadTimetableForCourse(term: "WS", course: Course(course: "MC", year: "2020", labels: Labels(de: "MC", en: "MC"), semester: ["3", "5"]))
         sleep(5)
@@ -45,7 +44,30 @@ final class CommentsFetcherTests: XCTestCase {
         //fetcher.storeFile(fileName: "testfile", text: "testcontent")
     }
 
+    func testGetFilesOfDirectory() {
+        let fetcher = CommentsFetcher()
+
+        let outputFolder = fetcher.getOutputFolder()
+        let files = fetcher.getFilesOfDirectory(folder: outputFolder)
+
+        print(files)
+    }
+
+    func testLoadAllComments() {
+        let fetcher = CommentsFetcher()
+        fetcher.loadAllComments()
+    }
+
+    func testLoadAndStoreAllComments() {
+        let fetcher = CommentsFetcher()
+        fetcher.loadAndStoreAllComments()
+    }
+
+
     static var allTests = [
-        ("testExample", test2),
+        ("download_all_lectures", download_all_lectures),
+        ("testGetFilesOfDirectory", testGetFilesOfDirectory),
+        ("testLoadAllComments", testLoadAllComments),
+        ("testLoadAndStoreAllComments", testLoadAndStoreAllComments)
     ]
 }

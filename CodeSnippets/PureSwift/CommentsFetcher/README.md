@@ -5,7 +5,7 @@ A description of this package.
 
 ## Introduction
 
-CommentsFetcher is a clerk, that fetches all lecture data by using the Pipelines-class.
+LectureDownloader is a clerk, that fetches all lecture data by using the Pipelines-class.
 The data is then stored in files.
 ```
 loadAllSemesters() downloads data via Pipeline-Class and stores lectures in files.

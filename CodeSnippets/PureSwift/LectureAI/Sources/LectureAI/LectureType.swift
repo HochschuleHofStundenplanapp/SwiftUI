@@ -5,4 +5,6 @@
 import Foundation
 
 enum LectureType {
+
+
 }

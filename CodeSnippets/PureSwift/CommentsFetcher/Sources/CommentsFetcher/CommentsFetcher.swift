@@ -1,81 +1,87 @@
+//
+// Created by root on 11/24/20.
+//
+
 import Foundation
 
-#if os(iOS)
-    import Combine
-#elseif os(OSX)
-    import Combine
-#elseif os(tvOS)
-    import Combine
-#else
-    import FoundationNetworking
-    import OpenCombine
-    import OpenCombineDispatch
-    import OpenCombineFoundation
-#endif
-
-class CommentsFetcher {
-
-    let pipelines = Pipelines()
+public class CommentsFetcher {
 
 
-    var schedulePublishers = Set<AnyCancellable>()
-    var wsCoursePublisher: AnyCancellable? 
-    var ssCoursePublisher: AnyCancellable?
-
-    func main() {
-        
-        loadAllSemesters()
-    }
-
-    func loadAllSemesters() {
-        self.wsCoursePublisher = loadSemester(term: "WS")
-        self.ssCoursePublisher = loadSemester(term: "SS")
-    }
-
-
-    func loadSemester(term: String) -> AnyCancellable {
-        return pipelines.getCoursesAfterTerm(term: term)
-                .sink(receiveCompletion: { _ in
-
-                }, receiveValue: { (response: CoursesAfterTerm) in
-                    
-                    for course in response.courses {
-                        print("Loading \(course.course)..")
-                        self.loadTimetableForCourse(term: term, course: course)
-                    }
-
-                })
-    }
-
-    func loadTimetableForCourse(term: String, course: Course) {
-        let courseName = course.course
-        let semesters = course.semester
-
-        for semester in semesters {
-
-            try? pipelines.getScheduleForCourseSemester(course: courseName, semester: semester, term: term)
-                .sink(receiveCompletion: { _ in
-
-                }, receiveValue: { (response: ScheduleForCourseSemester) in
-                    self.storeSchedule(identifier: courseName + "_" + semester, schedule: response)
-                }).store(in: &schedulePublishers)
-        }
+    public init () {
 
     }
 
-    func storeSchedule(identifier: String, schedule: ScheduleForCourseSemester) {
+    public func loadAndStoreAllComments() {
+        let commentInfos = loadAllComments()
+
         let encoder = JSONEncoder()
-        let jsonData = try! encoder.encode(schedule)
+        let jsonData = try! encoder.encode(commentInfos)
 
-        storeFile(fileName: identifier, textData: jsonData)
+        storeFile(fileName: "comments.json", textData: jsonData)
     }
 
-    func storeFile(fileName: String, textData: Data) {
-        let projectPath = FileManager.default.currentDirectoryPath 
-        let outputPath = projectPath + "/Output" 
+    public func storeFile(fileName: String, textData: Data) {
+        let projectPath = FileManager.default.currentDirectoryPath
+        let outputPath = projectPath + "/Output"
         let filePath = outputPath + "/" + fileName
 
         FileManager.default.createFile(atPath: filePath, contents: textData)
+    }
+
+
+    public func loadAllComments() -> [CommentInfo] {
+        let outputFolder = getOutputFolder()
+        let files = getFilesOfDirectory(folder: outputFolder)
+
+        var commentInfos: [CommentInfo] = []
+
+        do {
+            for file in files {
+                let filePath = "\(outputFolder)/\(file)"
+
+                let jsonData = try String(contentsOfFile: filePath).data(using: .utf8)
+
+                let decodedData: ScheduleForCourseSemester = try JSONDecoder().decode(
+                        ScheduleForCourseSemester.self,
+                        from: jsonData!)
+
+                for lecture in decodedData.schedule {
+
+                    if lecture.comment == "" || commentInfos.contains(where: { $0.comment == lecture.comment }) {
+                        continue
+                    }
+
+                    let commentInfo = CommentInfo(
+                            file: file,
+                            lecture: lecture.label,
+                            comment: lecture.comment
+                    )
+
+                    commentInfos.append(commentInfo)
+                }
+            }
+        }
+        catch {
+            print("Error!!!")
+        }
+
+        return commentInfos
+    }
+
+    public struct CommentInfo: Codable {
+        let file: String
+        let lecture: String
+        let comment: String
+    }
+
+
+    public func getFilesOfDirectory(folder: String) -> [String] {
+        let fm = FileManager.default
+        return try! fm.contentsOfDirectory(atPath: folder)
+    }
+
+    public func getOutputFolder() -> String {
+        return "\(FileManager.default.currentDirectoryPath)/Output/Lectures"
     }
 
 }

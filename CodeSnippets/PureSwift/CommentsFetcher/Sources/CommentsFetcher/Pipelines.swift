@@ -29,6 +29,10 @@ public class Pipelines {
     //URL Fragment Dummys
     //let lectureByID = "client.php?f=MySchedule&id[]=1332256"
 
+    public init() {
+
+    }
+
     public func getCoursesAfterTerm(term: String) -> AnyPublisher<CoursesAfterTerm, Error>
     {
         let urlString = "\(baseURI)client.php?f=Courses&tt=\(term)"

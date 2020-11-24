@@ -19,6 +19,10 @@ public class LectureAI {
         return AnalyzedLecture(lecture: lecture, dates: dates)
     }
 
+    public func filterDatesFor(dates: [Date]) {
+
+    }
+
     public func getFirstLectureDate(semesterStartDate: Date, lectureWeekDay: String) -> Date {
         let semesterStartWeekId = dateUtil.getWeekDayIdOfDate(date: semesterStartDate)
         let lectureWeekId = dateUtil.getWeekdayNumberOfGermanString(germanString: lectureWeekDay)

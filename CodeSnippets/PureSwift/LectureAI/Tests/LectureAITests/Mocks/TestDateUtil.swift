@@ -7,8 +7,8 @@ import LectureAI
 
 public class TestDateUtil : DateUtil {
 
-    var currentMonth = 12
-    var currentYear = 2020
+    public var currentMonth = 12
+    public var currentYear = 2020
 
     override public init() {
 

@@ -13,7 +13,7 @@ import Foundation
     import OpenCombineFoundation
 #endif
 
-class LectureDownloader {
+public class LectureDownloader {
 
     let pipelines = Pipelines()
 
@@ -22,17 +22,21 @@ class LectureDownloader {
     var wsCoursePublisher: AnyCancellable? 
     var ssCoursePublisher: AnyCancellable?
 
-    func main() {
+    public init() {
+
+    }
+
+    public func main() {
         loadAllSemesters()
     }
 
-    func loadAllSemesters() {
+    public func loadAllSemesters() {
         self.wsCoursePublisher = loadSemester(term: "WS")
         self.ssCoursePublisher = loadSemester(term: "SS")
     }
 
 
-    func loadSemester(term: String) -> AnyCancellable {
+    public func loadSemester(term: String) -> AnyCancellable {
         return pipelines.getCoursesAfterTerm(term: term)
                 .sink(receiveCompletion: { _ in
 
@@ -46,7 +50,7 @@ class LectureDownloader {
                 })
     }
 
-    func loadTimetableForCourse(term: String, course: Course) {
+    public func loadTimetableForCourse(term: String, course: Course) {
         let courseName = course.course
         let semesters = course.semester
 
@@ -62,16 +66,16 @@ class LectureDownloader {
 
     }
 
-    func storeSchedule(identifier: String, schedule: ScheduleForCourseSemester) {
+    public func storeSchedule(identifier: String, schedule: ScheduleForCourseSemester) {
         let encoder = JSONEncoder()
         let jsonData = try! encoder.encode(schedule)
 
         storeFile(fileName: "\(identifier).json", textData: jsonData)
     }
 
-    func storeFile(fileName: String, textData: Data) {
-        let projectPath = FileManager.default.currentDirectoryPath 
-        let outputPath = projectPath + "/Output" 
+    public func storeFile(fileName: String, textData: Data) {
+        let projectPath = FileManager.default.currentDirectoryPath
+        let outputPath = projectPath + "/Output/Lectures"
         let filePath = outputPath + "/" + fileName
 
         FileManager.default.createFile(atPath: filePath, contents: textData)

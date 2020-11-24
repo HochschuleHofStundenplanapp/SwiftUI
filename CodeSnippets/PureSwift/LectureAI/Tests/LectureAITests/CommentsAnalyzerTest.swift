@@ -2,54 +2,35 @@ import XCTest
 @testable import LectureAI
 import Foundation
 
-public final class DateUtilTests: XCTestCase {
+public final class CommentsAnalyzerTest: XCTestCase {
 
-    private let dateUtil: TestDateUtil = TestDateUtil()
+    private let analyzer = CommentAnalyzer()
 
-    func testParseStringify() {
-        let dateString = "2020-11-17"
-        XCTAssertEqual(dateString, dateUtil.stringify(dateUtil.parse(dateString)))
+    func test_BW_dual2_Wirtschaftsinformatik() {
+
+        let inputComment = "- Übungen - Start KW 17 (vorzugsweise für BW)"
+        let expectedOutputFacts = [
+            CommentFact(type: .start_kw, value: "17")
+        ]
+
+        let actualFacts = analyzer.analyzeComment(comment: inputComment)
+        XCTAssertEqual(expectedOutputFacts, actualFacts)
     }
 
-    func testStringifyDateArray() {
-        let date: Date = dateUtil.parse("2020-11-17")
-        let dateArray: [Date] = [date]
-        let stringifiedArray = dateUtil.stringify(dateArray)
+    func test_BW_dual2_DigitaleAnwendungen() {
 
-        XCTAssertEqual(["2020-11-17"], stringifiedArray)
+        let inputComment = "- Online-Anmeldung 01.04. - 06.04.2020 - Beginn KW 17 - max. 20 TN"
+        let expectedOutputFacts = [
+            CommentFact(type: .start_kw, value: "17")
+        ]
+
+        let actualFacts = analyzer.analyzeComment(comment: inputComment)
+        XCTAssertEqual(expectedOutputFacts, actualFacts)
     }
 
-    func testGetDateInCurrentYear() {
-        let sutDate = dateUtil.getDateInWantedYear(day: "10", month: "11", yearModifier: .current)
-        XCTAssertEqual("2020-11-10", dateUtil.stringify(sutDate, format: "yyyy-MM-dd"))
-    }
-
-    func testGetDateInNextYear() {
-        dateUtil.
-
-        let sutDate = dateUtil.getDateInWantedYear(day: "10", month: "11", yearModifier: .next)
-        XCTAssertEqual("2021-11-10", dateUtil.stringify(sutDate, format: "yyyy-MM-dd"))
-    }
-
-    func testGetDateInPreviousYear() {
-        let sutDate = dateUtil.getDateInWantedYear(day: "10", month: "1", yearModifier: .previous)
-        XCTAssertEqual("2019-01-10", dateUtil.stringify(sutDate, format: "yyyy-MM-dd"))
-    }
-
-    func testGetWeekDayIdOfDate() {
-        let date = dateUtil.getDateInWantedYear(day: "10", month: "11", yearModifier: .current)
-        let weekdayId = dateUtil.getWeekDayIdOfDate(date: date)
-
-        XCTAssertEqual(3, weekdayId)
-    }
 
     public static var allTests = [
-        ("testParseStringify", testParseStringify),
-        ("testStringifyDateArray", testStringifyDateArray),
-        ("testGetDateInCurrentYear", testGetDateInCurrentYear),
-        ("testGetDateInNextYear", testGetDateInNextYear),
-        ("testGetDateInPreviousYear", testGetDateInPreviousYear),
-        ("testGetWeekDayIdOfDate", testGetWeekDayIdOfDate)
+        ("test_BW_dual2_Wirtschaftsinformatik", test_BW_dual2_Wirtschaftsinformatik),
     ]
 
 }

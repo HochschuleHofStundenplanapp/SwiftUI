@@ -30,13 +30,13 @@ final class LectureAITests: XCTestCase {
                 sp: "-"
         )
 
-        let parsedEvent = lectureAI.parseEvent(term: "WS", lecture: testLecture)
+        let analyzedLecture = lectureAI.parseEvent(term: "WS", lecture: testLecture)
         
         XCTAssertEqual(
                 ["06.10.2020", "13.10.2020", "20.10.2020", "27.10.2020",
                  "03.11.2020", "10.11.2020", "17.11.2020", "24.11.2020",
                  "01.12.2020", "08.12.2020", "15.12.2020", "22.12.2020",
-                 "29.12.2020", "05.01.2021","12.01.2021", "19.01.2021"], dateUtil.stringify(parsedEvent.dates, format: "dd.MM.yyyy")
+                 "29.12.2020", "05.01.2021","12.01.2021", "19.01.2021"], dateUtil.stringify(analyzedLecture.dates, format: "dd.MM.yyyy")
         )
     }
 
