@@ -16,9 +16,14 @@ struct AllSemesterView : View{
                     ForEach(viewModel.allCourses, id: \.course) {el in
                         Section(header: Text(el.course)) {
                             ForEach(el.semester, id: \.self) { sem in
+                                HStack {
                                 Text(sem).onTapGesture(perform: {
                                     viewModel.updateSemesterSelection(course: el, semester: sem)
                                 })
+                                if viewModel.isSemesterInCourseSelected(course: el, semester: sem) {
+                                    Image(systemName: "hand.point.left.fill")
+                                }
+                                }
                             }
                         }
                     }

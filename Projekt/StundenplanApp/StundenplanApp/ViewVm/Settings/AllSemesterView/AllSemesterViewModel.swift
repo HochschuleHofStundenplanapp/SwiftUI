@@ -13,7 +13,8 @@ import Combine
 class AllSemesterViewModel : ObservableObject{
     //fields
     @Published var dataChanged = false
-    //var selectedSemesters = [(course: Course, semester: [String])]()
+    
+    var selectedSemesters = [(course: Course, semester: String, selected: Bool)]()
     
     var allCourses = [Course]()
     
@@ -24,11 +25,29 @@ class AllSemesterViewModel : ObservableObject{
     func loadData(){
         allCourses = userModel.courses
         loadSelectedSemesters()
-        dataChanged = true
     }
     
     private func loadSelectedSemesters(){
-        //selectedSemesters = userModel.semesters
+        selectedSemesters.removeAll()
+        allCourses.forEach{ cor in
+            let userSemSelection = userModel.semesters[cor.course]
+            for sem in cor.semester {
+                var sel = false
+                if let existingUserSemSelection = userSemSelection {
+                    if existingUserSemSelection.contains(sem) {
+                        sel = true
+                    }
+                }
+                selectedSemesters.append((course: cor, semester: sem, selected: sel))
+            }
+        }
+        dataChanged = true
+    }
+    
+    func isSemesterInCourseSelected(course: Course, semester: String) -> Bool {
+        return selectedSemesters.contains(where: {
+            $0.course.course == course.course && $0.semester == semester && $0.selected
+        })
     }
     
     func updateSemesterSelection(course: Course, semester: String){
@@ -36,6 +55,7 @@ class AllSemesterViewModel : ObservableObject{
             //update semesters
             //check if choosen semester is in usermodel.semesters in context of course
             if let index = allSelectedSemesterOfCourse.firstIndex(of: semester){
+                userModel.semesterChangeCleanup()
                 allSelectedSemesterOfCourse.remove(at: index)
             }
             else{
@@ -48,9 +68,7 @@ class AllSemesterViewModel : ObservableObject{
             //course does not exist in semester selection
             userModel.semesters[course.course] = [semester]
         }
-        
-        
-        //TODO: UPDATE FLAGS IN UI
+        loadSelectedSemesters()
     }
     
     

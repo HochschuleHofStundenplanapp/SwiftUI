@@ -40,6 +40,7 @@ class AllCoursesViewModel : ObservableObject {
     func updateCourseSelection(course: Course){
         //dataisAvailable = false
         if userModel.courses.contains(where: {$0.course == course.course}){
+            userModel.courseChangeCleanup(courses: [course])
             userModel.courses.removeAll(where: {$0.course == course.course})
         }
         else{
