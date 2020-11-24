@@ -16,4 +16,12 @@ struct lessonModel : Identifiable{
     var lecturer: String
     var type:String
     var addtional:String
+    var isBlockLesson:Bool
+    var datesForBlocklesson:[lessonDateDuration]
+}
+
+struct lessonDateDuration: Identifiable{
+    var id = UUID()
+    var date:Date
+    var durationInMinutes:Int
 }
