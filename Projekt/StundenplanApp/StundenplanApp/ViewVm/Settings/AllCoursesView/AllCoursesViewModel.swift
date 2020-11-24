@@ -40,6 +40,7 @@ class AllCoursesViewModel : ObservableObject {
     func updateCourseSelection(course: Course){
         //dataisAvailable = false
         if userModel.courses.contains(where: {$0.course == course.course}){
+            userModel.courseChangeCleanup(courses: [course])
             userModel.courses.removeAll(where: {$0.course == course.course})
         }
         else{
@@ -49,20 +50,9 @@ class AllCoursesViewModel : ObservableObject {
         dataisAvailable = true
     }
     
-    /*func applyTermToUserModel(){
-        if(userModel.term != term){
-            userModel.term = term
-        }
-    }*/
     
     //help functions
     private func fetchDataFromApi(){
-        //delete usermodel courses
-        //userModel.termChangeCleanup()
-        
-        //apply term to usermodel :D
-        //applyTermToUserModel()
-        
         //fetch data
         self.dataisAvailable = false
         data.removeAll()

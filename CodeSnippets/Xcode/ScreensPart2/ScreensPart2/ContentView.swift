@@ -27,14 +27,12 @@ struct ContentView: View {
     
     let background = Color(red: 0.745, green:0.824, blue: 0.75, opacity: 100)
     var body: some View {
-        NavigationView{
-            ScrollView(){
-                ChangesRow(changes: allChanges[0])
-                ChangesRow(changes: allChanges[1])
-            }
-            .padding(10)
-            .navigationBarTitle(Text("Changes"), displayMode: .inline)
+        ScrollView(){
+            ChangesRow(changes: allChanges[0])
+            ChangesRow(changes: allChanges[1])
         }
+        .navigationTitle("Changes")
+        .padding(10)
     }
 }
 

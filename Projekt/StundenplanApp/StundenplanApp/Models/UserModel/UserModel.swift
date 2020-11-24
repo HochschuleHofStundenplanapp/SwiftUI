@@ -56,11 +56,13 @@ class UserModel{
     //cleanup functions
     func termChangeCleanup(){
         courses.removeAll()
-        courseChangeCleanup()
+        courseChangeCleanup(courses: courses)
     }
     
-    func courseChangeCleanup(){
-        semesters.removeAll()
+    func courseChangeCleanup(courses: [Course]){
+        for course in courses {
+            semesters.removeValue(forKey: course.course)
+        }
         semesterChangeCleanup()
     }
     
