@@ -5,6 +5,10 @@ A description of this package.
 
 ## Introduction
 
+purpose: get all comments of all lectures to determine which exceptional cases ("ab KW 41", "außer KW 38,40,41", ...) should be fixed by LectureAI.
+
+## LectureDownloader
+
 LectureDownloader is a clerk, that fetches all lecture data by using the Pipelines-class.
 The data is then stored in files.
 ```
@@ -30,6 +34,23 @@ has 3 main methods:
  - getChangesForCourseSemester(course: String, semester: String, term: String)
  
  * all of them provide a publisher who allow the CommentsFetcher-clerk to download the data from the API
+
+## CommentsFetcher
+clerk, that gets all comments out of all stored lecture data (from LectureDownloader)
+
+loadAndStoreAllComments()
+```
+filters all comments from all downloaded lecture-data and writes them into a file "comments.json"
+```
+* ComentInfo-struct determines which information is extracted from files (file, lecture, comment)
+
+Methods used by loadAndStoreAllComments:
+* loadAllComments() -> returns [CommentInfo]
+* getOutPutFolder() -> returns String (Path of Output-Folder, where data from LectureDownloader ist stored)
+* getFilesOfDirectory(folder: String) -> returns [String] of all Files in Output-folder
+* storeFile(fileName: String, textData: Data) -> saves data in wanted File
+
+
 
 ## Models
 
