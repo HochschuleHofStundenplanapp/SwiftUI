@@ -12,8 +12,21 @@ struct AllLectureView : View{
     
     var body: some View{
         VStack{
-            if viewModel.dataIsAvalible{
-                Text(viewModel.data.description)
+            if viewModel.dataIsAvailable{
+                List(viewModel.data,id: \.lectureSelection.lecture.id){ data in
+                    VStack{
+                        Text(data.lectureSelection.lecture.label)
+                        Text(data.lectureSelection.lecture.day)
+                        Text(data.lectureSelection.lecture.starttime)
+                        Text(data.lectureSelection.lecture.endtime)
+                        Text("\(data.lectureSelection.courseName) - \(data.lectureSelection.semester)")
+                        if data.selected{
+                            Image(systemName: "hand.point.left.fill")
+                        }
+                    }.onTapGesture {
+                        viewModel.updateScheduleSelection(lectureSelection: data.lectureSelection)
+                    }
+                }
             }
             else{
                 Text("Loading...")
