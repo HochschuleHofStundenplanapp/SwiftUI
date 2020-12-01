@@ -16,14 +16,20 @@ public class CommentAnalyzer {
 
         let commentLowercased = comment.lowercased()
 
-        let pattern = "(start|begin|beginn|ab) kw\\s*(\\d{1,2})" // z.B. "start kw15"
-        let pattern2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw" // z.B. "start 15 kw"
+        let pattern = "(start|begin|beginn|beginning|ab):?\\s*(calender)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})" // z.B. "start kw15"
+        let pattern2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw" // z.B. "start 15. kw"
 
-        if let kw = getGroupOf(pattern: pattern, target: commentLowercased, group: 2) {
+        //regex aufzählung: KW\s\d+(,+\s*\d+)+(\s*und\s*\d+)*
+        //comments mit - nicht möglich! -> "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
+
+
+        if let kw = getGroupOf(pattern: pattern, target: commentLowercased, group: 5) {
             facts.append(CommentFact(type: .start_kw, value: kw))
+            return facts
         }
         if let kw = getGroupOf(pattern: pattern2, target: commentLowercased, group: 2) {
             facts.append(CommentFact(type: .start_kw, value: kw))
+            return facts
         }
 
         return facts
@@ -56,3 +62,22 @@ public struct CommentFact: Equatable {
 public enum CommentFactType {
     case start_kw, excluded_kws, list_kws
 }
+
+extension String {
+
+    func split(regex pattern: String) -> [String] {
+
+        guard let re = try? NSRegularExpression(pattern: pattern, options: [])
+            else { return [] }
+
+        let nsString = self as NSString // needed for range compatibility
+        let stop = "<SomeStringThatYouDoNotExpectToOccurInSelf>"
+        let modifiedString = re.stringByReplacingMatches(
+            in: self,
+            options: [],
+            range: NSRange(location: 0, length: nsString.length),
+            withTemplate: stop)
+        return modifiedString.components(separatedBy: stop)
+    }
+}
+
