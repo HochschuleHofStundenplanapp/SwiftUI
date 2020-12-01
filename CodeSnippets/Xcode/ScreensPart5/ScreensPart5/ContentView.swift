@@ -1,25 +1,26 @@
 //
 //  ContentView.swift
-//  ScreensPart4
+//  ScreensPart5
 //
-//  Created by Xiongwei Zheng on 24.11.20.
+//  Created by Xiongwei Zheng on 01.12.20.
 //
 
 import SwiftUI
 
-struct coursesModel {
-    var label : String
+struct semesterModel {
+    var semester : String
 }
 
 struct ContentView: View {
+    @State private var tapped = false
+    
     let foregroundColor = Color(UIColor(hue: 0.3, saturation: 0.44, brightness: 0.7, alpha: 1.0))
     
-    var allCourses = [
-        coursesModel(label: "Betriebswirtschaft"),
-        coursesModel(label: "Medieninformatik"),
-        coursesModel(label: "Mobile Computing"),
-        coursesModel(label: "Textildesign"),
-        coursesModel(label: "Wirtschaftsrecht")
+    var allSemester = [
+        semesterModel(semester: "1"),
+        semesterModel(semester: "3"),
+        semesterModel(semester: "5"),
+        semesterModel(semester: "7")
     ]
     
     var body: some View {
@@ -37,23 +38,26 @@ struct ContentView: View {
                 }
             }.padding(5)
             .background(Color(.systemGray6))
+            HStack{
+                Text("Studiengangtext")
+            }.padding(5)
             List{
-                ForEach(0 ..< allCourses.count){ value in
-                    course(courseModel: allCourses[value])
+                ForEach(0 ..< allSemester.count){ value in
+                    semester(semModel: allSemester[value])
                 }
             }
         }
     }
 }
 
-struct course : View {
+struct semester: View {
     @State private var tapped = false
     
-    var courseModel : coursesModel
+    var semModel : semesterModel
     
     var body: some View{
         HStack{
-            Text(courseModel.label)
+            Text(self.semModel.semester)
             Spacer()
             if(tapped){
                 Image(systemName: "plus.rectangle.fill")
@@ -62,9 +66,7 @@ struct course : View {
             tapped.toggle()
         }
     }
-    
 }
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
