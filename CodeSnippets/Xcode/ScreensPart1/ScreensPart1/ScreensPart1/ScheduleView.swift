@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 /**
- * The main view 
+ * The view housing all schedule related information in the form if lessons and block lessons
  */
 struct ScheduleView: View {
     let days = ["Mo", "Di", "Mi", "Do", "Fr", "Sa"]
@@ -64,6 +64,9 @@ struct ScheduleView: View {
     }
 }
 
+/**
+  * Preview of the ScheduleView
+ */
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
@@ -157,6 +160,9 @@ struct BlockRow : View {
     }
 }
 
+/**
+ * the majority of information about a specific lecture shown in a rounded rectangle to the trailing side of the lesson row
+ */
 struct LessonContent : View {
     var lesson : lessonModel
     @State private var tapped = false
