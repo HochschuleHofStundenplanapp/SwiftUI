@@ -20,6 +20,7 @@ class AllSemesterViewModel : ObservableObject{
     
     //model synchronisation fields
     private let userModel = UserModel()
+    private let serverModel = ServerModel()
     
     //functions
     func loadData(){
@@ -68,6 +69,7 @@ class AllSemesterViewModel : ObservableObject{
             //course does not exist in semester selection
             userModel.semesters[course.course] = [semester]
         }
+        serverModel.semesterChangeCleanup()
         loadSelectedSemesters()
     }
     
