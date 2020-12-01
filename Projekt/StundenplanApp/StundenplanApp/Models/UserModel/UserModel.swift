@@ -70,6 +70,12 @@ class UserModel{
         lectures.removeAll()
     }
     
+    //check if there are any selected semesters (meaning that there is at least on Array of Semesters in the semesters-Dictionary that is not empty)
+    func hasSemesters() -> Bool{
+        //filter all values of the semesters-Dictionary and get all values where the Array of Semesters is not empty
+        let existingSemesters = semesters.values.filter{!$0.isEmpty}
+        return !existingSemesters.isEmpty
+    }
     
 }
 
