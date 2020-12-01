@@ -36,7 +36,7 @@ class Pipelines {
     }
     
     private func getScheduleForCourseSemesterDataTask(course: String, semester: String, term: String) -> URLSession.DataTaskPublisher{
-        let urlString = "\(baseURI)client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(term)"
+        let urlString = "\(baseURI)client.php?f=Schedule&stg=\(course)&sem=\(semester)&tt=\(term)".addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
         //TODO: Error handling
         let url = URL(string: urlString)
         var request = URLRequest(url: url!)
