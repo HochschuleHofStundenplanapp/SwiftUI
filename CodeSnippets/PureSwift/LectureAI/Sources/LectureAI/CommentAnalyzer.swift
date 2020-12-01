@@ -16,9 +16,13 @@ public class CommentAnalyzer {
 
         let commentLowercased = comment.lowercased()
 
-        let pattern = "(start|begin|beginn|ab):? kw\\s*(\\d{1,2})" // z.B. "start kw15"
+        let pattern = "(start|begin|beginn|ab) kw\\s*(\\d{1,2})" // z.B. "start kw15"
+        let pattern2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw" // z.B. "start 15 kw"
 
         if let kw = getGroupOf(pattern: pattern, target: commentLowercased, group: 2) {
+            facts.append(CommentFact(type: .start_kw, value: kw))
+        }
+        if let kw = getGroupOf(pattern: pattern2, target: commentLowercased, group: 2) {
             facts.append(CommentFact(type: .start_kw, value: kw))
         }
 
