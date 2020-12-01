@@ -31,12 +31,18 @@ class ServerModel{
         }
     }
     
-    var lectures : [Lecture]{
+    var scheduleSelections : [ScheduleSelection]{
         get{
-            return serverModelAccess.lectures
+            return serverModelAccess.scheduleSelections
         }
-        set(lectures){
-            serverModelAccess.lectures = lectures
+        set(schedSel){
+            serverModelAccess.scheduleSelections = schedSel
+        }
+    }
+    
+    var lectureSelections : [LectureSelection]{
+        get{
+            return scheduleSelections.flatMap{$0.toLectureSelections()}
         }
     }
     
@@ -51,6 +57,11 @@ class ServerModel{
         return !(allCourses.isEmpty)
     }
     
+    //validate schedule selection
+    func scheduleSelectionsIsValid() -> Bool{
+        return !(scheduleSelections.isEmpty)
+    }
+    
     //cleanup functions
     func termChangeCleanup(){
         allCourses.removeAll()
@@ -58,7 +69,7 @@ class ServerModel{
     }
     
     func semesterChangeCleanup(){
-        lectures.removeAll()
+        scheduleSelections.removeAll()
     }
 }
 
@@ -92,13 +103,13 @@ fileprivate class ServerModelSingleton : ObservableObject{
         }
     }
     
-    private var _lectures : [Lecture] = []
-    var lectures : [Lecture]{
+    private var _scheduleSelections : [ScheduleSelection] = []
+    var scheduleSelections : [ScheduleSelection]{
         get {
-            return _lectures
+            return _scheduleSelections
         }
         set(value){
-            _lectures = value
+            _scheduleSelections = value
             modelChanged = true
         }
     }

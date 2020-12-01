@@ -39,12 +39,12 @@ class UserModel{
         }
     }
     
-    var lectures : [Lecture]{
+    var lectureSelections : [LectureSelection]{
         get{
-            return userModelAccess.lectures
+            return userModelAccess.lectureSelections
         }
-        set(lectures){
-            userModelAccess.lectures = lectures
+        set(lecSecs){
+            userModelAccess.lectureSelections = lecSecs
         }
     }
     
@@ -67,7 +67,7 @@ class UserModel{
     }
     
     func semesterChangeCleanup(){
-        lectures.removeAll()
+        lectureSelections.removeAll()
     }
     
     //check if there are any selected semesters (meaning that there is at least on Array of Semesters in the semesters-Dictionary that is not empty)
@@ -120,13 +120,13 @@ fileprivate class UserModelSingleton : ObservableObject{
         }
     }
     
-    private var _lectures : [Lecture] = []
-    var lectures : [Lecture]{
+    private var _lectureSelections : [LectureSelection] = []
+    var lectureSelections : [LectureSelection]{
         get {
-            return _lectures
+            return _lectureSelections
         }
         set(value){
-            _lectures = value
+            _lectureSelections = value
             modelChanged = true
         }
     }
