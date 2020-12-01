@@ -45,6 +45,7 @@ class AllCoursesViewModel : ObservableObject {
         }
         else{
             userModel.courses.append(course)
+            userModel.semesters[course.course] = [String]()
         }
         mergeModels()
         dataisAvailable = true
