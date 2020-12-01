@@ -30,6 +30,8 @@ class SettingsViewModel : ObservableObject{
     //function is exexcuted if view is appearing
     func updateAllowedStates(){
         allowedToAccessSemesters = !userModel.courses.isEmpty
-        allowedToAccessLectures = !userModel.semesters.isEmpty
+        allowedToAccessLectures = userModel.hasSemesters()
+        
+        print("DEBUG:\nSemesters:\n\(userModel.semesters)\n\n")
     }
 }

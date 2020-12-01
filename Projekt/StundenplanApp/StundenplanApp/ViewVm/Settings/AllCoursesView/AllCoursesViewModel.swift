@@ -45,6 +45,7 @@ class AllCoursesViewModel : ObservableObject {
         }
         else{
             userModel.courses.append(course)
+            userModel.semesters[course.course] = [String]()
         }
         mergeModels()
         dataisAvailable = true
@@ -60,8 +61,11 @@ class AllCoursesViewModel : ObservableObject {
         cancel = pipe.getCoursesAfterTerm(term: self.term).sink(receiveCompletion: {(_) in
             self.dataisAvailable = true
         }, receiveValue: { (value) in
-            self.data = value.courses.map{(course: $0,selected: false)}
-            self.serverModel.allCourses = value.courses
+            let serverData = value.courses.sorted{course1, course2 in
+                course1.course < course2.course
+            }
+            self.data = serverData.map{(course: $0,selected: false)}
+            self.serverModel.allCourses = serverData
         })
     }
     
