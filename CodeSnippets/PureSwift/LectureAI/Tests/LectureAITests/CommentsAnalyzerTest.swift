@@ -37,10 +37,22 @@ public final class CommentsAnalyzerTest: XCTestCase {
         XCTAssertEqual(expectedOutputFacts, actualFacts)
     }
 
+    func test_Wirtschaftsenglisch_II() {
+
+        let inputComment = "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)"
+        let expectedOutputFacts = [
+            CommentFact(type: .start_kw, value: "20")
+        ]
+
+        let actualFacts = analyzer.analyzeComment(comment: inputComment)
+        XCTAssertEqual(expectedOutputFacts, actualFacts)
+    }
+
     public static var allTests = [
         ("test_BW_dual2_Wirtschaftsinformatik", test_BW_dual2_Wirtschaftsinformatik),
         ("test_BW_dual2_DigitaleAnwendungen", test_BW_dual2_DigitaleAnwendungen),
         ("test_Technical_Textiles", test_Technical_Textiles),
+        ("test_Wirtschaftsenglisch_II", test_Wirtschaftsenglisch_II),
     ]
 
 }
