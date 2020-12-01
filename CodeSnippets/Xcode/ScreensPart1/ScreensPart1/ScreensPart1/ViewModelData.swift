@@ -7,7 +7,7 @@
 
 import Foundation
 
-//dummy Data
+/// A lecture Model suitable for display
 struct lessonModel : Identifiable{
     let id = UUID()
     var time: String
@@ -16,10 +16,13 @@ struct lessonModel : Identifiable{
     var lecturer: String
     var type:String
     var addtional:String
+    ///the day of the week encoded as 0:Monday to 6:Sunday
+    var weekDay:Int
     var isBlockLesson:Bool
     var datesForBlocklesson:[lessonDateDuration]
 }
 
+///The time and duration data probably coming from the backend
 struct lessonDateDuration: Identifiable{
     var id = UUID()
     var date:Date

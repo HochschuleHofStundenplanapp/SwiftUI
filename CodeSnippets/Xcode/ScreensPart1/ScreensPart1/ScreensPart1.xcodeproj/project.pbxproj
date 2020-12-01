@@ -15,6 +15,7 @@
 		FA881371257673F20001D96F /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA881370257673F20001D96F /* ScheduleView.swift */; };
 		FA881374257673FD0001D96F /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA881373257673FD0001D96F /* ScheduleViewModel.swift */; };
 		FA8813782576797C0001D96F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8813772576797C0001D96F /* Constants.swift */; };
+		FA8813842576A5AF0001D96F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8813832576A5AF0001D96F /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		FA881370257673F20001D96F /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		FA881373257673FD0001D96F /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		FA8813772576797C0001D96F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA8813832576A5AF0001D96F /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		FA647739255AD97A001850CF /* ScreensPart1 */ = {
 			isa = PBXGroup;
 			children = (
+				FA881380257691ED0001D96F /* PrototypeModelData */,
 				FA64773A255AD97A001850CF /* ScreensPart1App.swift */,
 				FA64773C255AD97A001850CF /* ContentView.swift */,
 				FA64773E255AD97E001850CF /* Assets.xcassets */,
@@ -79,6 +82,14 @@
 				FA647741255AD97E001850CF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FA881380257691ED0001D96F /* PrototypeModelData */ = {
+			isa = PBXGroup;
+			children = (
+				FA8813832576A5AF0001D96F /* UserModel.swift */,
+			);
+			path = PrototypeModelData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA881371257673F20001D96F /* ScheduleView.swift in Sources */,
+				FA8813842576A5AF0001D96F /* UserModel.swift in Sources */,
 				FA881374257673FD0001D96F /* ScheduleViewModel.swift in Sources */,
 				FA64774B2564077B001850CF /* ViewModelData.swift in Sources */,
 				FA8813782576797C0001D96F /* Constants.swift in Sources */,

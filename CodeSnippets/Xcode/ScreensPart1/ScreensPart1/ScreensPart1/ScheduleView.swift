@@ -40,7 +40,7 @@ struct ScheduleView: View {
             GeometryReader { geo in
                 ScrollView {
                     LazyVStack(spacing:0) {
-                        ForEach (scheduleViewModel.lessonsForWeekDay.filter{lesson in return !lesson.isBlockLesson}) { lesson in
+                        ForEach (scheduleViewModel.lessons.filter{lesson in return !lesson.isBlockLesson}) { lesson in
                             ScheduleRow(lesson: lesson, geometry : geo)
                         }
                     }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
@@ -54,7 +54,7 @@ struct ScheduleView: View {
                     }.padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
                     
                     LazyVStack(spacing:0) {
-                        ForEach (scheduleViewModel.lessonsForWeekDay.filter {lesson in return lesson.isBlockLesson}) { lesson in
+                        ForEach (scheduleViewModel.lessons.filter {lesson in return lesson.isBlockLesson}) { lesson in
                             BlockRow(lesson: lesson).padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
                         }
                     }.padding(EdgeInsets(top: 0, leading: 10, bottom: 100, trailing: 10))
