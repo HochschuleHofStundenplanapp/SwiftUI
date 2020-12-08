@@ -21,3 +21,9 @@ struct Lecture: Codable {
     let comment: String
     let sp: String
 }
+
+extension Lecture{
+    func isBlockLecture() -> Bool {
+        return style.lowercased().contains("block") || type.lowercased().contains("block")
+    }
+}

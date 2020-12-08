@@ -11,6 +11,7 @@
 		6448226D25640F1400767A8F /* AllSemesterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448226C25640F1400767A8F /* AllSemesterView.swift */; };
 		6448227025640F2400767A8F /* AllSemesterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448226F25640F2400767A8F /* AllSemesterViewModel.swift */; };
 		6448227325641B2D00767A8F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448227225641B2D00767A8F /* SettingsViewModel.swift */; };
+		64548883257FDA9A00DECC1A /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64548882257FDA9A00DECC1A /* ColorConstants.swift */; };
 		645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A1255196700069F247 /* StundenplanAppApp.swift */; };
 		645778A4255196700069F247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A3255196700069F247 /* ContentView.swift */; };
 		645778A6255196710069F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A5255196710069F247 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		6448226C25640F1400767A8F /* AllSemesterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSemesterView.swift; sourceTree = "<group>"; };
 		6448226F25640F2400767A8F /* AllSemesterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSemesterViewModel.swift; sourceTree = "<group>"; };
 		6448227225641B2D00767A8F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		64548882257FDA9A00DECC1A /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
 		6457789E255196700069F247 /* StundenplanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645778A1255196700069F247 /* StundenplanAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanAppApp.swift; sourceTree = "<group>"; };
 		645778A3255196700069F247 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 			path = AllSemesterView;
 			sourceTree = "<group>";
 		};
+		64548881257FDA7E00DECC1A /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				64548882257FDA9A00DECC1A /* ColorConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		64577895255196700069F247 = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 		645778A0255196700069F247 /* StundenplanApp */ = {
 			isa = PBXGroup;
 			children = (
+				64548881257FDA7E00DECC1A /* Constants */,
 				64E902182551A69200BFDC2C /* Combine */,
 				64E901F92551A39B00BFDC2C /* Models */,
 				649714F125519E9E00193184 /* ViewVm */,
@@ -348,6 +359,7 @@
 				64E901EB2551A0FC00BFDC2C /* SettingsView.swift in Sources */,
 				64E902162551A62200BFDC2C /* Course.swift in Sources */,
 				6448227025640F2400767A8F /* AllSemesterViewModel.swift in Sources */,
+				64548883257FDA9A00DECC1A /* ColorConstants.swift in Sources */,
 				64E902002551A53600BFDC2C /* ScheduleForCourseSemester.swift in Sources */,
 				64E901F02551A1A000BFDC2C /* ScheduleView.swift in Sources */,
 				6448227325641B2D00767A8F /* SettingsViewModel.swift in Sources */,

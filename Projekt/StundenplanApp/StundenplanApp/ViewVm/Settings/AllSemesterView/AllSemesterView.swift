@@ -17,12 +17,14 @@ struct AllSemesterView : View{
                         Section(header: Text(el.course)) {
                             ForEach(el.semester, id: \.self) { sem in
                                 HStack {
-                                Text(sem).onTapGesture(perform: {
+                                    Text(sem)
+                                    Spacer()
+                                    if viewModel.isSemesterInCourseSelected(course: el, semester: sem) {
+                                        Image(systemName: "checkmark")
+                                    }
+                                }.contentShape(Rectangle())
+                                .onTapGesture {
                                     viewModel.updateSemesterSelection(course: el, semester: sem)
-                                })
-                                if viewModel.isSemesterInCourseSelected(course: el, semester: sem) {
-                                    Image(systemName: "hand.point.left.fill")
-                                }
                                 }
                             }
                         }
@@ -34,7 +36,7 @@ struct AllSemesterView : View{
             }
         }.onAppear{
             viewModel.loadData()
-        }
+        }.navigationBarTitle(Text("Semesterwahl"), displayMode: .inline)
     }
 }
 
