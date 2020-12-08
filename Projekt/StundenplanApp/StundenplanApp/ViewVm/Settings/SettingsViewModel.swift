@@ -11,6 +11,7 @@ class SettingsViewModel : ObservableObject{
     //term data to send to server
     let termData = ["SS","WS"]
     var selectedTermIndex = 0
+    @Published var shouldSynchronizeWithCalendar = false
     
     @Published var allowedToAccessSemesters : Bool = false
     @Published var allowedToAccessLectures : Bool = false

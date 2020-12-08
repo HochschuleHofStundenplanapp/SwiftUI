@@ -40,11 +40,12 @@ struct ScheduleView: View {
             GeometryReader { geo in
                 ScrollView {
                     LazyVStack(spacing:0) {
-                        ForEach (scheduleViewModel.lessons.filter{lesson in return !lesson.isBlockLesson}) { lesson in
+                        ForEach (scheduleViewModel.lessons.filter{lesson in return !lesson.isBlockLecture() && lesson.day.starts(with:days[weekDay])}) { lesson in
                             ScheduleRow(lesson: lesson, geometry : geo)
                         }
                     }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                     
+                    if(scheduleViewModel.lessons.filter{lesson in return lesson.isBlockLecture()}.count > 0){
                     VStack(alignment: .leading){
                         Rectangle()
                             .frame(width: .infinity, height: 1, alignment: .center)
@@ -52,15 +53,17 @@ struct ScheduleView: View {
                             .font(.callout)
                             .bold()
                     }.padding(EdgeInsets(top: 0, leading: 24, bottom: 0, trailing: 24))
+                    }
                     
                     LazyVStack(spacing:0) {
-                        ForEach (scheduleViewModel.lessons.filter {lesson in return lesson.isBlockLesson}) { lesson in
+                        ForEach (scheduleViewModel.lessons.filter {lesson in return lesson.isBlockLecture()}) { lesson in
                             BlockRow(lesson: lesson).padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
                         }
                     }.padding(EdgeInsets(top: 0, leading: 10, bottom: 100, trailing: 10))
                 }
             }
         }.ignoresSafeArea(edges: .top)
+        .onAppear(perform: scheduleViewModel.loadLessons)
     }
 }
 
@@ -80,13 +83,13 @@ struct ScheduleView_Previews: PreviewProvider {
  * The whole row of regular scheduled lessons with all available data and a bullet point inf front of it
  */
 struct ScheduleRow:View{
-    var lesson:lessonModel
+    var lesson:Lecture
     var geometry : GeometryProxy
     
     var body: some View{
         HStack {
             BulletLine()
-            Text(self.lesson.time)
+            Text("\(self.lesson.starttime) - \(self.lesson.endtime)")
                 .font(.caption)
                 .frame(width: geometry.size.width / 4.0, alignment : .leading)
             LessonContent(lesson: lesson).padding(2)
@@ -115,7 +118,7 @@ struct BulletLine : View {
  * The lesson for display as a block lesson without bullet point
  */
 struct BlockRow : View {
-    var lesson : lessonModel
+    var lesson : Lecture
     @State private var tapped = false
     
     static let shortFormat: DateFormatter = {
@@ -128,26 +131,32 @@ struct BlockRow : View {
     var body : some View {
         HStack {
             VStack(alignment: .leading){
-                Text(self.lesson.lessonName).bold()
+                Text(self.lesson.label).bold()
                     .font(.caption)
-                ForEach(self.lesson.datesForBlocklesson, id: \.id){ dateDuration in
+                //Used to list all block lectures
+                /*ForEach(self.lesson.datesForBlocklesson, id: \.id){ dateDuration in
                     HStack{
-                        Text(self.lesson.time)
+                        Text("\(self.lesson.starttime) - \(self.lesson.endtime)")
                             .font(.caption)
                         Text("\(dateDuration.date, formatter: BlockRow.shortFormat)")
                             .font(.caption)
                         Text("\(dateDuration.durationInMinutes) min")
                             .font(.caption)
                     }
-                }
+                }*/
+                HStack{
                 Text(self.lesson.room)
                     .font(.caption)
-                Text(self.lesson.lecturer)
+                Text(self.lesson.group)
+                    .font(.caption)
+                }
+                Text(self.lesson.docent)
                     .font(.caption)
                 if(tapped){
                     VStack(alignment: .leading){
+                        Text(self.lesson.comment).font(.caption)
+                        Text(self.lesson.style).font(.caption)
                         Text(self.lesson.type).font(.caption)
-                        Text(self.lesson.addtional).font(.caption)
                     }
                 }
             }
@@ -164,21 +173,22 @@ struct BlockRow : View {
  * the majority of information about a specific lecture shown in a rounded rectangle to the trailing side of the lesson row
  */
 struct LessonContent : View {
-    var lesson : lessonModel
+    var lesson : Lecture
     @State private var tapped = false
     var body : some View {
         HStack {
             VStack(alignment: .leading){
-                Text(self.lesson.lessonName).bold()
+                Text(self.lesson.label).bold()
                     .font(.caption)
                 Text(self.lesson.room)
                     .font(.caption)
-                Text(self.lesson.lecturer)
+                Text(self.lesson.docent)
                     .font(.caption)
                 if(tapped){
                     VStack(alignment: .leading){
+                        Text(self.lesson.comment).font(.caption)
                         Text(self.lesson.type).font(.caption)
-                        Text(self.lesson.addtional).font(.caption)
+                        Text(self.lesson.style).font(.caption)
                     }
                 }
             }.padding(2)
