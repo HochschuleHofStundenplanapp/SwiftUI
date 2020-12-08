@@ -110,6 +110,7 @@ final class LectureDateCalculatorTests: XCTestCase {
         XCTAssertEqual(otherDates, dateUtil.stringify(dates, format: "yyyy-MM-dd"))
     }
 
+
     static var allTests = [
         ("testParseEvent", testParseEvent),
         ("testGetSemesterStartDateWS", testGetSemesterStartDateWS),
