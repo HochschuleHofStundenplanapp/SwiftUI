@@ -11,6 +11,9 @@ import Combine
 class AllLectureViewModel : ObservableObject{
     @Published var dataIsAvailable = false
     var data = [(lectureSelection: LectureSelection, selected: Bool)]()
+    let days = ["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"]
+    
+    var selectedDayIndex = 0
     
     private var cancel : AnyCancellable? = nil
     private let userModel = UserModel()
@@ -43,6 +46,12 @@ class AllLectureViewModel : ObservableObject{
         dataIsAvailable = true
     }
     
+    func updateDaySelection(dayIdx: Int){
+        selectedDayIndex = dayIdx
+        mergeModels()
+        dataIsAvailable = true
+    }
+    
     //help functions
     private func fetchDataFromApi(){
         data.removeAll()
@@ -51,6 +60,7 @@ class AllLectureViewModel : ObservableObject{
             .getLecturesForSelectedCourseSemester(courseSemesters: userModel.semesters, term: userModel.term)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: {_ in
+                self.mergeModels()
                 self.dataIsAvailable = true
             },
             receiveValue: {value in
@@ -69,6 +79,10 @@ class AllLectureViewModel : ObservableObject{
                 selected = true
             }
             return (lectureSelection: element, selected: selected)
+        }.filter{
+            $0.lectureSelection.lecture.day == days[selectedDayIndex]
+        }.sorted{l1, l2 in
+            l1.lectureSelection.lecture.starttime < l2.lectureSelection.lecture.starttime
         }
     }
 }
