@@ -19,8 +19,14 @@ public class CommentAnalyzer {
       let pattern = "(start|begin|beginn|beginning|ab):?\\s*(calendar)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})" // z.B. "start kw15"
       let pattern2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw" // z.B. "start 15. kw"
       let pattern3 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"
+      let pattern4 = "kw.*kw.*"
       //regex aufzählung: KW\s\d+(,+\s*\d+)+(\s*und\s*\d+)*
       //comments mit - nicht möglich! -> "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
+
+      if getGroupOf(pattern: pattern4, target: commentLowercased, group: 0) != nil {
+          facts.append(CommentFact(type: .no_info, value: ""))
+          return facts
+      }
 
       //TODO: Ausstellungsdesign \/  KW 43, 45, 47, virtuell
       if let kw = getGroupOf(pattern: pattern3, target: commentLowercased, group: 0) {
@@ -66,7 +72,7 @@ public struct CommentFact: Equatable {
 }
 
 public enum CommentFactType {
-  case start_kw, excluded_kws, list_kws
+  case start_kw, excluded_kws, list_kws, no_info
 }
 
 extension String {

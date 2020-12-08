@@ -8,7 +8,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
 
     func test_BW_dual2_Wirtschaftsinformatik() {
 
-        let inputComment = "- KW 10 Übungen - Start KW 174 (vorzugsweise für BW) KW10"
+        let inputComment = "- Übungen - Start KW 17 (vorzugsweise für BW) "
         let expectedOutputFacts = [
             CommentFact(type: .start_kw, value: "17")
         ]
@@ -108,6 +108,18 @@ public final class CommentsAnalyzerTest: XCTestCase {
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
         XCTAssertEqual(expectedOutputFacts, actualFacts)
     }
+
+    func test_kd1(){
+        let inputComment = "KW 42 - 3, außer KW 43, 47, 53, 1"
+        let expectedOutputFacts = [
+            CommentFact(type: .no_info, value: "")
+        ]
+
+
+        let actualFacts = analyzer.analyzeComment(comment: inputComment)
+        XCTAssertEqual(expectedOutputFacts, actualFacts)
+    }
+
     func testExtensionSplitComment(){
 
         let stringTest = "KW 17, 18, 19, 21, 22 und 23"
@@ -131,6 +143,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
         ("test_md3_2", test_md3_2),
         ("test_md3_3", test_md3_3),
         ("test_bwDual2", test_bwDual2),
+        ("test_kd1", test_kd1),
         ("test_englischBeginningKW2", test_englischBeginningKW2)
     ]
 
