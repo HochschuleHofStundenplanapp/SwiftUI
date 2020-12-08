@@ -16,12 +16,14 @@ struct AllCoursesView : View {
         if(viewModel.dataisAvailable) {
             List(viewModel.data, id: \.course.course) { courseTuple in
                     HStack {
-                        Text(courseTuple.course.course).onTapGesture(perform: {
-                            viewModel.updateCourseSelection(course: courseTuple.course)
-                        })
+                        Text(courseTuple.course.course)
+                        Spacer()
                         if courseTuple.selected {
-                            Image(systemName: "hand.point.left.fill")
+                            Image(systemName: "checkmark")
                         }
+                    }.contentShape(Rectangle())
+                    .onTapGesture {
+                        viewModel.updateCourseSelection(course: courseTuple.course)
                     }
                 }
             }
@@ -30,7 +32,7 @@ struct AllCoursesView : View {
             }
         }.onAppear(perform: {
             viewModel.getCourses()
-        })
+        }).navigationBarTitle(Text("Studiengangwahl"), displayMode: .inline)
     }
 }
 

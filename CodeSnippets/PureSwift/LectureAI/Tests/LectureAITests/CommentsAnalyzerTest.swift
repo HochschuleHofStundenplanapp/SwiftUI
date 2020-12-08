@@ -58,6 +58,17 @@ public final class CommentsAnalyzerTest: XCTestCase {
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
         XCTAssertEqual(expectedOutputFacts, actualFacts)
     }
+
+    func test_englischBeginningKW2(){
+        let inputComment = "- Exercises - (all 14 days, begin: calendar Week 18)"
+        let expectedOutputFacts = [
+            CommentFact(type: .start_kw, value: "18")
+        ]
+
+        let actualFacts = analyzer.analyzeComment(comment: inputComment)
+        XCTAssertEqual(expectedOutputFacts, actualFacts)
+    }
+
     func test_bwDual2(){
         let inputComment = "KW 17, 18, 19, 21, 22 und 23"
         let expectedOutputFacts = [
@@ -119,7 +130,8 @@ public final class CommentsAnalyzerTest: XCTestCase {
         ("test_md3", test_md3),
         ("test_md3_2", test_md3_2),
         ("test_md3_3", test_md3_3),
-        ("test_bwDual2", test_bwDual2)
+        ("test_bwDual2", test_bwDual2),
+        ("test_englischBeginningKW2", test_englischBeginningKW2)
     ]
 
 }
