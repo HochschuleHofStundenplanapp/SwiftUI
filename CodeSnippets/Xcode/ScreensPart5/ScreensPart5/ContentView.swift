@@ -7,28 +7,16 @@
 
 import SwiftUI
 
-struct semesterModel {
-    var semester : String
-}
-
 struct ContentView: View {
+    @ObservedObject var SemesterVM = SemesterViewModel()
     @State private var tapped = false
-    
-    let foregroundColor = Color(UIColor(hue: 0.3, saturation: 0.44, brightness: 0.7, alpha: 1.0))
-    
-    var allSemester = [
-        semesterModel(semester: "1"),
-        semesterModel(semester: "3"),
-        semesterModel(semester: "5"),
-        semesterModel(semester: "7")
-    ]
     
     var body: some View {
         VStack(alignment: .leading){
             HStack{
                 Text("Einstellung")
                     .bold().font(.title)
-                    .foregroundColor(foregroundColor)
+                    .foregroundColor(Constants.foregroundColor)
                 Spacer()
                 Button(action: {
                     print("Edit button was tapped")
@@ -37,13 +25,13 @@ struct ContentView: View {
                         .font(.title)
                 }
             }.padding(5)
-            .background(Color(.systemGray6))
+            .background(Constants.backgroundDark)
             HStack{
                 Text("Studiengangtext")
             }.padding(5)
             List{
-                ForEach(0 ..< allSemester.count){ value in
-                    semester(semModel: allSemester[value])
+                ForEach(0 ..< SemesterVM.allSemester.count){ value in
+                    semester(semModel: SemesterVM.allSemester[value])
                 }
             }
         }
