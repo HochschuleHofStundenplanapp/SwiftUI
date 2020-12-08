@@ -7,39 +7,25 @@
 
 import SwiftUI
 
-struct changesModel {
-    var label: String
-    var docent: String
-    var reason: String
-    var group: String
-    var originalTime: String
-    var originalDate: String
-    var originalRoom: String
-    var alternativeTime: String
-    var alternativeDate: String
-    var alternativeRoom: String
-}
+
 
 struct ContentView: View {
-    var allChanges =
-        [changesModel(label: "Architektur mobiler Anwendung", docent: "Prof. Dr. Stöhr", reason: "", group: "", originalTime: "14:00 - 15:00", originalDate: "13.10.2020", originalRoom: "FB004B", alternativeTime: "14:00 - 15:30", alternativeDate: "20.10.2020", alternativeRoom: "FB004B"),
-        changesModel(label: "Robotik", docent: "Prof. Dr. Groth", reason: "entfällt", group: "", originalTime: "14:00 - 15:30", originalDate: "14.10.2020", originalRoom: "virt.cgroth", alternativeTime: "", alternativeDate: "", alternativeRoom: "")]
+    @ObservedObject var changesVM = ChangesViewModel()
     
-    let background = Color(red: 0.745, green:0.824, blue: 0.75, opacity: 100)
     var body: some View {
         ScrollView(){
-            ChangesRow(changes: allChanges[0])
-            ChangesRow(changes: allChanges[1])
+            ForEach(changesVM.allChanges){ change in
+                ChangesRow(changes: change)
+            }
         }
-        .navigationTitle("Changes")
         .padding(10)
     }
 }
 
 struct ChangesRow: View {
-    var changes : changesModel
+    var changes : changeModel
     
-    let background = Color(red: 0.745, green:0.824, blue: 0.75, opacity: 100)
+//    let background = Color(red: 0.745, green:0.824, blue: 0.75, opacity: 100)
     
     var body: some View{
         if self.changes.alternativeTime == "" && self.changes.alternativeDate == "" {
@@ -72,7 +58,7 @@ struct ChangesRow: View {
                 }.padding(5)
             }
             .padding(10)
-            .background(background)
+            .background(Constants.backgroundLight)
             .cornerRadius(10.0)
             
         }else{
@@ -112,7 +98,7 @@ struct ChangesRow: View {
                 }.padding(5)
             }
             .padding(10)
-            .background(background)
+            .background(Constants.backgroundLight)
             .cornerRadius(10.0)
         }
     }

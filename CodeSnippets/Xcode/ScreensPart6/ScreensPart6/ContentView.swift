@@ -13,7 +13,7 @@ struct ContentView: View {
     let foregroundColor = Color(UIColor(hue: 0.3, saturation: 0.44, brightness: 0.7, alpha: 1.0))
     
     let days = ["Mo", "Di", "Mi", "Do", "Fr", "Sa"]
-    @ObservedObject var scheduleViewModel = ScheduleViewModel()
+    @ObservedObject var scheduleViewModel = LectureViewModel()
     @State private var weekDay = 0
     
     var body: some View {
@@ -52,7 +52,7 @@ struct ContentView: View {
                 ScrollView {
                     LazyVStack(spacing:0) {
                         ForEach (scheduleViewModel.lessonsForWeekDay.filter{lesson in return !lesson.isBlockLesson}) { lesson in
-                            ScheduleRow(lesson: lesson, geometry : geo)
+                            ScheduleRow(lesson: lectureModel, geometry : geo)
                         }
                     }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 10))
                     
@@ -66,7 +66,7 @@ struct ContentView: View {
                     
                     LazyVStack(spacing:0) {
                         ForEach (scheduleViewModel.lessonsForWeekDay.filter {lesson in return lesson.isBlockLesson}) { lesson in
-                            BlockRow(lesson: lesson).padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
+                            BlockRow(lesson: lectureModel).padding(EdgeInsets(top: 0, leading: 0, bottom: 4, trailing: 0))
                         }
                     }.padding(EdgeInsets(top: 0, leading: 10, bottom: 100, trailing: 10))
                 }
@@ -76,7 +76,7 @@ struct ContentView: View {
 }
 
 struct ScheduleRow:View{
-    var lesson : lessonModel
+    var lesson : lectureModel
     var geometry : GeometryProxy
     
     var body: some View{
@@ -87,7 +87,7 @@ struct ScheduleRow:View{
 
 struct BlockRow : View {
     let backgroundColor = Color(red: 0.745, green: 0.824, blue: 0.725, opacity: 100)
-    var lesson : lessonModel
+    var lesson : lectureModel
     @State private var tapped = false
     
     static let shortFormat: DateFormatter = {
@@ -175,18 +175,16 @@ struct LessonContent : View {
     }
 }
 
-class ScheduleViewModel: ObservableObject{
-    @Published var lessonsForWeekDay = [
-        lessonModel(time: "8:00 - 9:30", lessonName: "Architektur mobiler Anwendungen", room: "virt_pstöhr", lecturer: "Prof. Dr. Peter Stöhr", type: "online", addtional: "Further Information concerning the lesson", isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
-        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
-        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
-        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
-        lessonModel(time: "11:30 - 13:00", lessonName: "Robotiksblockstunde", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: true, datesForBlocklesson: [lessonDateDuration(date: Date(), durationInMinutes: 180)], comment: "(MC5 + MI5)"),
-        lessonModel(time: "13:00 - 19:00", lessonName: "Irendein langes Fach", room: "FG_023b", lecturer: "Prof. Dr. Christian Anderson", type: "Vortrag", addtional: "Einfach nur sehr lange Zeitverschwendung",isBlockLesson: true, datesForBlocklesson: [lessonDateDuration(date: Date(), durationInMinutes: 180)], comment: "(MC5 + MI5)")
-    ]
-    
-    
-}
+//class ScheduleViewModel: ObservableObject{
+//    @Published var lessonsForWeekDay = [
+//        lessonModel(time: "8:00 - 9:30", lessonName: "Architektur mobiler Anwendungen", room: "virt_pstöhr", lecturer: "Prof. Dr. Peter Stöhr", type: "online", addtional: "Further Information concerning the lesson", isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
+//        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
+//        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
+//        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
+//        lessonModel(time: "11:30 - 13:00", lessonName: "Robotiksblockstunde", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: true, datesForBlocklesson: [lessonDateDuration(date: Date(), durationInMinutes: 180)], comment: "(MC5 + MI5)"),
+//        lessonModel(time: "13:00 - 19:00", lessonName: "Irendein langes Fach", room: "FG_023b", lecturer: "Prof. Dr. Christian Anderson", type: "Vortrag", addtional: "Einfach nur sehr lange Zeitverschwendung",isBlockLesson: true, datesForBlocklesson: [lessonDateDuration(date: Date(), durationInMinutes: 180)], comment: "(MC5 + MI5)")
+//    ]
+//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

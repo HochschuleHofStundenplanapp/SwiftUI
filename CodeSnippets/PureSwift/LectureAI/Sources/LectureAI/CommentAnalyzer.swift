@@ -16,7 +16,7 @@ public class CommentAnalyzer {
 
         let commentLowercased = comment.lowercased()
 
-        let pattern = "(start|begin|beginn|beginning|ab):?\\s*(calender)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})" // z.B. "start kw15"
+        let pattern = "(start|begin|beginn|beginning|ab):?\\s*(calender|calendar)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})" // z.B. "start kw15"
         let pattern2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw" // z.B. "start 15. kw"
 
         //regex aufzählung: KW\s\d+(,+\s*\d+)+(\s*und\s*\d+)*

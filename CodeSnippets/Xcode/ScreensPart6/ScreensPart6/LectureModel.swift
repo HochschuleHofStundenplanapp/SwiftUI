@@ -8,7 +8,7 @@
 import Foundation
 
 //dummy Data
-struct lessonModel : Identifiable{
+struct lectureModel : Identifiable{
     let id = UUID()
     var time: String
     var lessonName: String
@@ -17,11 +17,11 @@ struct lessonModel : Identifiable{
     var type:String
     var addtional:String
     var isBlockLesson:Bool
-    var datesForBlocklesson:[lessonDateDuration]
+    var datesForBlocklesson:[lectureDateDuration]
     var comment:String
 }
 
-struct lessonDateDuration: Identifiable{
+struct lectureDateDuration: Identifiable{
     var id = UUID()
     var date:Date
     var durationInMinutes:Int
