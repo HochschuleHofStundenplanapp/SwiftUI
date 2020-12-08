@@ -11,7 +11,6 @@ struct ContentView: View {
     
     @State private var pick = 1
     @State private var isToggle : Bool = true
-    @State private var isToggle2 : Bool = true
     
     
     var body: some View {
