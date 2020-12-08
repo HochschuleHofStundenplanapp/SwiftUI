@@ -21,7 +21,8 @@ struct AllCoursesView : View {
                         if courseTuple.selected {
                             Image(systemName: "checkmark")
                         }
-                    }.contentShape(Rectangle()).onTapGesture {
+                    }.contentShape(Rectangle())
+                    .onTapGesture {
                         viewModel.updateCourseSelection(course: courseTuple.course)
                     }
                 }
@@ -31,7 +32,7 @@ struct AllCoursesView : View {
             }
         }.onAppear(perform: {
             viewModel.getCourses()
-        }).navigationTitle("Studiengangwahl")
+        }).navigationBarTitle(Text("Studiengangwahl"), displayMode: .inline)
     }
 }
 
