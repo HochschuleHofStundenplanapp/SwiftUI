@@ -23,7 +23,7 @@ struct AllLectureView : View{
             }).pickerStyle(SegmentedPickerStyle());
             if viewModel.dataIsAvailable{
                 List(viewModel.data,id: \.lectureSelection.lecture.id){ data in
-                    VStack{
+                    /*VStack{
                         Text(data.lectureSelection.lecture.label)
                         Text(data.lectureSelection.lecture.day)
                         Text(data.lectureSelection.lecture.starttime)
@@ -32,7 +32,8 @@ struct AllLectureView : View{
                         if data.selected{
                             Image(systemName: "checkmark")
                         }
-                    }.onTapGesture {
+                    }*/
+                    LectureSelectionRow(lectureSelectionTuple: data).onTapGesture {
                         viewModel.updateScheduleSelection(lectureSelection: data.lectureSelection)
                     }
                 }
