@@ -37,7 +37,6 @@ public final class CommentsAnalyzerTest: XCTestCase {
         XCTAssertEqual(expectedOutputFacts, actualFacts)
     }
 
-
     func test_Wirtschaftsenglisch_II() {
 
         let inputComment = "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)"
