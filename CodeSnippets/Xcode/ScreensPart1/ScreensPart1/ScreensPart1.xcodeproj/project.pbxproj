@@ -68,8 +68,8 @@
 				FA64773E255AD97E001850CF /* Assets.xcassets */,
 				FA647743255AD97E001850CF /* Info.plist */,
 				FA647740255AD97E001850CF /* Preview Content */,
-				FA64774A2564077B001850CF /* ViewModelData.swift */,
 				FA881370257673F20001D96F /* ScheduleView.swift */,
+				FA64774A2564077B001850CF /* ViewModelData.swift */,
 				FA881373257673FD0001D96F /* ScheduleViewModel.swift */,
 				FA8813772576797C0001D96F /* Constants.swift */,
 			);

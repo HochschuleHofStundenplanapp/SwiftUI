@@ -9,15 +9,16 @@ import Foundation
 
 /// A lecture Model suitable for display
 struct lessonModel : Identifiable{
-    let id = UUID()
-    var time: String
+    let id:String
+    var starttime: String
+    var endtime: String
     var lessonName: String
     var room: String
     var lecturer: String
     var type:String
     var addtional:String
     ///the day of the week encoded as 0:Monday to 6:Sunday
-    var weekDay:Int
+    var day:String
     var isBlockLesson:Bool
     var datesForBlocklesson:[lessonDateDuration]
 }
