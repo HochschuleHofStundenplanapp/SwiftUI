@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 
 struct ContentView: View {
-    let foregroundColor = Color(UIColor(hue: 0.3, saturation: 0.44, brightness: 0.7, alpha: 1.0))
+    
     
     let days = ["Mo", "Di", "Mi", "Do", "Fr", "Sa"]
     @ObservedObject var scheduleViewModel = LectureViewModel()
@@ -31,16 +31,16 @@ struct ContentView: View {
             HStack{
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Text("Alles Auswählen")
-                        .foregroundColor(foregroundColor)
+                        .foregroundColor(Constants.foregroundColor)
                 })
                 Spacer()
                 Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
                     Text("Alles Abwählen")
-                        .foregroundColor(foregroundColor)
+                        .foregroundColor(Constants.foregroundColor)
                 })
             }
             .padding(5)
-            .background(Color(.systemGray6))
+            .background(Constants.gray)
             
             
             Picker(selection: $weekDay, label: Text("Wochentag")) {
@@ -86,7 +86,6 @@ struct ScheduleRow:View{
 }
 
 struct BlockRow : View {
-    let backgroundColor = Color(red: 0.745, green: 0.824, blue: 0.725, opacity: 100)
     var lesson : lectureModel
     @State private var tapped = false
     
@@ -124,7 +123,7 @@ struct BlockRow : View {
             }
             Spacer()
         }.padding(10)
-        .background(backgroundColor).cornerRadius(10.0)
+        .background(Constants.backgroundColor).cornerRadius(10.0)
         .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
             tapped.toggle()
         })
@@ -132,8 +131,7 @@ struct BlockRow : View {
 }
 
 struct LessonContent : View {
-    let backgroundColor = Color(red: 0.745, green: 0.824, blue: 0.725, opacity: 100)
-    var lesson : lessonModel
+    var lesson : lectureModel
     @State private var tapped = false
     var body : some View {
         HStack {
@@ -168,23 +166,12 @@ struct LessonContent : View {
             }.padding(2)
             Spacer()
         }.padding(8)
-        .background(backgroundColor).cornerRadius(10.0)
+        .background(Constants.backgroundColor).cornerRadius(10.0)
         .onTapGesture(count: 1, perform: {
             tapped.toggle()
         })
     }
 }
-
-//class ScheduleViewModel: ObservableObject{
-//    @Published var lessonsForWeekDay = [
-//        lessonModel(time: "8:00 - 9:30", lessonName: "Architektur mobiler Anwendungen", room: "virt_pstöhr", lecturer: "Prof. Dr. Peter Stöhr", type: "online", addtional: "Further Information concerning the lesson", isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
-//        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
-//        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
-//        lessonModel(time: "11:30 - 13:00", lessonName: "Robotik", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: false, datesForBlocklesson: [], comment: "(MC5 + MI5)"),
-//        lessonModel(time: "11:30 - 13:00", lessonName: "Robotiksblockstunde", room: "virt_cgroth", lecturer: "Prof. Dr. Christian Groth", type: "online", addtional: "Einführung in die Robotik",isBlockLesson: true, datesForBlocklesson: [lessonDateDuration(date: Date(), durationInMinutes: 180)], comment: "(MC5 + MI5)"),
-//        lessonModel(time: "13:00 - 19:00", lessonName: "Irendein langes Fach", room: "FG_023b", lecturer: "Prof. Dr. Christian Anderson", type: "Vortrag", addtional: "Einfach nur sehr lange Zeitverschwendung",isBlockLesson: true, datesForBlocklesson: [lessonDateDuration(date: Date(), durationInMinutes: 180)], comment: "(MC5 + MI5)")
-//    ]
-//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
