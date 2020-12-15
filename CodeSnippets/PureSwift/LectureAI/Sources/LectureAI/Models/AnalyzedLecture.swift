@@ -1,13 +1,27 @@
 import Foundation
 public struct AnalyzedLecture {
 
-    var lecture: Lecture
-    //var dates: [(date: Date, duration: Int)]
-    var dates: [Date]
-    //var type: LectureType
+    let lecture: Lecture
+    let dates: [Event]
+    let couldNotParse: Bool
+    var type: LectureType
 
-    public init(lecture: Lecture, dates: [Date]) {
+    public init(lecture: Lecture, events: [Event], couldNotParse: Bool, type: LectureType) {
         self.lecture = lecture
-        self.dates = dates
+        self.dates = events
+        self.couldNotParse = couldNotParse
+        self.type = type
+    }
+
+    public class Event {
+        let startDate: Date
+        let endDate: Date
+        let durationMinutes: Int
+
+        init(startDate: Date, endDate: Date, durationMinutes: Int) {
+            self.startDate = startDate
+            self.endDate = endDate
+            self.durationMinutes = durationMinutes
+        }
     }
 }
