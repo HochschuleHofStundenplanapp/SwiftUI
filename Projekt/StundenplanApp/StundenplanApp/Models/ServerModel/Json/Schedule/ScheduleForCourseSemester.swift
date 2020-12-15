@@ -12,7 +12,7 @@ struct ScheduleForCourseSemester: Codable {
     let schedule: [Lecture]
 }
 
-struct Lecture: Codable {
+struct Lecture: Codable, Identifiable {
     let id, label, docent: String
     let type: String
     let style: String

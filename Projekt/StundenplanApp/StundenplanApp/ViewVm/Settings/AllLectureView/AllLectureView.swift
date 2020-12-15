@@ -22,19 +22,13 @@ struct AllLectureView : View{
                 viewModel.updateDaySelection(dayIdx: selectedDayIdx)
             }).pickerStyle(SegmentedPickerStyle());
             if viewModel.dataIsAvailable{
-                List(viewModel.data,id: \.lectureSelection.lecture.id){ data in
-                    /*VStack{
-                        Text(data.lectureSelection.lecture.label)
-                        Text(data.lectureSelection.lecture.day)
-                        Text(data.lectureSelection.lecture.starttime)
-                        Text(data.lectureSelection.lecture.endtime)
-                        Text("\(data.lectureSelection.courseName) - \(data.lectureSelection.semester)")
-                        if data.selected{
-                            Image(systemName: "checkmark")
+                ScrollView{
+                    LazyVStack{
+                        ForEach(viewModel.data,id: \.lectureSelection.lecture.id){ data in
+                            LectureSelectionRow(lectureSelectionTuple: data).onTapGesture {
+                                viewModel.updateScheduleSelection(lectureSelection: data.lectureSelection)
+                            }
                         }
-                    }*/
-                    LectureSelectionRow(lectureSelectionTuple: data).onTapGesture {
-                        viewModel.updateScheduleSelection(lectureSelection: data.lectureSelection)
                     }
                 }
             }
@@ -43,6 +37,9 @@ struct AllLectureView : View{
             }
         }.onAppear{
             viewModel.loadData()
+        }.onDisappear{
+            //TODO: save data?
+            print("Called on disappear")
         }.navigationBarTitle(Text("Vorlesungswahl"), displayMode: .inline)
     }
 }

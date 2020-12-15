@@ -19,6 +19,7 @@ struct lectureModel : Identifiable{
     var isBlockLesson:Bool
     var datesForBlocklesson:[lectureDateDuration]
     var comment:String
+    var lessonsForWeekDay:[String]
 }
 
 struct lectureDateDuration: Identifiable{

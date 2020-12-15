@@ -12,12 +12,13 @@
 		6448227025640F2400767A8F /* AllSemesterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448226F25640F2400767A8F /* AllSemesterViewModel.swift */; };
 		6448227325641B2D00767A8F /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6448227225641B2D00767A8F /* SettingsViewModel.swift */; };
 		64548883257FDA9A00DECC1A /* ColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64548882257FDA9A00DECC1A /* ColorConstants.swift */; };
-		64548889257FDBDD00DECC1A /* ScheduleRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64548888257FDBDD00DECC1A /* ScheduleRow.swift */; };
 		6454888D257FDCEA00DECC1A /* LectureSelectionRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6454888C257FDCEA00DECC1A /* LectureSelectionRow.swift */; };
 		645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A1255196700069F247 /* StundenplanAppApp.swift */; };
 		645778A4255196700069F247 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645778A3255196700069F247 /* ContentView.swift */; };
 		645778A6255196710069F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A5255196710069F247 /* Assets.xcassets */; };
 		645778A9255196710069F247 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 645778A8255196710069F247 /* Preview Assets.xcassets */; };
+		646483142588F34900F776C1 /* ColoredNavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646483132588F34900F776C1 /* ColoredNavigationHeader.swift */; };
+		646483182588F97A00F776C1 /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646483172588F97A00F776C1 /* ScheduleViewModel.swift */; };
 		64833A37256D532D00A2D827 /* AllLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64833A36256D532D00A2D827 /* AllLectureView.swift */; };
 		64833A3B256D537A00A2D827 /* AllLectureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64833A3A256D537A00A2D827 /* AllLectureViewModel.swift */; };
 		64833A3E256D57DA00A2D827 /* ScheduleSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64833A3D256D57DA00A2D827 /* ScheduleSelection.swift */; };
@@ -43,7 +44,6 @@
 		6448226F25640F2400767A8F /* AllSemesterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllSemesterViewModel.swift; sourceTree = "<group>"; };
 		6448227225641B2D00767A8F /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		64548882257FDA9A00DECC1A /* ColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConstants.swift; sourceTree = "<group>"; };
-		64548888257FDBDD00DECC1A /* ScheduleRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRow.swift; sourceTree = "<group>"; };
 		6454888C257FDCEA00DECC1A /* LectureSelectionRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureSelectionRow.swift; sourceTree = "<group>"; };
 		6457789E255196700069F247 /* StundenplanApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StundenplanApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		645778A1255196700069F247 /* StundenplanAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StundenplanAppApp.swift; sourceTree = "<group>"; };
@@ -51,6 +51,8 @@
 		645778A5255196710069F247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		645778A8255196710069F247 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		645778AA255196710069F247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		646483132588F34900F776C1 /* ColoredNavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredNavigationHeader.swift; sourceTree = "<group>"; };
+		646483172588F97A00F776C1 /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
 		64833A36256D532D00A2D827 /* AllLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLectureView.swift; sourceTree = "<group>"; };
 		64833A3A256D537A00A2D827 /* AllLectureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLectureViewModel.swift; sourceTree = "<group>"; };
 		64833A3D256D57DA00A2D827 /* ScheduleSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSelection.swift; sourceTree = "<group>"; };
@@ -109,7 +111,6 @@
 		64548887257FDBC700DECC1A /* ScheduleRow */ = {
 			isa = PBXGroup;
 			children = (
-				64548888257FDBDD00DECC1A /* ScheduleRow.swift */,
 				6454888C257FDCEA00DECC1A /* LectureSelectionRow.swift */,
 			);
 			path = ScheduleRow;
@@ -154,6 +155,14 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		646483122588F32F00F776C1 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				646483132588F34900F776C1 /* ColoredNavigationHeader.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		64833A35256D530E00A2D827 /* AllLectureView */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +195,7 @@
 		649714F425519F5800193184 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				646483122588F32F00F776C1 /* Navigation */,
 				64548887257FDBC700DECC1A /* ScheduleRow */,
 			);
 			path = CustomViews;
@@ -207,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				64E901EF2551A1A000BFDC2C /* ScheduleView.swift */,
+				646483172588F97A00F776C1 /* ScheduleViewModel.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -373,6 +384,7 @@
 				64E901EB2551A0FC00BFDC2C /* SettingsView.swift in Sources */,
 				64E902162551A62200BFDC2C /* Course.swift in Sources */,
 				6448227025640F2400767A8F /* AllSemesterViewModel.swift in Sources */,
+				646483182588F97A00F776C1 /* ScheduleViewModel.swift in Sources */,
 				64548883257FDA9A00DECC1A /* ColorConstants.swift in Sources */,
 				64E902002551A53600BFDC2C /* ScheduleForCourseSemester.swift in Sources */,
 				64E901F02551A1A000BFDC2C /* ScheduleView.swift in Sources */,
@@ -388,8 +400,8 @@
 				643DBF34255AE0FB00BC99CB /* UserModel.swift in Sources */,
 				64833A3B256D537A00A2D827 /* AllLectureViewModel.swift in Sources */,
 				6448226D25640F1400767A8F /* AllSemesterView.swift in Sources */,
+				646483142588F34900F776C1 /* ColoredNavigationHeader.swift in Sources */,
 				64E9020F2551A5FA00BFDC2C /* ChangesForCouseSemester.swift in Sources */,
-				64548889257FDBDD00DECC1A /* ScheduleRow.swift in Sources */,
 				64833A3E256D57DA00A2D827 /* ScheduleSelection.swift in Sources */,
 				64E902142551A62200BFDC2C /* CoursesAfterTerm.swift in Sources */,
 				64E9022F2551B56500BFDC2C /* ServerModel.swift in Sources */,
