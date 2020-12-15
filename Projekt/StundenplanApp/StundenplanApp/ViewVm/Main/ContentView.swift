@@ -11,16 +11,16 @@ struct ContentView: View {
     var body: some View {
         TabView{
             ScheduleView().tabItem{
-                Image(systemName: "triangle")
-                Text("Schedule")
+                Image(systemName: "calendar")
+                Text("Stundenplan")
             }
             ChangesView().tabItem{
-                Image(systemName: "circle")
-                Text("Changes")
+                Image(systemName: "calendar.badge.minus")
+                Text("Änderungen")
             }
             SettingsView().tabItem{
-                Image(systemName: "square")
-                Text("Settings")
+                Image(systemName: "wrench")
+                Text("Einstellungen")
             }
         }
     }

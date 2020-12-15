@@ -34,7 +34,7 @@ struct LectureSelectionRow : View{
         .padding()
         .background(ColorConstants.primaryLight)
         .cornerRadius(8)
-        .padding()
+        .padding(8)
     }
 }
 
