@@ -10,7 +10,10 @@ import SwiftUI
 struct AllLectureView : View{
     @ObservedObject var viewModel : AllLectureViewModel
     
+    @State var saveLectureAlert = false
     @State var selectedDayIdx : Int = 0
+    
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View{
         VStack{
@@ -35,11 +38,21 @@ struct AllLectureView : View{
             else{
                 Text("Loading...")
             }
-        }.onAppear{
+        }.alert(isPresented: $saveLectureAlert, content: {
+            Alert(title: Text("Speichern"), primaryButton: .default(Text("Ja"), action: ({
+                viewModel.saveLecturePlan()
+                self.presentationMode.wrappedValue.dismiss()
+            })), secondaryButton: .default(Text("nein"), action: ({
+                self.presentationMode.wrappedValue.dismiss()
+            })))
+        }).onAppear{
             viewModel.loadData()
-        }.onDisappear{
-            //TODO: save data?
-            print("Called on disappear")
         }.navigationBarTitle(Text("Vorlesungswahl"), displayMode: .inline)
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: {
+            saveLectureAlert = true
+        }){
+            Text("back")
+        })
     }
 }

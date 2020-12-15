@@ -19,19 +19,19 @@ class AllSemesterViewModel : ObservableObject{
     var allCourses = [Course]()
     
     //model synchronisation fields
-    private let userModel = UserModel()
+    private let settingsModel = SettingsModel()
     private let serverModel = ServerModel()
     
     //functions
     func loadData(){
-        allCourses = userModel.courses
+        allCourses = settingsModel.courses
         loadSelectedSemesters()
     }
     
     private func loadSelectedSemesters(){
         selectedSemesters.removeAll()
         allCourses.forEach{ cor in
-            let userSemSelection = userModel.semesters[cor.course]
+            let userSemSelection = settingsModel.semesters[cor.course]
             for sem in cor.semester {
                 var sel = false
                 if let existingUserSemSelection = userSemSelection {
@@ -52,22 +52,22 @@ class AllSemesterViewModel : ObservableObject{
     }
     
     func updateSemesterSelection(course: Course, semester: String){
-        if var allSelectedSemesterOfCourse = userModel.semesters[course.course]{
+        if var allSelectedSemesterOfCourse = settingsModel.semesters[course.course]{
             //update semesters
             //check if choosen semester is in usermodel.semesters in context of course
             if let index = allSelectedSemesterOfCourse.firstIndex(of: semester){
-                userModel.semesterChangeCleanup()
+                settingsModel.semesterChangeCleanup()
                 allSelectedSemesterOfCourse.remove(at: index)
             }
             else{
                 allSelectedSemesterOfCourse.append(semester)
             }
-            userModel.semesters[course.course] = allSelectedSemesterOfCourse
+            settingsModel.semesters[course.course] = allSelectedSemesterOfCourse
             
         }
         else{
             //course does not exist in semester selection
-            userModel.semesters[course.course] = [semester]
+            settingsModel.semesters[course.course] = [semester]
         }
         serverModel.semesterChangeCleanup()
         loadSelectedSemesters()

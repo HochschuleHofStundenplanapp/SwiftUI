@@ -18,7 +18,7 @@ class AllCoursesViewModel : ObservableObject {
     
     //model fields
     let serverModel = ServerModel()
-    let userModel = UserModel()
+    let settingsModel = SettingsModel()
     
     
     
@@ -39,13 +39,13 @@ class AllCoursesViewModel : ObservableObject {
     
     func updateCourseSelection(course: Course){
         //dataisAvailable = false
-        if userModel.courses.contains(where: {$0.course == course.course}){
-            userModel.courseChangeCleanup(courses: [course])
-            userModel.courses.removeAll(where: {$0.course == course.course})
+        if settingsModel.courses.contains(where: {$0.course == course.course}){
+            settingsModel.courseChangeCleanup(courses: [course])
+            settingsModel.courses.removeAll(where: {$0.course == course.course})
         }
         else{
-            userModel.courses.append(course)
-            userModel.semesters[course.course] = [String]()
+            settingsModel.courses.append(course)
+            settingsModel.semesters[course.course] = [String]()
         }
         mergeModels()
         dataisAvailable = true
@@ -71,7 +71,7 @@ class AllCoursesViewModel : ObservableObject {
     
     private func mergeModels(){
         let serverCourses = self.serverModel.allCourses
-        let selectedCourses = self.userModel.courses
+        let selectedCourses = self.settingsModel.courses
         
         data = serverCourses.map{serverCourse in
             var selected = false

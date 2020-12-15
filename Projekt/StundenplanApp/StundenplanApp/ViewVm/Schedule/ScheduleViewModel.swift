@@ -46,6 +46,8 @@ class ScheduleViewModel: ObservableObject{
     func constructSchedule(){
         //TODO: Refresh lessonsForWeekDay
         
+        lessons = UserModel().lectureSelections.map{$0.lecture}
+        /*
         lessons = [
             //REGULAR LESSONS
             Lecture(id: "2dfefscdsc",label: "Montagsarchitektur mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Regelmäßig", group:"Gruppe B",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Montag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
@@ -57,5 +59,6 @@ class ScheduleViewModel: ObservableObject{
             Lecture(id: "wdakjwbd7",label: "Blockvorlesung mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Blockunterricht", group:"Gruppe Y",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Dienstag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
             Lecture(id: "d3fevrvd",label: "Blockvorlesung mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Blockunterricht", group:"Gruppe B",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Samstag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
         ]
+ */
     }
 }

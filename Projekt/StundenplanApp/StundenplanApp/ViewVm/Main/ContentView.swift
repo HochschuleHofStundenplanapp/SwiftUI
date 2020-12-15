@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var settingsViewModel = SettingsViewModel()
+    
     var body: some View {
         TabView{
             ScheduleView().tabItem{
@@ -18,7 +21,7 @@ struct ContentView: View {
                 Image(systemName: "calendar.badge.minus")
                 Text("Änderungen")
             }
-            SettingsView().tabItem{
+            SettingsView(viewModel: settingsViewModel).tabItem{
                 Image(systemName: "wrench")
                 Text("Einstellungen")
             }

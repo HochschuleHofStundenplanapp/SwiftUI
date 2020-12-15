@@ -16,7 +16,7 @@ class AllLectureViewModel : ObservableObject{
     var selectedDayIndex = 0
     
     private var cancel : AnyCancellable? = nil
-    private let userModel = UserModel()
+    private var settingsModel = SettingsModel()
     private let serverModel = ServerModel()
     
     init(){
@@ -34,12 +34,12 @@ class AllLectureViewModel : ObservableObject{
     
     func updateScheduleSelection(lectureSelection: LectureSelection){
         //dataisAvailable = false
-        if userModel.lectureSelections.contains(where: {$0.lecture.id == lectureSelection.lecture.id}){
+        if settingsModel.lectureSelections.contains(where: {$0.lecture.id == lectureSelection.lecture.id}){
             //userModel.courseChangeCleanup(courses: [course])
-            userModel.lectureSelections.removeAll(where: {$0.lecture.id == lectureSelection.lecture.id})
+            settingsModel.lectureSelections.removeAll(where: {$0.lecture.id == lectureSelection.lecture.id})
         }
         else{
-            userModel.lectureSelections.append(lectureSelection)
+            settingsModel.lectureSelections.append(lectureSelection)
             //userModel.semesters[course.course] = [String]()
         }
         mergeModels()
@@ -52,12 +52,18 @@ class AllLectureViewModel : ObservableObject{
         dataIsAvailable = true
     }
     
+    func saveLecturePlan() {
+        //assign settingsmodel to usermodel
+        settingsModel.copyTo(model: UserModel())
+        print("writing in usermodel")
+    }
+    
     //help functions
     private func fetchDataFromApi(){
         data.removeAll()
         serverModel.scheduleSelections.removeAll()
         cancel = Pipelines()
-            .getLecturesForSelectedCourseSemester(courseSemesters: userModel.semesters, term: userModel.term)
+            .getLecturesForSelectedCourseSemester(courseSemesters: settingsModel.semesters, term: settingsModel.term)
             .receive(on: RunLoop.main)
             .sink(receiveCompletion: {_ in
                 self.mergeModels()
@@ -70,12 +76,13 @@ class AllLectureViewModel : ObservableObject{
     }
     
     private func mergeModels(){
+        
         let serverData = serverModel.lectureSelections
-        let userData = userModel.lectureSelections
+        let settingsData = settingsModel.lectureSelections
         
         data = serverData.map{element in
             var selected = false
-            if(userData.contains(where: {$0.lecture.id == element.lecture.id})){
+            if(settingsData.contains(where: {$0.lecture.id == element.lecture.id})){
                 selected = true
             }
             return (lectureSelection: element, selected: selected)

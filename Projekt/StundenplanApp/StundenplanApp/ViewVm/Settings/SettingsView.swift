@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView : View{
-    @ObservedObject var viewModel = SettingsViewModel()
+    @ObservedObject var viewModel: SettingsViewModel
     
     @State private var selectedTermIdx = 0
     //@State private var toggleCalendar : Bool = false
@@ -51,6 +51,6 @@ struct SettingsView : View{
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView(viewModel: SettingsViewModel())
     }
 }

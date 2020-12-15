@@ -18,21 +18,29 @@ class SettingsViewModel : ObservableObject{
     
     //model access
     private let serverModel : ServerModel = ServerModel()
-    private let userModel : UserModel = UserModel()
+    private var settingsModel : SettingsModel = SettingsModel()
+    
+    init() {
+        syncModels()
+    }
+    
+    func syncModels() {
+        UserModel().copyTo(model: settingsModel)
+    }
     
     //functions
     func onTermChanged(){
         serverModel.termChangeCleanup()
-        userModel.termChangeCleanup()
-        userModel.term = termData[selectedTermIndex]
+        settingsModel.termChangeCleanup()
+        settingsModel.term = termData[selectedTermIndex]
         updateAllowedStates()
     }
     
     //function is exexcuted if view is appearing
     func updateAllowedStates(){
-        allowedToAccessSemesters = !userModel.courses.isEmpty
-        allowedToAccessLectures = userModel.hasSemesters()
+        allowedToAccessSemesters = !settingsModel.courses.isEmpty
+        allowedToAccessLectures = settingsModel.hasSemesters()
         
-        print("DEBUG:\nSemesters:\n\(userModel.semesters)\n\n")
+        print("DEBUG:\nSemesters:\n\(settingsModel.semesters)\n\n")
     }
 }

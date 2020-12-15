@@ -8,49 +8,49 @@
 import Foundation
 import Combine
 
-class UserModel{
+class SettingsModel{
     //access singleton
-    private let userModelAccess = UserModelSingleton.sharedInstance
+    private let settingsModelAccess = SettingsModelSingleton.sharedInstance
     
     //modify singleton and access data
     var term : String{
         get{
-            return userModelAccess.term
+            return settingsModelAccess.term
         }
         set(value){
-            userModelAccess.term = value
+            settingsModelAccess.term = value
         }
     }
     var courses : [Course] {
         get{
-            return userModelAccess.courses
+            return settingsModelAccess.courses
         }
         set(courses){
-            userModelAccess.courses = courses
+            settingsModelAccess.courses = courses
         }
     }
     
     var semesters : Dictionary<String,[String]>{
         get{
-            return userModelAccess.semesters
+            return settingsModelAccess.semesters
         }
         set(sems){
-            userModelAccess.semesters = sems
+            settingsModelAccess.semesters = sems
         }
     }
     
     var lectureSelections : [LectureSelection]{
         get{
-            return userModelAccess.lectureSelections
+            return settingsModelAccess.lectureSelections
         }
         set(lecSecs){
-            userModelAccess.lectureSelections = lecSecs
+            settingsModelAccess.lectureSelections = lecSecs
         }
     }
     
     //get modified for model changes
     func modelNotifier() -> ObservableObjectPublisher{
-      return userModelAccess.objectWillChange
+      return settingsModelAccess.objectWillChange
     }
     
     //cleanup functions
@@ -81,7 +81,7 @@ class UserModel{
         return !existingSemesters.isEmpty
     }
     
-    func copyTo(model: SettingsModel) {
+    func copyTo(model: UserModel) {
         model.courses = courses
         model.lectureSelections = lectureSelections
         model.term = term
@@ -90,9 +90,9 @@ class UserModel{
     
 }
 
-fileprivate class UserModelSingleton : ObservableObject{
+fileprivate class SettingsModelSingleton : ObservableObject{
     //instance
-    static let sharedInstance : UserModelSingleton = UserModelSingleton()
+    static let sharedInstance : SettingsModelSingleton = SettingsModelSingleton()
     
     //published var for combine
     @Published var modelChanged : Bool = false
