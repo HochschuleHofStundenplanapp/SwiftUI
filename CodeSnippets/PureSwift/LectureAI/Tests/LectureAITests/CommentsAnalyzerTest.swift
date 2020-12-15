@@ -10,7 +10,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
 
         let inputComment = "- Übungen - Start KW 17 (vorzugsweise für BW) "
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "17")
+            CommentFact(type: .start_kw, value: "17", intervall: .weekly)
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -21,7 +21,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
 
         let inputComment = "- Online-Anmeldung 01.04. - 06.04.2020 - Beginn KW 18 - max. 20 TN"
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "18")
+            CommentFact(type: .start_kw, value: "18", intervall: .weekly)
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -41,7 +41,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
 
         let inputComment = "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)"
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "20")
+            CommentFact(type: .start_kw, value: "20", intervall: .weekly)
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -51,7 +51,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_englischBeginningKW(){
         let inputComment = "-lecture - (every second week) (language: english) start week KW 18 - online in moodle -"
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "18")
+            CommentFact(type: .start_kw, value: "18", intervall: .bi_weekly)
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -61,7 +61,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_englischBeginningKW2(){
         let inputComment = "- Exercises - (all 14 days, begin: calendar Week 18)"
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "18")
+            CommentFact(type: .start_kw, value: "18", intervall: .bi_weekly)
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -119,6 +119,17 @@ public final class CommentsAnalyzerTest: XCTestCase {
         XCTAssertEqual(expectedOutputFacts, actualFacts)
     }
 
+    func test_BW_dual_4(){
+        let inputComment = "SAP ERP Simulation / - 14-tägig - ab KW 17"
+        let expectedOutputFacts = [
+            CommentFact(type: .start_kw, value: "17", intervall: .bi_weekly)
+        ]
+
+
+        let actualFacts = analyzer.analyzeComment(comment: inputComment)
+        XCTAssertEqual(expectedOutputFacts, actualFacts)
+    }
+
     func testExtensionSplitComment(){
 
         let stringTest = "KW 17, 18, 19, 21, 22 und 23"
@@ -143,6 +154,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
         ("test_md3_3", test_md3_3),
         ("test_bwDual2", test_bwDual2),
         ("test_kd1", test_kd1),
+        ("test_BW_dual_4", test_BW_dual_4),
         ("test_englischBeginningKW2", test_englischBeginningKW2)
     ]
 
