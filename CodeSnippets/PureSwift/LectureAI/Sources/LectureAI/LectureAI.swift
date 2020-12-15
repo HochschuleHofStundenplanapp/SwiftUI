@@ -14,25 +14,22 @@ public class LectureAI {
 
     public func parseEvent(term: String, lecture: Lecture) -> AnalyzedLecture {
 
-        let parsedType = parseLectureStyle(style: lecture.style)
-
-//        if parsedType == .block {
-//
-//            lecture.startdate
-//
-//
-//            let singleEventList: [AnalyzedLecture.Event] = []
-//
-//            return AnalyzedLecture(
-//                    lecture: lecture, events: possibleEvents, couldNotParse: couldNotParse, type: parsedType)
-//
-//        }
-
-
         var possibleDates = lectureDateCalculator.getPossibleDates(term: term, lecture: lecture)
         let commentFacts = commentAnalyzer.analyzeComment(comment: lecture.comment)
 
         var couldNotParse = false
+
+        let parsedType = parseLectureStyle(style: lecture.style)
+
+        if parsedType == .block { //TODO: Test
+
+           let singleEventList: [AnalyzedLecture.Event] = []
+           let singleBlockEvent = generateEventForDate(date: lecture.startdate, startTimeString: lecture.starttime , endTimeString: lecture.endtime)
+           
+           singleEventList.append(singleBlockEvent)
+
+           return AnalyzedLecture(lecture: lecture, events: singleEventList, couldNotParse: couldNotParse, type: parsedType)
+        }
 
         for fact in commentFacts {
 
