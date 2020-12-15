@@ -13,7 +13,7 @@ public class CommentAnalyzer {
   public func analyzeComment(comment: String) -> [CommentFact] {
 
     var facts: [CommentFact] = []
-    var intervall = CommentFactIntervall.weekly
+    var interval = CommentFactInterval.weekly
 
     let commentLowercased = comment.lowercased()
 
@@ -27,37 +27,41 @@ public class CommentAnalyzer {
     //regex aufzählung: KW\s\d+(,+\s*\d+)+(\s*und\s*\d+)*
     //comments mit - nicht möglich! -> "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
     if getGroupOf(pattern: pattern4, target: commentLowercased, group: 0) != nil {
-      facts.append(CommentFact(type: .no_info, value: "", intervall: intervall))
+      facts.append(CommentFact(type: .no_info, interval: interval))
       return facts
     }
 
     if getGroupOf(pattern: pattern5, target: commentLowercased, group: 0) != nil {
-      intervall = .bi_weekly
+      interval = .bi_weekly
     }
 
     if getGroupOf(pattern: pattern6, target: commentLowercased, group: 0) != nil {
-      intervall = .bi_weekly
+      interval = .bi_weekly
     }
 
     if getGroupOf(pattern: pattern7, target: commentLowercased, group: 0) != nil {
-      intervall = .bi_weekly
+      interval = .bi_weekly
     }
 
-    //TODO: Ausstellungsdesign \/  KW 43, 45, 47, virtuell
-    if let kw = getGroupOf(pattern: pattern3, target: commentLowercased, group: 0) {
-      let list = kw.replacingOccurrences(of: "kw", with: "").replacingOccurrences(of: " ", with: "")
-        .split(regex: ",|und").joined(separator: ", ")
-      facts.append(CommentFact(type: .list_kws, value: list, intervall: intervall))
-      return facts
-    }
+      if getGroupOf(pattern: pattern4, target: commentLowercased, group: 0) != nil {
+          facts.append(CommentFact(type: .no_info, interval: .not_defined))
+          return facts
+      }
+
+      //TODO: Ausstellungsdesign \/  KW 43, 45, 47, virtuell
+      if let kw = getGroupOf(pattern: pattern3, target: commentLowercased, group: 0) {
+        let list = kw.replacingOccurrences(of:"kw", with:"").replacingOccurrences(of:" ", with:"").split(regex: ",|und")
+        facts.append(CommentFact(type: .list_kws(list.map { Int($0)! }), interval: interval))
+        return facts
+      }
 
     if let kw = getGroupOf(pattern: pattern, target: commentLowercased, group: 5) {
-      facts.append(CommentFact(type: .start_kw, value: kw, intervall: intervall))
-      return facts
+      facts.append(CommentFact(type: .start_kw(Int(kw)!), interval: interval))
+        return facts
     }
     if let kw = getGroupOf(pattern: pattern2, target: commentLowercased, group: 2) {
-      facts.append(CommentFact(type: .start_kw, value: kw, intervall: intervall))
-      return facts
+      facts.append(CommentFact(type: .start_kw(Int(kw)!), interval: interval))
+        return facts
     }
 
     return facts
@@ -77,31 +81,29 @@ public class CommentAnalyzer {
   }
 }
 
-public enum CommentFactIntervall {
-  case weekly, bi_weekly, not_defined
-}
 
-public struct CommentFact: Equatable {
+public struct CommentFact : Equatable {
+
   let type: CommentFactType
-  let value: String
-  let intervall: CommentFactIntervall
+  let interval: CommentFactInterval
 
-  public init(type: CommentFactType, value: String) {
+  public init(type: CommentFactType, interval: CommentFactInterval) {
     self.type = type
-    self.value = value
-    self.intervall = .weekly
+    self.interval = interval
   }
 
-  public init(type: CommentFactType, value: String, intervall: CommentFactIntervall) {
-    self.type = type
-    self.value = value
-    self.intervall = intervall
+  public static func ==(lhs: CommentFact, rhs: CommentFact) -> Bool {
+    String(describing: lhs.type) == String(describing: rhs.type)
   }
 
 }
 
 public enum CommentFactType {
-  case start_kw, excluded_kws, list_kws, no_info
+  case start_kw(Int), excluded_kws([Int]), list_kws([Int]), no_info
+}
+
+public enum CommentFactInterval {
+  case weekly, bi_weekly, not_defined
 }
 
 extension String {

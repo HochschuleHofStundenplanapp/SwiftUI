@@ -15,6 +15,12 @@ open class DateUtil {
         return date
     }
 
+    public func parse(_ strings: [String], format: String = "yyyy-MM-dd") -> [Date] {
+        strings.map {
+            parse($0, format: format)
+        }
+    }
+
     public func stringify(_ date: Date, format: String = "yyyy-MM-dd") -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
@@ -23,7 +29,9 @@ open class DateUtil {
     }
 
     public func stringify(_ dates: [Date], format: String = "yyyy-MM-dd") -> [String] {
-        return dates.map { stringify($0, format: format) }
+        dates.map {
+            stringify($0, format: format)
+        }
     }
 
     public func getWeekdayNumberOfGermanString(germanString: String) -> Int {
@@ -67,6 +75,15 @@ open class DateUtil {
     open func getCurrentYear() -> Int {
         return Int(Calendar.current.component(.year, from: Date()))
     }
+
+    func getHourAndMinutesFrom(string: String) -> (Int, Int) {
+        let array = string.split(regex: ":")
+
+        let hour = Int(array[0]) ?? 0
+        let minute = Int(array[0]) ?? 0
+        return (hour, minute)
+    }
+
 
 }
 
