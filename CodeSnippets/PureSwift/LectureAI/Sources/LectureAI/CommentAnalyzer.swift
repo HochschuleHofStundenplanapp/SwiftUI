@@ -13,53 +13,51 @@ public class CommentAnalyzer {
   public func analyzeComment(comment: String) -> [CommentFact] {
 
     var facts: [CommentFact] = []
-    var intervall  = CommentFactIntervall.weekly
+    var intervall = CommentFactIntervall.weekly
 
-      let commentLowercased = comment.lowercased()
+    let commentLowercased = comment.lowercased()
 
-      let pattern = "(start|begin|beginn|beginning|ab):?\\s*(calendar)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})" // z.B. "start kw15"
-      let pattern2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw" // z.B. "start 15. kw"
-      let pattern3 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"
-      let pattern4 = "kw.*kw.*"
-      let pattern5 = "14-tägig"
-      let pattern6 = "14 days"
-      let pattern7 = "every second week"
-      //regex aufzählung: KW\s\d+(,+\s*\d+)+(\s*und\s*\d+)*
-      //comments mit - nicht möglich! -> "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
-      if getGroupOf(pattern: pattern4, target: commentLowercased, group: 0) != nil {
-        facts.append(CommentFact(type: .no_info, value: "", intervall: intervall))
-          return facts
-      }
+    let pattern  = "(start|begin|beginn|beginning|ab):?\\s*(calendar)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})"  // z.B. "start kw15"
+    let pattern2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw"  // z.B. "start 15. kw"
+    let pattern3 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"
+    let pattern4 = "kw.*kw.*"
+    let pattern5 = "14-tägig"
+    let pattern6 = "14 days"
+    let pattern7 = "every second week"
+    //regex aufzählung: KW\s\d+(,+\s*\d+)+(\s*und\s*\d+)*
+    //comments mit - nicht möglich! -> "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
+    if getGroupOf(pattern: pattern4, target: commentLowercased, group: 0) != nil {
+      facts.append(CommentFact(type: .no_info, value: "", intervall: intervall))
+      return facts
+    }
 
-      if getGroupOf(pattern: pattern5, target: commentLowercased, group: 0) != nil {
-        intervall = .bi_weekly
-      }
+    if getGroupOf(pattern: pattern5, target: commentLowercased, group: 0) != nil {
+      intervall = .bi_weekly
+    }
 
-      if getGroupOf(pattern: pattern6, target: commentLowercased, group: 0) != nil {
-        intervall = .bi_weekly
-      }
+    if getGroupOf(pattern: pattern6, target: commentLowercased, group: 0) != nil {
+      intervall = .bi_weekly
+    }
 
-
-      if getGroupOf(pattern: pattern7, target: commentLowercased, group: 0) != nil {
-        intervall = .bi_weekly
-      }
-
-
+    if getGroupOf(pattern: pattern7, target: commentLowercased, group: 0) != nil {
+      intervall = .bi_weekly
+    }
 
     //TODO: Ausstellungsdesign \/  KW 43, 45, 47, virtuell
     if let kw = getGroupOf(pattern: pattern3, target: commentLowercased, group: 0) {
-      let list = kw.replacingOccurrences(of:"kw", with:"").replacingOccurrences(of:" ", with:"").split(regex: ",|und").joined(separator:", ")
-        facts.append(CommentFact(type: .list_kws, value: list, intervall: intervall))
-        return facts
+      let list = kw.replacingOccurrences(of: "kw", with: "").replacingOccurrences(of: " ", with: "")
+        .split(regex: ",|und").joined(separator: ", ")
+      facts.append(CommentFact(type: .list_kws, value: list, intervall: intervall))
+      return facts
     }
 
     if let kw = getGroupOf(pattern: pattern, target: commentLowercased, group: 5) {
       facts.append(CommentFact(type: .start_kw, value: kw, intervall: intervall))
-        return facts
+      return facts
     }
     if let kw = getGroupOf(pattern: pattern2, target: commentLowercased, group: 2) {
       facts.append(CommentFact(type: .start_kw, value: kw, intervall: intervall))
-        return facts
+      return facts
     }
 
     return facts
@@ -67,14 +65,14 @@ public class CommentAnalyzer {
 
   private func getGroupOf(pattern: String, target: String, group: Int) -> String? {
     let regex = try! NSRegularExpression(pattern: pattern)
-      let matches = regex.matches(in: target, range: NSMakeRange(0, target.utf16.count))
+    let matches = regex.matches(in: target, range: NSMakeRange(0, target.utf16.count))
 
-      if matches.isEmpty || group >= matches[0].numberOfRanges {
-        return nil
-      }
+    if matches.isEmpty || group >= matches[0].numberOfRanges {
+      return nil
+    }
 
-    let match =  matches[0].range(at: group)
-      return target.substring(from: match.location).substring(to: match.length)
+    let match = matches[0].range(at: group)
+    return target.substring(from: match.location).substring(to: match.length)
 
   }
 }
@@ -85,19 +83,19 @@ public enum CommentFactIntervall {
 
 public struct CommentFact: Equatable {
   let type: CommentFactType
-    let value: String
-    let intervall: CommentFactIntervall
+  let value: String
+  let intervall: CommentFactIntervall
 
-    public init(type: CommentFactType, value: String) {
-      self.type = type
-        self.value = value
-        self.intervall = .weekly
-    }
+  public init(type: CommentFactType, value: String) {
+    self.type = type
+    self.value = value
+    self.intervall = .weekly
+  }
 
   public init(type: CommentFactType, value: String, intervall: CommentFactIntervall) {
     self.type = type
-      self.value = value
-      self.intervall = intervall
+    self.value = value
+    self.intervall = intervall
   }
 
 }
@@ -111,16 +109,15 @@ extension String {
   func split(regex pattern: String) -> [String] {
 
     guard let re = try? NSRegularExpression(pattern: pattern, options: [])
-      else { return [] }
+    else { return [] }
 
-      let nsString = self as NSString // needed for range compatibility
-        let stop = "<SomeStringThatYouDoNotExpectToOccurInSelf>"
-        let modifiedString = re.stringByReplacingMatches(
-            in: self,
-            options: [],
-            range: NSRange(location: 0, length: nsString.length),
-            withTemplate: stop)
-        return modifiedString.components(separatedBy: stop)
+    let nsString = self as NSString  // needed for range compatibility
+    let stop = "<SomeStringThatYouDoNotExpectToOccurInSelf>"
+    let modifiedString = re.stringByReplacingMatches(
+      in: self,
+      options: [],
+      range: NSRange(location: 0, length: nsString.length),
+      withTemplate: stop)
+    return modifiedString.components(separatedBy: stop)
   }
 }
-
