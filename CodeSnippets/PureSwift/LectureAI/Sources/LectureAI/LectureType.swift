@@ -4,7 +4,9 @@
 
 import Foundation
 
-enum LectureType {
+public enum LectureType {
+
+    case fixed_time, block, other
 
 
 }

@@ -24,23 +24,23 @@ public class CommentAnalyzer {
       //comments mit - nicht möglich! -> "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
 
       if getGroupOf(pattern: pattern4, target: commentLowercased, group: 0) != nil {
-          facts.append(CommentFact(type: .no_info, value: ""))
+          facts.append(CommentFact(type: .no_info))
           return facts
       }
 
       //TODO: Ausstellungsdesign \/  KW 43, 45, 47, virtuell
       if let kw = getGroupOf(pattern: pattern3, target: commentLowercased, group: 0) {
-        let list = kw.replacingOccurrences(of:"kw", with:"").replacingOccurrences(of:" ", with:"").split(regex: ",|und").joined(separator:", ")
-          facts.append(CommentFact(type: .list_kws, value: list))
-          return facts
+        let list = kw.replacingOccurrences(of:"kw", with:"").replacingOccurrences(of:" ", with:"").split(regex: ",|und")
+        facts.append(CommentFact(type: .list_kws(list.map { Int($0)! })))
+        return facts
       }
 
     if let kw = getGroupOf(pattern: pattern, target: commentLowercased, group: 5) {
-      facts.append(CommentFact(type: .start_kw, value: kw))
+      facts.append(CommentFact(type: .start_kw(Int(kw)!)))
         return facts
     }
     if let kw = getGroupOf(pattern: pattern2, target: commentLowercased, group: 2) {
-      facts.append(CommentFact(type: .start_kw, value: kw))
+      facts.append(CommentFact(type: .start_kw(Int(kw)!)))
         return facts
     }
 
@@ -61,18 +61,22 @@ public class CommentAnalyzer {
   }
 }
 
-public struct CommentFact: Equatable {
-  let type: CommentFactType
-    let value: String
+public struct CommentFact : Equatable {
 
-    public init(type: CommentFactType, value: String) {
-      self.type = type
-        self.value = value
-    }
+  let type: CommentFactType
+
+  public init(type: CommentFactType) {
+    self.type = type
+  }
+
+  public static func ==(lhs: CommentFact, rhs: CommentFact) -> Bool {
+    String(describing: lhs.type) == String(describing: rhs.type)
+  }
+
 }
 
 public enum CommentFactType {
-  case start_kw, excluded_kws, list_kws, no_info
+  case start_kw(Int), excluded_kws([Int]), list_kws([Int]), no_info
 }
 
 extension String {

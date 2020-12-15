@@ -10,7 +10,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
 
         let inputComment = "- Übungen - Start KW 17 (vorzugsweise für BW) "
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "17")
+            CommentFact(type: .start_kw(17))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -21,7 +21,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
 
         let inputComment = "- Online-Anmeldung 01.04. - 06.04.2020 - Beginn KW 18 - max. 20 TN"
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "18")
+            CommentFact(type: .start_kw(18))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -41,7 +41,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
 
         let inputComment = "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)"
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "20")
+            CommentFact(type: .start_kw(20))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -51,7 +51,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_englischBeginningKW(){
         let inputComment = "-lecture - (every second week) (language: english) start week KW 18 - online in moodle -"
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "18")
+            CommentFact(type: .start_kw(18))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -61,7 +61,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_englischBeginningKW2(){
         let inputComment = "- Exercises - (all 14 days, begin: calendar Week 18)"
         let expectedOutputFacts = [
-            CommentFact(type: .start_kw, value: "18")
+            CommentFact(type: .start_kw(18))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -71,7 +71,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_bwDual2(){
         let inputComment = "KW 17, 18, 19, 21, 22 und 23"
         let expectedOutputFacts = [
-            CommentFact(type: .list_kws, value: "17, 18, 19, 21, 22, 23")
+            CommentFact(type: .list_kws([17, 18, 19, 21, 22, 23]))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -81,7 +81,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_md3(){
         let inputComment = "Ausstellungsdesign /  KW 43, 45, 47, virtuell"
         let expectedOutputFacts = [
-            CommentFact(type: .list_kws, value: "43, 45, 47")
+            CommentFact(type: .list_kws([43, 45, 47]))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -91,7 +91,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_md3_2(){
         let inputComment = "Ausstellungsdesign /  KW 42,44,46,48"
         let expectedOutputFacts = [
-            CommentFact(type: .list_kws, value: "42, 44, 46, 48")
+            CommentFact(type: .list_kws([42, 44, 46, 48]))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -101,7 +101,7 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_md3_3(){
         let inputComment = "Ausstellungsdesign / KW 49, 50, 51, 2, 3"
         let expectedOutputFacts = [
-            CommentFact(type: .list_kws, value: "49, 50, 51, 2, 3")
+            CommentFact(type: .list_kws([49, 50, 51, 2, 3]))
         ]
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
@@ -111,9 +111,8 @@ public final class CommentsAnalyzerTest: XCTestCase {
     func test_kd1(){
         let inputComment = "KW 42 - 3, außer KW 43, 47, 53, 1"
         let expectedOutputFacts = [
-            CommentFact(type: .no_info, value: "")
+            CommentFact(type: .no_info)
         ]
-
 
         let actualFacts = analyzer.analyzeComment(comment: inputComment)
         XCTAssertEqual(expectedOutputFacts, actualFacts)
@@ -128,8 +127,6 @@ public final class CommentsAnalyzerTest: XCTestCase {
         )
 
     }
-    
-
 
     public static var allTests = [
         ("test_BW_dual2_Wirtschaftsinformatik", test_BW_dual2_Wirtschaftsinformatik),
