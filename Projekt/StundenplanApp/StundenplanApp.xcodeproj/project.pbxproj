@@ -36,6 +36,7 @@
 		64E9021F2551A81500BFDC2C /* AllCoursesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9021E2551A81500BFDC2C /* AllCoursesView.swift */; };
 		64E902292551ABC800BFDC2C /* AllCoursesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E902282551ABC800BFDC2C /* AllCoursesViewModel.swift */; };
 		64E9022F2551B56500BFDC2C /* ServerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E9022E2551B56500BFDC2C /* ServerModel.swift */; };
+		BCF8570125891AE3008B9732 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF8570025891AE3008B9732 /* SettingsModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		64E9021E2551A81500BFDC2C /* AllCoursesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCoursesView.swift; sourceTree = "<group>"; };
 		64E902282551ABC800BFDC2C /* AllCoursesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCoursesViewModel.swift; sourceTree = "<group>"; };
 		64E9022E2551B56500BFDC2C /* ServerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerModel.swift; sourceTree = "<group>"; };
+		BCF8570025891AE3008B9732 /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		643DBF32255AE0CA00BC99CB /* UserModel */ = {
 			isa = PBXGroup;
 			children = (
+				BCF8570025891AE3008B9732 /* SettingsModel.swift */,
 				643DBF33255AE0FB00BC99CB /* UserModel.swift */,
 			);
 			path = UserModel;
@@ -393,6 +396,7 @@
 				64BF633D2576981F0029B0F4 /* LectureSelection.swift in Sources */,
 				645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */,
 				64E901F52551A21F00BFDC2C /* ChangesView.swift in Sources */,
+				BCF8570125891AE3008B9732 /* SettingsModel.swift in Sources */,
 				64E902292551ABC800BFDC2C /* AllCoursesViewModel.swift in Sources */,
 				64E902152551A62200BFDC2C /* Labels.swift in Sources */,
 				64833A37256D532D00A2D827 /* AllLectureView.swift in Sources */,
