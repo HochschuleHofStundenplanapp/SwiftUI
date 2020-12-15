@@ -63,6 +63,28 @@ final class LectureAITests: XCTestCase {
         XCTAssertEqual(LectureType.fixed_time, type)
     }
 
+    func test_generateEventForDate() {
+        let testDate = dateUtil.parse("2020-12-15")
+
+        let expectedStartDate = dateUtil.parse("2020-12-15 14:00", format: "yyyy-MM-dd HH:mm")
+        let expectedEndDate = dateUtil.parse("2020-12-15 15:30", format: "yyyy-MM-dd HH:mm")
+
+        let expectedEvent = AnalyzedLecture.Event(
+                startDate: expectedStartDate, endDate: expectedEndDate, durationMinutes: 90
+        )
+
+        let actualEvent = lectureAI.generateEventForDate(
+                date: testDate,
+                startTimeString: "14:00",
+                endTimeString: "15:30"
+        )
+
+        XCTAssertEqual("2020-12-15 14:00", dateUtil.stringify(actualEvent.startDate, format: "yyyy-MM-dd HH:mm"))
+        XCTAssertEqual("2020-12-15 15:30", dateUtil.stringify(actualEvent.endDate, format: "yyyy-MM-dd HH:mm"))
+        XCTAssertEqual(90, actualEvent.durationMinutes)
+    }
+
+
 
     static var allTests = [
         ("test_dateOfKW", test_dateOfKW),
@@ -71,7 +93,8 @@ final class LectureAITests: XCTestCase {
         ("test_filterDatesInKWs", test_filterDatesInKWs),
         ("test_parseLectureStyle_vorlesung_fixzeit", test_parseLectureStyle_vorlesung_fixzeit),
         ("test_parseLectureStyle_vorlesung_blockverantaltung", test_parseLectureStyle_vorlesung_blockverantaltung),
-        ("test_parseLectureStyle_vorlesung_uebung_fixzeit", test_parseLectureStyle_vorlesung_uebung_fixzeit)
+        ("test_parseLectureStyle_vorlesung_uebung_fixzeit", test_parseLectureStyle_vorlesung_uebung_fixzeit),
+        ("test_generateEventForDate", test_generateEventForDate)
     ]
 
 }
