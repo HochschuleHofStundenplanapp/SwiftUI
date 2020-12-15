@@ -80,7 +80,7 @@ open class DateUtil {
         let array = string.split(regex: ":")
 
         let hour = Int(array[0]) ?? 0
-        let minute = Int(array[0]) ?? 0
+        let minute = Int(array[1]) ?? 0
         return (hour, minute)
     }
 

@@ -6,9 +6,9 @@ public struct AnalyzedLecture {
     let couldNotParse: Bool
     var type: LectureType
 
-    public init(lecture: Lecture, dates: [Event], couldNotParse: Bool, type: LectureType) {
+    public init(lecture: Lecture, events: [Event], couldNotParse: Bool, type: LectureType) {
         self.lecture = lecture
-        self.dates = dates
+        self.dates = events
         self.couldNotParse = couldNotParse
         self.type = type
     }
@@ -18,9 +18,9 @@ public struct AnalyzedLecture {
         let endDate: Date
         let durationMinutes: Int
 
-        init(start: Date, end: Date, durationMinutes: Int) {
-            self.startDate = start
-            self.endDate = end
+        init(startDate: Date, endDate: Date, durationMinutes: Int) {
+            self.startDate = startDate
+            self.endDate = endDate
             self.durationMinutes = durationMinutes
         }
     }

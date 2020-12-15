@@ -14,6 +14,21 @@ public class LectureAI {
 
     public func parseEvent(term: String, lecture: Lecture) -> AnalyzedLecture {
 
+        let parsedType = parseLectureStyle(style: lecture.style)
+
+//        if parsedType == .block {
+//
+//            lecture.startdate
+//
+//
+//            let singleEventList: [AnalyzedLecture.Event] = []
+//
+//            return AnalyzedLecture(
+//                    lecture: lecture, events: possibleEvents, couldNotParse: couldNotParse, type: parsedType)
+//
+//        }
+
+
         var possibleDates = lectureDateCalculator.getPossibleDates(term: term, lecture: lecture)
         let commentFacts = commentAnalyzer.analyzeComment(comment: lecture.comment)
 
@@ -39,8 +54,16 @@ public class LectureAI {
 
         }
 
-        let parsedType = parseLectureStyle(style: lecture.style)
-        return AnalyzedLecture(lecture: lecture, dates: [], couldNotParse: couldNotParse, type: parsedType)
+        let possibleEvents = possibleDates.map {
+            generateEventForDate(
+                    date: $0,
+                    startTimeString: lecture.starttime,
+                    endTimeString: lecture.endtime
+            )
+        }
+
+
+        return AnalyzedLecture(lecture: lecture, events: possibleEvents, couldNotParse: couldNotParse, type: parsedType)
     }
 
     public func generateEventForDate(date: Date, startTimeString: String, endTimeString: String) -> AnalyzedLecture.Event {
@@ -49,9 +72,9 @@ public class LectureAI {
 
         let startDate = Calendar.current.date(bySettingHour: startHour, minute: startMinute, second: 0, of: date)!
         let endDate = Calendar.current.date(bySettingHour: endHour, minute: endMinute, second: 0, of: date)!
-        let duration = Int(endDate.timeIntervalSince(startDate))
+        let duration = Int(endDate.timeIntervalSince(startDate)) / 60
 
-        return AnalyzedLecture.Event(start: startDate, end: endDate, durationMinutes: duration)
+        return AnalyzedLecture.Event(startDate: startDate, endDate: endDate, durationMinutes: duration)
     }
 
     public func parseLectureStyle(style: String) -> LectureType {
