@@ -55,6 +55,7 @@ class AllLectureViewModel : ObservableObject{
     func saveLecturePlan() {
         //assign settingsmodel to usermodel
         settingsModel.copyTo(model: UserModel())
+        ChangesFetcher().fetchAndUpdateChanges()
         print("writing in usermodel")
     }
     
