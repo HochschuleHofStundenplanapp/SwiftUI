@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+/**
+ * The view representing a users schedule, as configured in the settings, uses ScheduleViewModel
+ */
 struct ScheduleView : View {
-    //let days = ["Mo", "Di", "Mi", "Do", "Fr", "Sa"]
     @ObservedObject var scheduleViewModel = ScheduleViewModel()
     @State private var selectedDayIdx = 0
     
@@ -72,29 +74,18 @@ struct BlockRow : View {
     var lesson : Lecture
     @State private var tapped = false
     
+    ///Format for displaying date in a short form,
     static let shortFormat: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .short
         return formatter
     }()
     
-    
     var body : some View {
         HStack {
             VStack(alignment: .leading){
                 Text(self.lesson.label).bold()
                     .font(.caption)
-                //Used to list all block lectures
-                /*ForEach(self.lesson.datesForBlocklesson, id: \.id){ dateDuration in
-                 HStack{
-                 Text("\(self.lesson.starttime) - \(self.lesson.endtime)")
-                 .font(.caption)
-                 Text("\(dateDuration.date, formatter: BlockRow.shortFormat)")
-                 .font(.caption)
-                 Text("\(dateDuration.durationInMinutes) min")
-                 .font(.caption)
-                 }
-                 }*/
                 HStack{
                     Text(self.lesson.room)
                         .font(.caption)
@@ -120,6 +111,9 @@ struct BlockRow : View {
     }
 }
 
+/**
+ * The view representing a normally scheduled lesson, has a bulletpoint design
+ */
 struct ScheduleRow:View{
     var lesson:Lecture
     var geometry : GeometryProxy
