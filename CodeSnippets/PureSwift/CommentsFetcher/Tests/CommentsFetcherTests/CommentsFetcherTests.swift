@@ -63,11 +63,27 @@ final class CommentsFetcherTests: XCTestCase {
         fetcher.loadAndStoreAllComments()
     }
 
+    func testLoadAllLectures() {
+        let fetcher = CommentsFetcher()
+        fetcher.loadAndStoreAllLectures()
+    }
+
+    func testReadAllLectures() {
+        let fetcher = CommentsFetcher()
+        let allLecturesSS = fetcher.readAllLecturesOfTerm(term: "SS")
+        let allLecturesWS = fetcher.readAllLecturesOfTerm(term: "WS")
+
+        print("SS: \(allLecturesSS.count)")
+        print("WS: \(allLecturesWS.count)")
+    }
+
 
     static var allTests = [
         ("download_all_lectures", download_all_lectures),
         ("testGetFilesOfDirectory", testGetFilesOfDirectory),
         ("testLoadAllComments", testLoadAllComments),
-        ("testLoadAndStoreAllComments", testLoadAndStoreAllComments)
+        ("testLoadAndStoreAllComments", testLoadAndStoreAllComments),
+        ("testLoadAllLectures", testLoadAllLectures),
+        ("testReadAllLectures", testReadAllLectures)
     ]
 }

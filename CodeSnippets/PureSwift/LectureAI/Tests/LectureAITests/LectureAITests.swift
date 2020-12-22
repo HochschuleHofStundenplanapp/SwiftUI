@@ -113,6 +113,22 @@ final class LectureAITests: XCTestCase {
         XCTAssertEqual(90, actualEvent.durationMinutes)
     }
 
+    func testAllLectures() {
+        let allLectureAnalyzer = AllLectureAnalyzer()
+
+        let allLecturesSS = allLectureAnalyzer.readAllLecturesOfTerm(term: "SS")
+        let allLecturesWS = allLectureAnalyzer.readAllLecturesOfTerm(term: "WS")
+
+        for lecture in allLecturesSS{
+            print(String(lectureAI.parseEvent(term: "SS", lecture: lecture)))
+        }
+
+        for lecture in allLecturesWS{
+            print(String(lectureAI.parseEvent(term: "WS", lecture: lecture)))
+        }
+
+    }
+
 
 
     static var allTests = [
@@ -124,7 +140,8 @@ final class LectureAITests: XCTestCase {
         ("test_parseLectureStyle_vorlesung_fixzeit", test_parseLectureStyle_vorlesung_fixzeit),
         ("test_parseLectureStyle_vorlesung_blockverantaltung", test_parseLectureStyle_vorlesung_blockverantaltung),
         ("test_parseLectureStyle_vorlesung_uebung_fixzeit", test_parseLectureStyle_vorlesung_uebung_fixzeit),
-        ("test_generateEventForDate", test_generateEventForDate)
+        ("test_generateEventForDate", test_generateEventForDate),
+        ("testAllLectures", testAllLectures)
     ]
 
 }

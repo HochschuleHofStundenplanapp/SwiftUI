@@ -30,14 +30,14 @@ public class CommentsFetcher {
 
 
     public func loadAllComments() -> [CommentInfo] {
-        let outputFolder = getOutputFolder()
-        let files = getFilesOfDirectory(folder: outputFolder)
+        let lectureFolder = "\(getOutputFolder())/Lectures"
+        let files = getFilesOfDirectory(folder: lectureFolder)
 
         var commentInfos: [CommentInfo] = []
 
         do {
             for file in files {
-                let filePath = "\(outputFolder)/\(file)"
+                let filePath = "\(lectureFolder)/\(file)"
 
                 let jsonData = try String(contentsOfFile: filePath).data(using: .utf8)
 
@@ -81,7 +81,92 @@ public class CommentsFetcher {
     }
 
     public func getOutputFolder() -> String {
-        return "\(FileManager.default.currentDirectoryPath)/Output/Lectures"
+        return "\(FileManager.default.currentDirectoryPath)/Output"
     }
+
+
+
+
+     public func loadAllLectures(term: String) -> [Lecture] {
+        let lectureFolder = "\(getOutputFolder())/Lectures"
+        let files = getFilesOfDirectory(folder: lectureFolder)
+
+        var allLectures: [Lecture] = []
+
+        do {
+            for file in files {
+                if (file.hasPrefix(term)){
+                    let filePath = "\(lectureFolder)/\(file)"
+
+                    let jsonData = try String(contentsOfFile: filePath).data(using: .utf8)
+
+                    let decodedData: ScheduleForCourseSemester = try JSONDecoder().decode(
+                            ScheduleForCourseSemester.self,
+                            from: jsonData!)
+
+                    for lecture in decodedData.schedule {
+
+                        if allLectures.contains(where: { $0.comment == lecture.comment }) {
+                            continue
+                        }
+
+                        allLectures.append(lecture)
+                    }
+                }
+            }
+        }
+        catch let error{
+            print("Error!!!")
+            print(error)
+            
+        }
+
+        return allLectures
+    }
+
+    public func loadAndStoreAllLectures() {
+        let allLecturesSS = loadAllLectures(term: "SS")
+        let allLecturesWS = loadAllLectures(term: "WS")
+
+        let encoder = JSONEncoder()
+        let jsonDataSS = try! encoder.encode(allLecturesSS)
+        let jsonDataWS = try! encoder.encode(allLecturesWS)
+
+        storeFile(fileName: "allLecturesSS.json", textData: jsonDataSS)
+        storeFile(fileName: "allLecturesWS.json", textData: jsonDataWS)
+    }
+
+    public func readAllLecturesOfTerm(term: String) -> [Lecture] {
+        let outputFolder = getOutputFolder()
+        let filePath = "\(outputFolder)/allLectures\(term).json"
+
+        do{
+                let jsonData = try String(contentsOfFile: filePath).data(using: .utf8)
+
+                let decodedData: [Lecture] = try JSONDecoder().decode(
+                        [Lecture].self,
+                        from: jsonData!)
+
+                return decodedData
+        } catch let error{
+            print(error)
+            print("Error!!!")
+        }
+
+        return []
+    }
+
+/*
+    func contentsOrBlank()->String {
+        if let path = Bundle.main.path(forResource:self , ofType: nil) {
+            do {
+                let text = try String(contentsOfFile:path, encoding: String.Encoding.utf8)
+                return text
+                } catch { print("Failed to read text from bundle file \(self)") }
+        } else { print("Failed to load file from bundle \(self)") }
+        return ""
+    }
+    */
+
 
 }

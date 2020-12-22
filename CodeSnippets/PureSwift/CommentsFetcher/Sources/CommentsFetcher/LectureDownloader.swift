@@ -60,7 +60,7 @@ public class LectureDownloader {
                 .sink(receiveCompletion: { _ in
 
                 }, receiveValue: { (response: ScheduleForCourseSemester) in
-                    self.storeSchedule(identifier: courseName + "_" + semester, schedule: response)
+                    self.storeSchedule(identifier:term + "_" + courseName + "_" + semester, schedule: response)
                 }).store(in: &schedulePublishers)
         }
 
