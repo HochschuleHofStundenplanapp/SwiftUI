@@ -21,6 +21,7 @@ class ChangesFetcher : ObservableObject{
         cancel = Pipelines()
             .getChangesForSelectedCourseSemester(courseSemesters: userModel.semesters, term: userModel.term)
             .sink(receiveCompletion: { _ in
+                print("Fetcher completed")
                 self.hasChanged = true
             }, receiveValue: { value in
                 let userAjustedChanges = self.filterChangesBySelectedLectures(changes: value.changes)

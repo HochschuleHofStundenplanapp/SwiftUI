@@ -4,9 +4,6 @@
 
 import Foundation
 
-public enum LectureType {
-
+public enum LectureType: String, Codable {
     case fixed_time, block, other
-
-
 }

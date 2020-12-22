@@ -1,10 +1,10 @@
 import Foundation
-public struct AnalyzedLecture {
+public struct AnalyzedLecture: Codable {
 
     let lecture: Lecture
     let dates: [Event]
     let couldNotParse: Bool
-    var type: LectureType
+    let type: LectureType
 
     public init(lecture: Lecture, events: [Event], couldNotParse: Bool, type: LectureType) {
         self.lecture = lecture
@@ -13,7 +13,7 @@ public struct AnalyzedLecture {
         self.type = type
     }
 
-    public class Event {
+    public class Event : Codable {
         let startDate: Date
         let endDate: Date
         let durationMinutes: Int

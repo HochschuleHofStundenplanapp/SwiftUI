@@ -15,50 +15,26 @@ import Foundation
  */
 class ScheduleViewModel: ObservableObject{
     
+    ///static list of  all days of the week a lecture is possible.
     let days = ["Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag"]
-    var selectedDayIndex = 0
     
-    @Published var dataIsAvalible = false
+    ///the currently selected Position from UIPicker in ScheduleView, corresponding to a day in days Array
+    var selectedDayIndex = 0
     
     ///all lessons available to the schedule, including block lessons
     @Published var lessons:[Lecture] = []
     
-    
-    //functions
+    /**
+     * Used to update selectedDayIndex
+     */
     func updateDaySelection(dayIdx: Int){
         selectedDayIndex = dayIdx
-        //TODO: Data change
-    }
-    /**
-     * The function called when opening the ScheduleView, fetching all the lessons needed
-     */
-    func loadLessons(){
-        //load lessons here
-        
-        
-        //at the moment, just load Dummy Data
-        constructSchedule()
     }
     
     /**
-     * constructing the schedule out of the lessons fetched
+     * The function called when opening the ScheduleView, fetching all the lessons relevant for user
      */
-    func constructSchedule(){
-        //TODO: Refresh lessonsForWeekDay
-        
+    func loadLessons(){
         lessons = UserModel().lectureSelections.map{$0.lecture}
-        /*
-        lessons = [
-            //REGULAR LESSONS
-            Lecture(id: "2dfefscdsc",label: "Montagsarchitektur mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Regelmäßig", group:"Gruppe B",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Montag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
-            Lecture(id: "gbtzhzh",label: "Dienstagsarchitektur mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Regelmäßig", group:"Gruppe B",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Dienstag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
-            Lecture(id: "3fvrgdg",label: "Mittwochsarchitektur mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Regelmäßig", group:"Gruppe B",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Mittwoch", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
-            Lecture(id: "77gsevvvv",label: "Donnerstagsarchitektur mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Regelmäßig", group:"Gruppe B",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Donnerstag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
-            Lecture(id: "787rfvvrbhh",label: "Freitagsarchitektur mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Regelmäßig", group:"Gruppe A",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Freitag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
-            //BLOCK
-            Lecture(id: "wdakjwbd7",label: "Blockvorlesung mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Blockunterricht", group:"Gruppe Y",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Dienstag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
-            Lecture(id: "d3fevrvd",label: "Blockvorlesung mobiler Anwendungen", docent: "Prof. Dr. Peter Stöhr", type: "Frontalunterricht", style: "Blockunterricht", group:"Gruppe B",starttime: "8:00", endtime: "9:30", startdate:"12.12.12", enddate: "12.12.12",day: "Samstag", room: "virt_pstöhr", splusname: "???", comment: "Further Information concerning the lesson",sp: "??"),
-        ]
- */
     }
 }

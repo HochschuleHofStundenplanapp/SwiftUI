@@ -9,39 +9,29 @@ import Combine
 
 class ChangesViewModel : ObservableObject{
     //fields
-    @Published var dataIsAvailable = false
+    @Published var dataIsAvailable = true
     var allChanges = [Change]()
     
-    var cancel : AnyCancellable? = nil
+    var subscription : AnyCancellable? = nil
+    
+    private var changeFetcher = ChangesFetcher()
     private let serverModel = ServerModel()
     private let userModel = UserModel()
     
     //init
     init(){
-        allChanges = serverModel.changes
-        dataIsAvailable = true
+        subscription = userModel.modelNotifier().sink{
+            print("usermodel notification")
+            self.allChanges = self.userModel.changes
+            self.dataIsAvailable = true
+        }
     }
     
     //functions
     func getChanges(){
-        //TODO
         if userModel.semesters.isEmpty{
             return
         }
-        fetchDataFromApi()
-    }
-    
-    private func fetchDataFromApi(){
-        dataIsAvailable = false
-        allChanges.removeAll()
-        serverModel.changes.removeAll()
-        cancel = Pipelines()
-            .getChangesForSelectedCourseSemester(courseSemesters: userModel.semesters, term: userModel.term)
-            .sink(receiveCompletion: {(_) in
-                self.dataIsAvailable = true
-            }, receiveValue: { [self] (value) in
-                self.allChanges.append(contentsOf: value.changes)
-                serverModel.changes.append(contentsOf: value.changes)
-            })
+        changeFetcher.fetchAndUpdateChanges()
     }
 }

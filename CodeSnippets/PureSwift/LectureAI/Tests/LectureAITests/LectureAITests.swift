@@ -119,13 +119,34 @@ final class LectureAITests: XCTestCase {
         let allLecturesSS = allLectureAnalyzer.readAllLecturesOfTerm(term: "SS")
         let allLecturesWS = allLectureAnalyzer.readAllLecturesOfTerm(term: "WS")
 
-        for lecture in allLecturesSS{
-            print(String(lectureAI.parseEvent(term: "SS", lecture: lecture)))
-        }
+        var i = 0
 
         for lecture in allLecturesWS{
-            print(String(lectureAI.parseEvent(term: "WS", lecture: lecture)))
+            let analyzed = lectureAI.parseEvent(term: "WS", lecture: lecture)
+
+            let encoder = JSONEncoder()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yyyy HH:mm"
+            encoder.dateEncodingStrategy = .formatted(formatter)
+
+            let dataLecture = try! encoder.encode(lecture)
+            let dataAnalyzed = try! encoder.encode(analyzed)
+
+            let jsonLecture = String(data: dataLecture, encoding: .utf8)
+            let jsonAnalyzed = String(data: dataAnalyzed, encoding: .utf8)
+
+            print(jsonAnalyzed!)
+            i = i + 1
+
+            if i > 200 {
+                break
+            }
+
         }
+
+//        for lecture in allLecturesWS{
+//            print(String(lectureAI.parseEvent(term: "SS", lecture: lecture)))
+//        }
 
     }
 
