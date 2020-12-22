@@ -16,10 +16,15 @@ class ChangesViewModel : ObservableObject{
     private let serverModel = ServerModel()
     private let userModel = UserModel()
     
+    //init
+    init(){
+        allChanges = serverModel.changes
+        dataIsAvailable = true
+    }
+    
     //functions
     func getChanges(){
         //TODO
-        
         if userModel.semesters.isEmpty{
             return
         }
@@ -27,6 +32,7 @@ class ChangesViewModel : ObservableObject{
     }
     
     private func fetchDataFromApi(){
+        dataIsAvailable = false
         allChanges.removeAll()
         serverModel.changes.removeAll()
         cancel = Pipelines()

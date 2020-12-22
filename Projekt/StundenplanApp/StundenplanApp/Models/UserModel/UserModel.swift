@@ -48,6 +48,15 @@ class UserModel{
         }
     }
     
+    var changes : [Change]{
+        get{
+            return userModelAccess.changes
+        }
+        set(ch){
+            userModelAccess.changes = ch
+        }
+    }
+    
     //get modified for model changes
     func modelNotifier() -> ObservableObjectPublisher{
       return userModelAccess.objectWillChange
@@ -138,6 +147,17 @@ fileprivate class UserModelSingleton : ObservableObject{
         }
         set(value){
             _lectureSelections = value
+            modelChanged = true
+        }
+    }
+    
+    private var _changes : [Change] = []
+    var changes : [Change]{
+        get{
+            return _changes
+        }
+        set(value){
+            _changes = value
             modelChanged = true
         }
     }

@@ -17,7 +17,7 @@ struct SettingsView : View{
     
     var body: some View{
         VStack{
-            ColoredNavigationHeader(headerText: "Test")
+            ColoredNavigationHeader(headerText: "Einstellungen")
             NavigationView{
                 List{
                     Picker(selection: $selectedTermIdx, label: Text("Wähle ein Semester aus")) {
@@ -42,9 +42,11 @@ struct SettingsView : View{
                     
                 }.onAppear{
                     viewModel.updateAllowedStates()
-                }
-            }.navigationBarTitle("").navigationBarHidden(true)
-        }.navigationBarTitle("").navigationBarHidden(true)
+                }.navigationBarTitle("",displayMode: .inline)
+                .navigationBarHidden(true)
+                .ignoresSafeArea(edges: .top)
+            }
+        }.ignoresSafeArea(edges: .top)
         
     }
 }

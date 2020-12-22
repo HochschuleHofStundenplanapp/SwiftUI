@@ -13,15 +13,20 @@ struct ChangesView : View {
     var body: some View {
         VStack{
             if(viewModel.dataIsAvailable){
-                ScrollView(){
-                    ForEach(viewModel.allChanges){ change in
-                        ChangesRow(changes: change)
+                if !(viewModel.allChanges.isEmpty){
+                    ScrollView(){
+                        ForEach(viewModel.allChanges){ change in
+                            ChangesRow(changes: change)
+                        }
                     }
+                    .padding(10)
                 }
-                .padding(10)
+                else{
+                    Text("Keine Änderungen vorhanden")
+                }
             }
             else{
-                Text("Keine Änderungen vorhanden")
+                Text("Loading...")
             }
         }.onAppear{
             viewModel.getChanges()
