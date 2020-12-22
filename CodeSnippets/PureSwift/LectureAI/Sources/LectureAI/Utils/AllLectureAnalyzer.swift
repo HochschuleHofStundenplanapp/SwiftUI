@@ -10,6 +10,8 @@ class AllLectureAnalyzer{
         let outputFolder = getOutputFolder()
         let filePath = "\(outputFolder)/allLectures\(term).json"
 
+        print(filePath)
+
         do{
                 let jsonData = try String(contentsOfFile: filePath).data(using: .utf8)
 
