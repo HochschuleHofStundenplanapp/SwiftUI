@@ -13,6 +13,35 @@ final class LectureAITests: XCTestCase {
         lectureAI = LectureAI(dateUtil: dateUtil)
     }
 
+    func testParseBlockEvent() {
+        let testLecture = Lecture(
+                id: "1",
+                label: "Tolle Blockveranstaltung",
+                docent: "Prof. Dr. Peter Stöhr", type: "FWPM",
+                style: "Blockveranstaltung", group: "",
+                starttime: "14:00",
+                endtime: "15:30",
+                startdate: "22.12.2020",
+                enddate: "22.12.2020",
+                day: "Dienstag",
+                room: "virt_pstöhr",
+                splusname: "xxx",
+                comment: "(Inf5 + MI5 + MC5)",
+                sp: "-"
+        )
+
+        let possibleDates = lectureAI.parseEvent(term: "WS", lecture: testLecture)
+
+        XCTAssertEqual(
+                [
+                    "22.12.2020 14:00"
+                ],
+                dateUtil.stringify(possibleDates.dates.map {
+                    $0.startDate
+                }, format: "dd.MM.yyyy HH:mm")
+        )
+    }
+
     func test_dateOfKW(){
         let datesOfKw50 = lectureAI.getDatesInCalendarWeek(term: "WS", kw: 50)
 
@@ -87,6 +116,7 @@ final class LectureAITests: XCTestCase {
 
 
     static var allTests = [
+        ("testParseBlockEvent", testParseBlockEvent),
         ("test_dateOfKW", test_dateOfKW),
         ("test_currentKW", test_currentKW),
         ("test_filterDatesStartingInKW", test_filterDatesStartingInKW),

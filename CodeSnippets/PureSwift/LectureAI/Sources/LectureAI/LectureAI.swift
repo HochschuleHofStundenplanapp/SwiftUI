@@ -21,14 +21,16 @@ public class LectureAI {
 
         let parsedType = parseLectureStyle(style: lecture.style)
 
-        if parsedType == .block { //TODO: Test
+        if parsedType == .block {
 
-           let singleEventList: [AnalyzedLecture.Event] = []
-           let singleBlockEvent = generateEventForDate(date: lecture.startdate, startTimeString: lecture.starttime , endTimeString: lecture.endtime)
-           
-           singleEventList.append(singleBlockEvent)
+            let singleBlockEvent = generateEventForDate(
+                    date: dateUtil.parse(lecture.startdate, format: "dd.MM.yyyy"),
+                    startTimeString: lecture.starttime,
+                    endTimeString: lecture.endtime
+            )
+            let singleEventList: [AnalyzedLecture.Event] = [singleBlockEvent]
 
-           return AnalyzedLecture(lecture: lecture, events: singleEventList, couldNotParse: couldNotParse, type: parsedType)
+            return AnalyzedLecture(lecture: lecture, events: singleEventList, couldNotParse: couldNotParse, type: parsedType)
         }
 
         for fact in commentFacts {
