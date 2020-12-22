@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Change: Codable{
+struct Change: Codable, Identifiable{
     let id:String //possible leading zeroes
     let label, docent, comment, reason, text,group, splusname : String
     let original:LectureChangeInfo

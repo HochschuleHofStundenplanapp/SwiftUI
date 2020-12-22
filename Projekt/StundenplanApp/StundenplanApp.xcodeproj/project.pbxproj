@@ -22,6 +22,7 @@
 		64833A37256D532D00A2D827 /* AllLectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64833A36256D532D00A2D827 /* AllLectureView.swift */; };
 		64833A3B256D537A00A2D827 /* AllLectureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64833A3A256D537A00A2D827 /* AllLectureViewModel.swift */; };
 		64833A3E256D57DA00A2D827 /* ScheduleSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64833A3D256D57DA00A2D827 /* ScheduleSelection.swift */; };
+		64A303642592297400B8E05E /* ChangesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A303632592297400B8E05E /* ChangesViewModel.swift */; };
 		64BF633D2576981F0029B0F4 /* LectureSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64BF633C2576981F0029B0F4 /* LectureSelection.swift */; };
 		64E901EB2551A0FC00BFDC2C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901EA2551A0FC00BFDC2C /* SettingsView.swift */; };
 		64E901F02551A1A000BFDC2C /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E901EF2551A1A000BFDC2C /* ScheduleView.swift */; };
@@ -57,6 +58,7 @@
 		64833A36256D532D00A2D827 /* AllLectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLectureView.swift; sourceTree = "<group>"; };
 		64833A3A256D537A00A2D827 /* AllLectureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllLectureViewModel.swift; sourceTree = "<group>"; };
 		64833A3D256D57DA00A2D827 /* ScheduleSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleSelection.swift; sourceTree = "<group>"; };
+		64A303632592297400B8E05E /* ChangesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangesViewModel.swift; sourceTree = "<group>"; };
 		64BF633C2576981F0029B0F4 /* LectureSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureSelection.swift; sourceTree = "<group>"; };
 		64E901EA2551A0FC00BFDC2C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		64E901EF2551A1A000BFDC2C /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				64E901F42551A21F00BFDC2C /* ChangesView.swift */,
+				64A303632592297400B8E05E /* ChangesViewModel.swift */,
 			);
 			path = Changes;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				64BF633D2576981F0029B0F4 /* LectureSelection.swift in Sources */,
 				645778A2255196700069F247 /* StundenplanAppApp.swift in Sources */,
 				64E901F52551A21F00BFDC2C /* ChangesView.swift in Sources */,
+				64A303642592297400B8E05E /* ChangesViewModel.swift in Sources */,
 				BCF8570125891AE3008B9732 /* SettingsModel.swift in Sources */,
 				64E902292551ABC800BFDC2C /* AllCoursesViewModel.swift in Sources */,
 				64E902152551A62200BFDC2C /* Labels.swift in Sources */,
