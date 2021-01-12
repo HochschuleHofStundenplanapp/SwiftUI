@@ -19,5 +19,6 @@ Die Library soll später in der App verwendet werden, um Vorlesungen in den Smar
 ## Dokumentation
 
 * [Einstiegspunkt in die Library](Docs/EntryPoint.md)
-* [Unit Tests](Docs/Tests.md)
-* [Utility Klassen](Docs/Utils.md)
+* [Beschreibung der Lecture AI Klasse](Docs/LectureAI.md)
+* [Beschreibung der Unit Tests](Docs/Tests.md)
+* [Beschreibugn der Utility Klassen](Docs/Utils.md)
