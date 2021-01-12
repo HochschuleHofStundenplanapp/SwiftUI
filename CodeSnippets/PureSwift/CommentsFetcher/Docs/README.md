@@ -7,7 +7,7 @@ A description of this package.
 
 Der CommentsFetcher nutzt die Pipelines, um an Daten - z.B. Kommentare - der Vorlesungen zu kommen. Mit den Informationen der Lectures kann die LectureAI getestet werden.
 
-![DateUtil+TestDateUtil](Resources/CommentsFetcher.PNG)
+![CommentsFetcher UML](Resources/CommentsFetcher.png)
 
 ## LectureDownloader
 
