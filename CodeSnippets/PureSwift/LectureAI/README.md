@@ -1,26 +1,23 @@
 # LectureAI
 
-## Introduction
+## Einleitung
 
-Intelligence, that generates lecture dates for a given lecture.
-All starts with the following api call:
-```
-let ai = LectureAI()
-let analyzedEvent = ai.parseEvent(term: "WS", lecture: testLecture)
-```
+LectureAI ist eine Intelligenz,
+welche alle Zeitpunkte einer Vorlesung anhand des übergebenen Lecture-Objekts herausfindet.
 
-Analyzed Lecture returns:
-* The passed-in lecture struct
-* All dates for this lecture
+Leider liefert die offizielle Web-API der Hochschule Hof aktuell
+zu einer Vorlesung keinen verlässlichen Start- und Endzeitpunkt.
+Deshalb müssen gewisse Grundannahmen getroffen werden,
+anhand denen eine Liste an Vorlesungszeitpunkten generiert wird.
+(z.B. Die ersten WS-Vorlesungen beginnen am Montag nach dem 01.10.)
 
-=> As a second step these dates can be displayed in the apple calendar
+Außerdem wird das Freitext-Kommentarfeld einer Vorlesung ausgewertet,
+indem Vorlesungstermine nochmal genauer spezifiziert werden können.
 
-## Utilities
+Die Library soll später in der App verwendet werden, um Vorlesungen in den Smarphone-Kalender übertragen zu können.
 
-* `DateUtil`: Utility-Functions, to work with Foundations-Date Library
+## Dokumentation
 
-## Tests
-
-* Run all tests with `swift test`
-* Tests can be filtered by providing a case sensitive substring
-    * Example: Only run Tests from DatenUtilTests class: `swift test --filter DateUtil`
+* [Einstiegspunkt in die Library](Docs/EntryPoint.md)
+* [Unit Tests](Docs/Tests.md)
+* [Utility Klassen](Docs/Utils.md)
