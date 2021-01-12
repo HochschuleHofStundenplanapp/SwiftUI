@@ -1,6 +1,3 @@
-A description of this package.
-
-
 # CommentsFetcher
 
 ## Einleitung
