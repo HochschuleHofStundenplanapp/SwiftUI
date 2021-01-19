@@ -1,13 +1,14 @@
-A description of this package.
-
-
 # CommentsFetcher
 
 ## Einleitung
 
-Der CommentsFetcher nutzt die Pipelines, um an Daten - z.B. Kommentare - der Vorlesungen zu kommen. Mit den Informationen der Lectures kann die LectureAI getestet werden.
+Der CommentsFetcher dient dazu an die Daten der Vorlesung - z.B. Kommentare - zu kommen. Dafür werden Pipelines genutzt. Mit den Informationen der Vorlesungen kann die LectureAI getestet werden.
 
-![CommentsFetcher UML](Resources/CommentsFetcher.png)
+*In der finalen App wird der CommentsFetcher nicht gebraucht*
+
+## Aufbau
+
+![CommentsFetcher UML](Docs/Resources/CommentsFetcher.png)
 
 ## LectureDownloader
 
@@ -18,6 +19,7 @@ Der LectureDownloader ist ein Clerk, welcher die Daten aller Vorlesungen herunte
 ## Pipelines
 
 * bietet Methoden, mit welchen der LectureDownloader arbeiten kann.
+* Methoden greifen auf die API der Hochschule zu, um an Daten des Stundenplans zu gelangen
 
 ## CommentsFetcher
 
