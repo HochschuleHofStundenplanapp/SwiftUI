@@ -31,10 +31,11 @@ Kommentare werden vor der Überprüfung, durch die Funktion `.lowercased()` zu K
 `listKw1 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"`
 > "kw" gefolgt von Komma separierter Liste von "Zahlen" gefolgt von optionalen "und" + "Zahl"    
 > Beispiel:
-> * "KW 17, 18, 19, 21, 22 und 23" rückgabe `list_kws([17, 18, 19, 21, 22, 23])`  
-> TODO:
-> * "Ausstellungsdesign /  KW 43, 45, 47, virtuell" rückgabe ´list_kws([43, 45, 47)]` falsch positiv. Nicht bekannt welche anderen Listen existieren die andere Bedeutung haben.
-> * "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
+> * "KW 17, 18, 19, 21, 22 und 23" rückgabe `list_kws([17, 18, 19, 21, 22, 23])`
+
+TODO:
+ * "Ausstellungsdesign /  KW 43, 45, 47, virtuell" rückgabe ´list_kws([43, 45, 47)]` falsch positiv. Nicht bekannt welche anderen Listen existieren die andere Bedeutung haben.
+ * "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
 ## 14-tägiger Rhythmus
 `biWeekly1 = "14-tägig"`
 > sucht nach "14-tägig"  
