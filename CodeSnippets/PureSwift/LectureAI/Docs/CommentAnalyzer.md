@@ -12,12 +12,12 @@ Die offizielle Web-API der Hochschule stellt leider keine gut Verarbeitbaren Dat
 - [ ] 14-tägig: Regex TODO: Vorgehen bei unterbrechung des Intervalls(z.B. Ferien)
 - [ ] Kombinationen
 
-# Patterns
+## Patterns
 Auflistung von bekannten Regex Patterns und deren Funktionen
 
 Kommentare werden vor der Überprüfung, durch die Funktion `.lowercased()` zu Kleingeschrieben umgewandelt.
 
-## Start Kalenderwoche
+### Start Kalenderwoche
 `startKw1 = "(start|begin|beginn|beginning|ab):?\\s*(calendar)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})"` 
 > (start|begin|beginn|beginning|ab) gefolgt von (week|kw) gefolgt von "Zahl".  
 > Beispiele:
@@ -30,7 +30,7 @@ Kommentare werden vor der Überprüfung, durch die Funktion `.lowercased()` zu K
 > * "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)" rückgabe `start_kw(20)`
 > * "-lecture - (every second week) (language: english) start week KW 18 - online in moodle -" rückgabe `start_kw(18)`
 
-## Liste von Veranstaltungs Wochen
+### Liste von Veranstaltungs Wochen
 `listKw1 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"`
 > "kw" gefolgt von Komma separierter Liste von "Zahlen" gefolgt von optionalen "und" + "Zahl"    
 > Beispiel:
@@ -40,7 +40,7 @@ TODO:
  * "Ausstellungsdesign /  KW 43, 45, 47, virtuell" rückgabe ´list_kws([43, 45, 47)]` falsch positiv. Nicht bekannt welche anderen Listen existieren die andere Bedeutung haben.
  * "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
 
-## 14-tägiger Rhythmus
+### 14-tägiger Rhythmus
 `biWeekly1 = "14-tägig"`
 > sucht nach "14-tägig"  
 > Beispiel:
@@ -56,7 +56,7 @@ TODO:
 > Beispiel:
 > * "-lecture - (every second week) (language: english) start week KW 18 - online in moodle -" rückgabe `bi_weekly`
 
-## Ausschluss Pattern
+### Ausschluss Pattern
 Wenn "kw" mehrmals in einen Kommentar vorkommt werden keine Annahmen getroffen um falsch positiv zu vermeiden.
 
 `dontParse = "kw.*kw.*"`
