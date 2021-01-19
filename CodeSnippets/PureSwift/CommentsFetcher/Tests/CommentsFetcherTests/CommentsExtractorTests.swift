@@ -10,7 +10,7 @@ import XCTest
     import Combine
 #endif
 
-final class CommentsFetcherTests: XCTestCase {
+final class CommentsExtractorTests: XCTestCase {
 
     var pipelines: Pipelines = Pipelines()
     var cancellable: AnyCancellable? = nil
