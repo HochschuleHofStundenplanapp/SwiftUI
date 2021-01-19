@@ -82,7 +82,7 @@ Gruppe bei Aufgeteilten Veranstaltungen.
 Vorschlag jede Gruppe eigene Veranstaltung, momentan teilweise gleiche Veranstaltung aber 14-tägiger Rhythmus.
 
 ## Vorschlag
-Statt Zwei Scheduele Objekten bei Vorlesungen mit mehren Veranstaltungen, ein Objekt mit einer Liste an Terminen an denen die Veranstaltung statt findet. 
+Statt zwei Scheduele Objekten bei Vorlesungen mit mehren Veranstaltungen, ein Objekt mit einer Liste an Terminen an denen die Veranstaltung statt findet. 
 
 Weiterer Vorteil Intervall der Vorlesung ist klar.
 
