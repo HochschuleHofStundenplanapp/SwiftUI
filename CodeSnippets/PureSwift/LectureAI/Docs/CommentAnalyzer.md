@@ -3,7 +3,7 @@
 ## Einleitung
 [`CommentAnalyzer`](../Sources/LectureAI/CommentAnalyzer.swift) sucht in den Kommentaren von Veranstaltungen nach Informationen über Besonderheiten zum Ablauf der Veranstaltung.
 
-Die offizielle Web-API der Hochschule stellt leider keine gut verarbeitbaren Daten zum Ablauf einer Veranstaltung zur Verfügung (14-tägig, Startwoche, Gruppeninformationen), deshalb versucht die Klasse [`CommentAnalyzer`](../Sources/LectureAI/CommentAnalyzer.swift) womöglich diese Informationen aus den Kommentaren der Veranstaltung zu lesen.
+Die offizielle Web-API der Hochschule stellt leider keine gut verarbeitbaren Daten zum Ablauf einer Veranstaltung zur Verfügung (14-tägig, Startwoche, Gruppeninformationen), deshalb versucht die Klasse [`CommentAnalyzer`](../Sources/LectureAI/CommentAnalyzer.swift) wo möglich diese Informationen aus den Kommentaren der Veranstaltung zu lesen.
 
 ## Gesuchte Informationen
 
