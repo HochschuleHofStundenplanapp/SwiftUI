@@ -24,21 +24,21 @@ Kommentare werden vor der Überprüfung, durch die Funktion `.lowercased()` zu K
 
 `startKw2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw"`
 > (start|begin|beginn|ab) gefolgt von "Zahl" gefolt von "kw"  
-> Beispiele: 
+> Beispiele:
 > * "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)" rückgabe `start_kw(20)`
 > * "-lecture - (every second week) (language: english) start week KW 18 - online in moodle -" rückgabe `start_kw(18)`
 ## Liste von Veranstaltungs Wochen
 `listKw1 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"`
-> "kw" gefolgt von Komma separierten Liste von "Zahlen" gefolgt von optionalen "und" + "Zahl"    
-> Beispiele:
-> * "KW 17, 18, 19, 21, 22 und 23" rückgabe `list_kws([17, 18, 19, 21, 22, 23])`
-> TODO:  
-> "Ausstellungsdesign /  KW 43, 45, 47, virtuell" rückgabe ´list_kws([43, 45, 47)]` falsch positiv. Nicht bekannt welche anderen Listen existieren die andere Bedeutung haben.  
-> "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)" 
+> "kw" gefolgt von Komma separierter Liste von "Zahlen" gefolgt von optionalen "und" + "Zahl"    
+> Beispiel:
+> * "KW 17, 18, 19, 21, 22 und 23" rückgabe `list_kws([17, 18, 19, 21, 22, 23])`  
+> TODO:
+> * "Ausstellungsdesign /  KW 43, 45, 47, virtuell" rückgabe ´list_kws([43, 45, 47)]` falsch positiv. Nicht bekannt welche anderen Listen existieren die andere Bedeutung haben.
+> * "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
 ## 14-tägiger Rhythmus
 `biWeekly1 = "14-tägig"`
 > sucht nach "14-tägig"  
-> Beispiel
+> Beispiel:
 > * "SAP ERP Simulation / - 14-tägig - ab KW 17" rückgabe `bi_weekly`
 `biWeekly2 = "14 days"`
 > sucht nach "14 days"  
