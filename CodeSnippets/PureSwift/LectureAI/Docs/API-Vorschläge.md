@@ -79,9 +79,12 @@ Besser Liste von Terminen an denen die Veranstaltung stattfindet.
 ### Group
 Gruppe bei Aufgeteilten Veranstaltungen.
 
-Vorschlage jede Gruppe eigene Veranstaltung, momentan teilweise gleiche Veranstaltung aber 14-tägiger Rhythmus.
+Vorschlag jede Gruppe eigene Veranstaltung, momentan teilweise gleiche Veranstaltung aber 14-tägiger Rhythmus.
 
-## Vorschlage
-Statt Zwei Scheduele Objekten bei Vorlesung mit mehren Veranstaltungen, ein Objekt mit einer Liste an Terminen an denen die Veranstaltung statt findet. 
+## Vorschlag
+Statt Zwei Scheduele Objekten bei Vorlesungen mit mehren Veranstaltungen, ein Objekt mit einer Liste an Terminen an denen die Veranstaltung statt findet. 
 
-Weitere Vorteil Intervall der Vorlesung ist klar.
+Weiterer Vorteil Intervall der Vorlesung ist klar.
+
+Mögliche Problematik:
+ * keine Übersicht über alle Veranstalltungen(Veranstalung anzeigen ohne Datums werte)
