@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class CommentsFetcher {
+public class CommentsExtractor {
 
 
     public init () {
