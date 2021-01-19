@@ -12,21 +12,26 @@ Die offizielle Web-API der Hochschule stellt leider keine gut Verarbeitbaren Dat
 - [ ] Kombinationen
 
 # Patterns
-Auflistung von bekannten Regex Patterns und deren Funktion
+Auflistung von bekannten Regex Patterns und deren Funktionen
+
+Kommentare werden vor der Überprüfung, durch die Funktion `.lowercased()` zu Kleingeschrieben umgewandelt.
 ## Start Kalenderwoche
 `startKw1 = "(start|begin|beginn|beginning|ab):?\\s*(calendar)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})"` 
-> (start|begin|beginn|beginning|ab) gefolgt von (week|kw) gefolgt von Zahl.
+> (start|begin|beginn|beginning|ab) gefolgt von (week|kw) gefolgt von "Zahl".
+>
 > Beispiele:
 > * "- Übungen - Start KW 17 (vorzugsweise für BW)" rückgabe `start_kw(17)`
 > * "- Online-Anmeldung 01.04. - 06.04.2020 - Beginn KW 18 - max. 20 TN" rückgabe  `start_kw(18)`
 
 `startKw2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw"`
-> (start|begin|beginn|ab) gefolgt von "Zahl" gefolt von "KW"
+> (start|begin|beginn|ab) gefolgt von "Zahl" gefolt von "kw"
+>
 > Beispiele: 
-> * "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)" rückgabe start_kw(20)
-> * "-lecture - (every second week) (language: english) start week KW 18 - online in moodle -" rückgabe start_kw(18)
+> * "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)" rückgabe `start_kw(20)`
+> * "-lecture - (every second week) (language: english) start week KW 18 - online in moodle -" rückgabe `start_kw(18)`
 ## Liste von Veranstaltungs Wochen
-let listKw1 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"  //z.B. "14, 15, 16 und 18"
+`listKw1 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"`
+> 
 ## 14-tägiger Rhythmus
 let biWeekly1 = "14-tägig"
 let biWeekly2 = "14 days"
@@ -36,12 +41,14 @@ let dontParse = "kw.*kw.*"  //Wenn KW mehrmals vorkommt nicht parsen da zu viele
 //comments mit - nicht möglich! -> "- ONLINE - KW 41 - 43 (Kick-Off und Coaching)"
 ## CommentFact
 Maschine leserliche Version der Informationen die durch `analyzeComment` gefunden wurden.
-### Intervall`public enum CommentFactInterval`
+### Intervall
+`public enum CommentFactInterval`
  * `weekly`(*Standard*) Veranstaltung wöchentlich
  * `bi_weekly` Veranstaltung 14-tägig
  * `not_defined` Unbekanntes Wiederholungs Intervall(z.B. Blockveranstaltungen)
 
-### Typen`public enum CommentFactType`
+### Typen
+`public enum CommentFactType`
  * `start_kw(Int)` Erste Vorlesung in Kalenderwoche int
  * `excluded_kws([Int])` Veranstaltungen nicht in Kalenderwochen [int]
  * `list_kws([Int])` Veranstaltungen in Kalenderwochen [int]
