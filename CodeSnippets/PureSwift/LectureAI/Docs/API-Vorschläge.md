@@ -87,4 +87,4 @@ Statt zwei Scheduele Objekten bei Vorlesungen mit mehren Veranstaltungen, ein Ob
 Weiterer Vorteil Intervall der Vorlesung ist klar.
 
 Mögliche Problematik:
- * keine Übersicht über alle Veranstalltungen(Veranstalung anzeigen ohne Datums werte)
+ * keine Übersicht über alle Veranstaltungen(Veranstaltung anzeigen ohne Datumswerte)
