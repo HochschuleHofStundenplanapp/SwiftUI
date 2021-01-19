@@ -76,6 +76,10 @@ open class DateUtil {
         return Int(Calendar.current.component(.year, from: Date()))
     }
 
+    open func getCurrentWeekOfYear() -> Int {
+        return Int(Calendar.current.component(.weekOfYear, from: Date()))
+    }
+
     func getHourAndMinutesFrom(string: String) -> (Int, Int) {
         let array = string.split(regex: ":")
 

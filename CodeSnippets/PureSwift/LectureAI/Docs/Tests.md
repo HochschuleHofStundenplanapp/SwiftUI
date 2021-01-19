@@ -3,6 +3,10 @@
 ## Allgemein
 Um sicherzustellen, dass gewisse Programlogiken richtig funktionieren, werden Unit-Tests angelegt.
 
+So kann beispielsweise getestet werden, ob die Methode  `filterDatesInKWs` ordnungsgemäß funktioniert.
+Die Aufgabe der Methode ist es, Datumswerte, die in einer bestimmten Kalenderwoche liegen zu filtern.
+(Siehe `test_filterDatesInKWs` in [LectureAITests](../Tests/LectureAITests/LectureAITests.swift)
+
 Alle Unit-Tests können über folgenden Befehl ausgeführt werden:
 
 ```text
