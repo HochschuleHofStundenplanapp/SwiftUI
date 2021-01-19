@@ -45,33 +45,33 @@ final class CommentsFetcherTests: XCTestCase {
     }
 
     func testGetFilesOfDirectory() {
-        let fetcher = CommentsFetcher()
+        let extractor = CommentsExtractor()
 
-        let outputFolder = fetcher.getOutputFolder()
-        let files = fetcher.getFilesOfDirectory(folder: outputFolder)
+        let outputFolder = extractor.getOutputFolder()
+        let files = extractor.getFilesOfDirectory(folder: outputFolder)
 
         print(files)
     }
 
     func testLoadAllComments() {
-        let fetcher = CommentsFetcher()
-        fetcher.loadAllComments()
+        let extractor = CommentsExtractor()
+        extractor.loadAllComments()
     }
 
     func testLoadAndStoreAllComments() {
-        let fetcher = CommentsFetcher()
-        fetcher.loadAndStoreAllComments()
+        let extractor = CommentsExtractor()
+        extractor.loadAndStoreAllComments()
     }
 
     func testLoadAllLectures() {
-        let fetcher = CommentsFetcher()
-        fetcher.loadAndStoreAllLectures()
+        let extractor = CommentsExtractor()
+        extractor.loadAndStoreAllLectures()
     }
 
     func testReadAllLectures() {
-        let fetcher = CommentsFetcher()
-        let allLecturesSS = fetcher.readAllLecturesOfTerm(term: "SS")
-        let allLecturesWS = fetcher.readAllLecturesOfTerm(term: "WS")
+        let extractor = CommentsExtractor()
+        let allLecturesSS = extractor.readAllLecturesOfTerm(term: "SS")
+        let allLecturesWS = extractor.readAllLecturesOfTerm(term: "WS")
 
         print("SS: \(allLecturesSS.count)")
         print("WS: \(allLecturesWS.count)")
