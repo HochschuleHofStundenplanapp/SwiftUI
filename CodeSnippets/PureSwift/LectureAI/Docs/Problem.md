@@ -27,7 +27,7 @@ Die Daten der API werden in folgender Struktur angeboten:
     "sp": "-"
 }
 ```
-Diese Daten zurückgelieferten Daten sind für uns wichtig, um eine Vorlesung in den Kalender des Nutzers hinzufügen zu können:
+Diese zurückgelieferten Daten sind für uns wichtig, um eine Vorlesung in den Kalender des Nutzers hinzufügen zu können:
 ```json
 {
     "starttime": "09:45",
@@ -37,6 +37,6 @@ Diese Daten zurückgelieferten Daten sind für uns wichtig, um eine Vorlesung in
     "comment": "Storytelling \/ KW 41- KW 3, außer KW 47 virtuell"
 }
 ```
-Leider sind viele dieser Daten nicht brauchbar. In diesem Fall ist das startdate falsch, da die Vorlesung für das Wintersemester angeboten wird. Außerdem ist das comment-Attribut für eine begrenzt logische AI nicht analysierbar.
+Leider sind viele dieser Daten nicht brauchbar. In diesem Fall ist das `startdate` falsch, da die Vorlesung für das Wintersemester angeboten wird. Das `enddate` enthält in diese Falle ein korrektes Datum. Es kommt jedoch vor, dass das Enddatum ebenfalls fehlerhaft ist. Außerdem ist das `comment` für eine begrenzt logische AI nicht analysierbar.
 
 Sonderfälle, wie oben gezeigt, treten häufig auf, sodass wir die Analyse der Kommentare zu einer Vorlesung begrenzen mussten. Die einzelnen Fälle, die wir bearbeiten konnten, werden im Abschnitt [CommentAnalyzer](CommentAnalyzer.md) beschrieben.
