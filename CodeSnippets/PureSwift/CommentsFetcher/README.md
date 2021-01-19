@@ -20,6 +20,7 @@ Der LectureDownloader ist ein Clerk, welcher die Daten aller Vorlesungen herunte
 
 * bietet Methoden, mit welchen der LectureDownloader arbeiten kann.
 * Methoden greifen auf die API der Hochschule zu, um an Daten des Stundenplans zu gelangen
+* Dabei werden Combine-Pipelines genutzt
 
 ## CommentsExtractor
 
@@ -31,7 +32,7 @@ Der CommentsExtractor ist ein Clerk, welcher die Kommentare aus lokalen Daten l�
 
 ## Models
 
-Die Models richtigen sich nach der Datenstruktur der Hochschul-API. Aus dieser Struktur wurden Structs erstellt, um die Studiengänge, Vorlesungen, Änderungen, etc. abbilden zu können.
+Die Models richten sich nach der Datenstruktur der Hochschul-API. Aus dieser Struktur wurden Structs erstellt, um die Studiengänge, Vorlesungen, Änderungen, etc. abbilden zu können.
 
 ## Tests 
 
