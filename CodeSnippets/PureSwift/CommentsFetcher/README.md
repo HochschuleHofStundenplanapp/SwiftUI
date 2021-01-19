@@ -2,7 +2,7 @@
 
 ## Einleitung
 
-Der CommentsFetcher dient dazu an die Daten der Vorlesung - z.B. Kommentare - zu kommen. Dafür werden Pipelines genutzt. Mit den Informationen der Vorlesungen kann die LectureAI getestet werden.
+Der CommentsFetcher dient dazu an die Daten der Vorlesung - z.B. Kommentare - zu kommen. Dafür werden Combine-Pipelines genutzt. Diese holen sich mit der Hilfe der Hochschul-API Daten vom Server. Mit den heruntergeladenen Informationen der Vorlesungen kann die LectureAI getestet werden.
 
 *In der finalen App wird der CommentsFetcher nicht gebraucht*
 
@@ -20,10 +20,11 @@ Der LectureDownloader ist ein Clerk, welcher die Daten aller Vorlesungen herunte
 
 * bietet Methoden, mit welchen der LectureDownloader arbeiten kann.
 * Methoden greifen auf die API der Hochschule zu, um an Daten des Stundenplans zu gelangen
+* Dabei werden Combine-Pipelines genutzt
 
-## CommentsFetcher
+## CommentsExtractor
 
-Der CommentsFetcher ist ein Clerk, welcher die Kommentare aus lokalen Daten lädt. Diese Daten, welche Informationen zu den Vorlesungen enthalten, wurden vorher vom LectureDownloader bereitgestellt.
+Der CommentsExtractor ist ein Clerk, welcher die Kommentare aus lokalen Daten lädt. Diese Daten, welche Informationen zu den Vorlesungen enthalten, wurden vorher vom LectureDownloader bereitgestellt.
 
 * die Methode loadAndStoreAllComments() filtert dabei alle Kommentare aus den Daten und speichert sie dann in eine eigen json-file (comments.json)
 
@@ -31,7 +32,7 @@ Der CommentsFetcher ist ein Clerk, welcher die Kommentare aus lokalen Daten läd
 
 ## Models
 
-Die Models richtigen sich nach der Datenstruktur der Hochschul-API. Aus dieser Struktur wurden Structs erstellt, um die Studiengänge, Vorlesungen, Änderungen, etc. abbilden zu können.
+Die Models richten sich nach der Datenstruktur der Hochschul-API. Aus dieser Struktur wurden Structs erstellt, um die Studiengänge, Vorlesungen, Änderungen, etc. abbilden zu können.
 
 ## Tests 
 
