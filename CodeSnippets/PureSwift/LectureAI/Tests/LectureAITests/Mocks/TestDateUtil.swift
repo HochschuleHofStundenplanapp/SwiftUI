@@ -9,6 +9,7 @@ public class TestDateUtil : DateUtil {
 
     public var currentMonth = 12
     public var currentYear = 2020
+    public var currentWeekOfYear = 51
 
     override public init() {
 
@@ -22,4 +23,7 @@ public class TestDateUtil : DateUtil {
         return self.currentYear
     }
 
+    public override func getCurrentWeekOfYear() -> Int {
+        return self.currentWeekOfYear
+    }
 }

@@ -15,6 +15,7 @@ public class LectureAI {
     public func parseEvent(term: String, lecture: Lecture) -> AnalyzedLecture {
 
         let parsedType = parseLectureStyle(style: lecture.style)
+        var couldNotParse = false
 
         // handle block event
         if parsedType == .block {
@@ -33,7 +34,6 @@ public class LectureAI {
         var possibleDates = lectureDateCalculator.getPossibleDates(term: term, lecture: lecture)
         let commentFacts = commentAnalyzer.analyzeComment(comment: lecture.comment)
 
-        var couldNotParse = false
 
         for fact in commentFacts {
 
@@ -152,7 +152,8 @@ public class LectureAI {
     public func isLectureKWBeforeCurrentKW(kw: Int) -> Bool{
         var calendar = Calendar.current
         calendar.firstWeekday = 2
-        let currentWeekOfYear = calendar.component(.weekOfYear, from: Date())
+
+        let currentWeekOfYear = dateUtil.getCurrentWeekOfYear()
 
         if (kw < currentWeekOfYear){
             return true

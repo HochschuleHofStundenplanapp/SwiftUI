@@ -21,6 +21,7 @@ Die Library soll später in der App verwendet werden, um Vorlesungen in den Smar
 * [Problematik](Docs/Problem.md)
 * [Einstiegspunkt in die Library](Docs/EntryPoint.md)
 * [Beschreibung der Lecture AI Klasse](Docs/LectureAI.md)
+* [Beschreibung der CommentAnalyzer Klasse](Docs/CommentAnalyzer.md)
 * [Beschreibung der Unit Tests](Docs/Tests.md)
 * [Beschreibung der Utility Klassen](Docs/Utils.md)
 
