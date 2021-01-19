@@ -15,8 +15,16 @@ Die offizielle Web-API der Hochschule stellt leider keine gut Verarbeitbaren Dat
 Auflistung von bekannten Regex Patterns und deren Funktion
 ## Start Kalenderwoche
 `startKw1 = "(start|begin|beginn|beginning|ab):?\\s*(calendar)?\\s*(week|kw)\\s*(kw)?\\s*(\\d{1,2})"` 
->(start|begin|beginn|beginning|ab) gefolgt von (week|kw) gefolgt von Zahl.
-let startKw2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw"  // z.B. "start 15. kw"
+> (start|begin|beginn|beginning|ab) gefolgt von (week|kw) gefolgt von Zahl.
+> Beispiele:
+> * "- Übungen - Start KW 17 (vorzugsweise für BW)" rückgabe `start_kw(17)`
+> * "- Online-Anmeldung 01.04. - 06.04.2020 - Beginn KW 18 - max. 20 TN" rückgabe  `start_kw(18)`
+
+`startKw2 = "(start|begin|beginn|ab)\\s*(\\d{1,2})\\.?\\s*kw"`
+> (start|begin|beginn|ab) gefolgt von "Zahl" gefolt von "KW"
+> Beispiele: 
+> * "- Übungen über Tutor, Beginn 20. KW (= 11.05.20)" rückgabe start_kw(20)
+> * "-lecture - (every second week) (language: english) start week KW 18 - online in moodle -" rückgabe start_kw(18)
 ## Liste von Veranstaltungs Wochen
 let listKw1 = "kw\\s\\d+(,+\\s*\\d+)+(\\s*und\\s*\\d+)*"  //z.B. "14, 15, 16 und 18"
 ## 14-tägiger Rhythmus
