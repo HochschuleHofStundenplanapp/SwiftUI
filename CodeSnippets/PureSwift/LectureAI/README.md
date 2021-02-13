@@ -1,5 +1,9 @@
 # LectureAI
 
+**Code und Dokumentation:** Max Großmann (max-grossmann, MaaxGr), Marvin Jakob (mjakob3) und Lorenz Götz (lgoetz332)
+
+***
+
 ## Einleitung
 
 LectureAI ist eine Intelligenz,
