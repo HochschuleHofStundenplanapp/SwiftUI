@@ -1,5 +1,9 @@
 # CommentsFetcher
 
+**Code und Dokumentation:** Max Großmann (max-grossmann, MaaxGr) und Marvin Jakob (mjakob3)
+
+***
+
 ## Einleitung
 
 Der CommentsFetcher dient dazu an die Daten der Vorlesung - z.B. Kommentare - zu kommen. Dafür werden Combine-Pipelines genutzt. Diese holen sich mit der Hilfe der Hochschul-API Daten vom Server. Mit den heruntergeladenen Informationen der Vorlesungen kann die LectureAI getestet werden.
